@@ -1,0 +1,146 @@
+%------------------------------------------------
+% Latex-Grundgerüst für Seminarausarbeitungen
+%
+% zu Erzeugen mit
+%   pdflatex ausarbeitung.tex
+%
+% von Carsten Gutwenger, Nils Kriege
+% 
+%------------------------------------------------
+
+\documentclass[a4paper,12pt,twoside]{article}
+\usepackage[a4paper,left=3.5cm,right=2.5cm,bottom=3.5cm,top=3cm]{geometry}
+
+% Encoding der .tex-Datei
+% muss je nach Editor-Einstellungen eventuell angepasst werden!
+%   latin1    Unix/Windows
+%   ansinew   Alternative für Windows
+%   applemac  Apple
+%   utf8      Alternative für Unix/Windows/Apple
+\usepackage[latin1]{inputenc}
+
+\usepackage[ngerman]{babel}                                 % deutsche Sprache
+\usepackage[T1]{fontenc}                                    % Unterstützung für Umlaute mit Fonts
+\usepackage[pdftex]{graphicx,color}                         % Einbetten von Grafiken, Farbe
+\usepackage[format=plain,small,bf,indention=7.5mm]{caption} % verbesserte Beschriftung von Abbildungen
+\usepackage{subfig}                                         % subfigures
+\usepackage{url}                                            % \url{}-Kommando
+\usepackage{fancyhdr,float}                                 % Kopf-/Fußzeilen
+\usepackage[pdftex,pdfpagelabels]{hyperref}                 % Hyperlinks im PDF
+\usepackage[round]{natbib}                                  % Literaturverzeichnis
+\usepackage{doi}                                            % DOIs
+\usepackage[section,boxed]{algorithm}                       % Floating-Umgebung für Algorithmen
+\usepackage{algpseudocode}                                  % Pseudocode für Algorithmen
+\usepackage[standard]{ntheorem}                             % Theorem-Umgebung
+
+\captionsetup{farskip=10pt,topadjust=0pt,captionskip=10pt,nearskip=0pt,margin=10pt}
+
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\nouppercase{\slshape \leftmark}}
+\fancyhead[LO]{\nouppercase{\slshape \rightmark}}
+\fancyfoot[C]{}
+
+
+\begin{document}
+
+%------------------------------------------------
+% Titelseite
+%------------------------------------------------
+
+\begin{titlepage}
+\vspace*{-2cm}
+\newlength{\links}
+\setlength{\links}{-1.5cm} \sf \LARGE
+
+\hspace*{\links}
+\begin{minipage}{12.5cm}
+\includegraphics[width=8cm]{tud_logo_rgb}
+\end{minipage}
+
+\vspace*{4cm}
+
+\large
+\begin{center}
+{\Large Seminarausarbeitung} \\[1ex]
+{\LARGE\textbf{Titel der Ausarbeitung}}\\[3ex]
+Name des Seminarteilnehmers\\[1ex]
+\today\\[7ex]
+im Rahmen des Seminars\\[1ex]
+{\Large\textbf{Algorithm Engineering}}\\[1ex]
+von Prof.~Dr.~Petra Mutzel\\[1ex]
+Wintersemester 2012/13
+\end{center}
+
+\vspace*{4cm}
+\hspace*{\links}
+\begin{minipage}[b]{15cm}
+\normalsize \raggedright
+\textbf{Betreuer:} \\
+Name des Betreuers \\[2ex]
+
+\textbf{Basierend auf:}\\
+Autoren, Titel des Papers, Quelle
+\end{minipage}
+
+\definecolor{TUGreen}{rgb}{0.517,0.721,0.094}
+\vfill
+\hspace*{\links}
+\begin{minipage}[b]{8cm}
+\normalsize \raggedright
+Fakultät für Informatik\\
+Algorithm Engineering (Ls11)\\
+Technische Universität Dortmund
+\end{minipage}
+
+\end{titlepage}
+
+%------------------------------------------------
+% Inhaltsverzeichnis
+%------------------------------------------------
+
+\tableofcontents
+\clearpage
+
+
+%------------------------------------------------
+% Einführung
+%------------------------------------------------
+
+\section{Einführung}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
+et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+sit amet.
+
+
+\subsection{Beispiele für Referenzen}
+
+\begin{itemize}
+ \item Die starken Zusammenhangskomponenten eines gerichteten Graphen können in Linearzeit bestimmt werden~\citep{Tar72}.
+ \item \citet{Tar72} hat gezeigt, dass \dots
+\end{itemize}
+
+
+\subsection{Theorem-Umgebung}
+
+% Vordefinierte Umgebungen:
+% Theorem, Lemma, Proposition, Satz, Korollar, Definition, Beispiel, Anmerkung, Bemerkung, Beweis
+\begin{Theorem}[Optionaler Titel]
+ Aussage.
+\end{Theorem}
+
+
+%------------------------------------------------
+% Literaturverzeichnis
+%------------------------------------------------
+
+\bibliographystyle{abbrvnat-ger}
+\bibliography{literatur}
+\addcontentsline{toc}{section}{\bibname}
+
+
+\end{document}
