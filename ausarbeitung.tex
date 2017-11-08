@@ -1,5 +1,5 @@
 %------------------------------------------------
-% Latex-Grundgerüst für Seminarausarbeitungen
+% Latex-GrundgerÃ¼st fÃ¼r Seminarausarbeitungen
 %
 % zu Erzeugen mit
 %   pdflatex ausarbeitung.tex
@@ -14,23 +14,23 @@
 % Encoding der .tex-Datei
 % muss je nach Editor-Einstellungen eventuell angepasst werden!
 %   latin1    Unix/Windows
-%   ansinew   Alternative für Windows
+%   ansinew   Alternative fÃ¼r Windows
 %   applemac  Apple
-%   utf8      Alternative für Unix/Windows/Apple
-\usepackage[latin1]{inputenc}
+%   utf8      Alternative fÃ¼r Unix/Windows/Apple
+\usepackage[utf8]{inputenc}
 
 \usepackage[ngerman]{babel}                                 % deutsche Sprache
-\usepackage[T1]{fontenc}                                    % Unterstützung für Umlaute mit Fonts
+\usepackage[T1]{fontenc}                                    % UnterstÃ¼tzung fÃ¼r Umlaute mit Fonts
 \usepackage[pdftex]{graphicx,color}                         % Einbetten von Grafiken, Farbe
 \usepackage[format=plain,small,bf,indention=7.5mm]{caption} % verbesserte Beschriftung von Abbildungen
 \usepackage{subfig}                                         % subfigures
 \usepackage{url}                                            % \url{}-Kommando
-\usepackage{fancyhdr,float}                                 % Kopf-/Fußzeilen
+\usepackage{fancyhdr,float}                                 % Kopf-/FuÃŸzeilen
 \usepackage[pdftex,pdfpagelabels]{hyperref}                 % Hyperlinks im PDF
 \usepackage[round]{natbib}                                  % Literaturverzeichnis
 \usepackage{doi}                                            % DOIs
-\usepackage[section,boxed]{algorithm}                       % Floating-Umgebung für Algorithmen
-\usepackage{algpseudocode}                                  % Pseudocode für Algorithmen
+\usepackage[section,boxed]{algorithm}                       % Floating-Umgebung fÃ¼r Algorithmen
+\usepackage{algpseudocode}                                  % Pseudocode fÃ¼r Algorithmen
 \usepackage[standard]{ntheorem}                             % Theorem-Umgebung
 
 \captionsetup{farskip=10pt,topadjust=0pt,captionskip=10pt,nearskip=0pt,margin=10pt}
@@ -64,7 +64,7 @@
 \begin{center}
 {\Large Seminarausarbeitung} \\[1ex]
 {\LARGE\textbf{On the Power of Color Refinement}}\\[3ex]
-Florian Lüdiger\\[1ex]
+Florian LÃ¼diger\\[1ex]
 \today\\[7ex]
 im Rahmen des Seminars\\[1ex]
 {\Large\textbf{Algorithm Engineering}}\\[1ex]
@@ -80,7 +80,7 @@ Wintersemester 2016/17
 Christopher Morris \\[2ex]
 
 \textbf{Basierend auf:}\\
-V. Arvind, Johannes Köbler, Gaurav Rattan und Oleg Verbitsky\\
+V. Arvind, Johannes KÃ¶bler, Gaurav Rattan und Oleg Verbitsky\\
 On the Power of Color Refinement\\
 \url{https://link.springer.com/chapter/10.1007/978-3-319-22177-9_26}
 \end{minipage}
@@ -90,9 +90,9 @@ On the Power of Color Refinement\\
 \hspace*{\links}
 \begin{minipage}[b]{8cm}
 \normalsize \raggedright
-Fakultät für Informatik\\
+FakultÃ¤t fÃ¼r Informatik\\
 Algorithm Engineering (Ls11)\\
-Technische Universität Dortmund
+Technische UniversitÃ¤t Dortmund
 \end{minipage}
 
 \end{titlepage}
@@ -106,24 +106,26 @@ Technische Universität Dortmund
 
 
 %------------------------------------------------
-% Einführung
+% EinfÃ¼hrung
 %------------------------------------------------
 
-\section{Einführung}
+\input{sec/einfuehrung}
 
-\section{Graph-Isomorphie und Color Refinement}
+\input{sec/gi_cr}
 
-\section{Voraussetzungen für zugängliche Graphen}
+\input{sec/voraussetzungen}
 
-\section{Anwendungsgebiete}
+\input{sec/beweis}
 
-\section{Fazit}
+\input{sec/anwendungsgebiete}
+
+\input{sec/fazit}
 
 
-%\subsection{Beispiele für Referenzen}
+%\subsection{Beispiele fÃ¼r Referenzen}
 %
 %\begin{itemize}
-% \item Die starken Zusammenhangskomponenten eines gerichteten Graphen können in Linearzeit bestimmt werden~\citep{Tar72}.
+% \item Die starken Zusammenhangskomponenten eines gerichteten Graphen kÃ¶nnen in Linearzeit bestimmt werden~\citep{Tar72}.
 % \item \citet{Tar72} hat gezeigt, dass \dots
 %\end{itemize}
 %
