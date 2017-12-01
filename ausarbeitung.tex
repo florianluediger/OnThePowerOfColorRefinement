@@ -33,6 +33,7 @@
 \usepackage{algpseudocode}                                  % Pseudocode für Algorithmen
 \usepackage[standard]{ntheorem}                             % Theorem-Umgebung
 \usepackage{mathtools}										% Tools zum Anzeigen von Formeln
+\usepackage[nogroupskip,style=altlist]{glossaries}			% Verwaltung des Glossars
 
 \captionsetup{farskip=10pt,topadjust=0pt,captionskip=10pt,nearskip=0pt,margin=10pt}
 
@@ -42,6 +43,12 @@
 \fancyhead[LO]{\nouppercase{\slshape \rightmark}}
 \fancyfoot[C]{}
 
+% Erstellen des Glossars
+\setacronymstyle{long-short-desc}
+\renewcommand{\glstextformat}[1]{\textit{#1}}
+\makenoidxglossaries
+
+\input{./ressources/glossary}
 
 \begin{document}
 
@@ -105,14 +112,17 @@ Technische Universität Dortmund
 \tableofcontents
 \clearpage
 
+%------------------------------------------------
+% Glossar
+%------------------------------------------------
+\glsaddall
+\printnoidxglossaries
 
 %------------------------------------------------
-% Einführung
+% Kapitel
 %------------------------------------------------
 
 \input{sec/einfuehrung}
-
-\input{sec/begriffe}
 
 \input{sec/gi_cr}
 
