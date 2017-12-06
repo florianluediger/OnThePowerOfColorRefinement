@@ -18,8 +18,8 @@ Der Color Refinement Algorithmus stellt eine Heuristik dar, mit der in polynomie
 Es kann bei diesem Vorgehen vorkommen, dass zwei nicht isomorphe Graphen $G$ und $H$ nicht voneinander unterschieden werden können. Ein Beispiel hierfür wird in Abbildung \ref{fig:nicht_isomorphe_graphen} dargestellt. Zu erkennen ist, dass alle Knoten beider Graphen initial in einer Farbe gefärbt wurden, danach allerdings kein Verfeinerungsschritt mehr nötig ist, da die Nachbarschaften aller Knoten identisch gefärbt sind. Obwohl offensichtlich erkennbar ist, dass die beiden Graphen nicht isomorph sind, gelingt es dem Algorithmus also nicht diese zu unterscheiden. Auf Basis dieser Erkenntnisse wird die folgende Klasse von Graphen definiert.
 
 \begin{Definition}
-	Ein Graph $G$ wird \emph{amenable} genannt, wenn der Color Refinement Algorithmus diesen von jedem beliebigen, nicht zu $G$ isomorphen Graphen $H$ unterscheiden kann.
-	\label{def:amenable1}
+	Ein Graph $G$ wird \emph{CR-Graph} genannt, wenn der Color Refinement Algorithmus diesen von jedem beliebigen, nicht zu $G$ isomorphen Graphen $H$ unterscheiden kann. Die Arbeit, auf der diese Ausarbeitung beruht (\cite{Arvind2015}) nennt diese Kerneigenschaft von CR-Graphen \emph{amenable}
+	\label{def:cr-graph1}
 \end{Definition}
 
 \begin{figure}[h]
@@ -31,7 +31,7 @@ Es kann bei diesem Vorgehen vorkommen, dass zwei nicht isomorphe Graphen $G$ und
 
 Neben dem klassischen Isomorphie-Test ist der Color Refinement Algorithmus auch für andere Anwendungsfelder geeignet. Als Beispiel ist hier die Verkleinerung von linearen Programmen durch Reduktion der Dimensionen der Gleichungssysteme und somit eine Erhöhung der Effizienz zu nennen. Siehe \cite{Grohe2014}. Weitere Anwendungsfelder finden sich in \cite{shervashidze2011weisfeiler} und \cite{kersting2014power}.
 
-\subsection{Formale Definition und Amenability}
+\subsection{Formale Definition von CR-Graphen}
 Der Color Refinement Algorithmus berechnet iterativ eine Sequenz von Knotenfärbungen $C^i$ für einen Graphen $G$. Die initiale Färbung $C^i$ weist jedem Knoten die selbe Farbe zu. Nachfolgend wird in jeder Iteration nach folgender Regel eine neue Färbung gebildet.
 \begin{equation}
 C^{i+1}(u)=(C^i(u),\ldblbrace C^i(a):a\in N(u)\rdblbrace )
@@ -69,7 +69,7 @@ Das Color Refinement akzeptiert somit zwei Graphen $G$ und $H$ bei der Eingabe d
 
 Das Überprüfen dieser Bedingung ist in endlicher Zeit berechenbar. Für einen Zeugen $i$ dafür, dass die Gleichung nicht erfüllt ist, gilt $i<2n$, wobei $n$ die Anzahl der Knoten jedes Graphens ist. Dies beruht darauf, dass $\mathcal{P}^{2n-1}$ in jedem Fall die stabile Partitionierung von $G+H$ ist und weitere Verfeinerungsschritte keine neue Partitionierung erstellen würden. Es genügt sogar die Gleichung für $i=n$ zu verifizieren, da die Existenz einer Partitionierung $\mathcal{P}^{i+1}\neq \mathcal{P}^i$ bedeuten würde, dass es mehr als $n$ Partitionen, da in jedem Partitionierungsschritt mindestens eine Partition hinzukommt. Mehr als $n$ Partitionen sind ein Indikator dafür, dass die Graphen $G$ und $H$ nicht isomorph sind, da die $n$ Knoten jedes Graphen unmöglich in mehr als $n$ Partitionen unterteilt werden können und Gleichheit somit ausgeschlossen ist.
 
-Aus den gewonnenen Erkenntnissen ergibt sich folgende Erweiterung zu Definition \ref{def:amenable1}.
+Aus den gewonnenen Erkenntnissen ergibt sich folgende Erweiterung zu Definition \ref{def:cr-graph1}.
 \begin{Definition}
-	Ein Graph $G$ wird \emph{amenable} genannt, wenn für jeden beliebigen, nicht isomorphen Graphen $H$ die Gleichung (\ref{eq:2}) für $i=n$ nicht erfüllt ist.
+	Ein Graph $G$ wird \emph{CR-Graph} genannt, wenn für jeden beliebigen, nicht isomorphen Graphen $H$ die Gleichung (\ref{eq:2}) für $i=n$ nicht erfüllt ist.
 \end{Definition}
