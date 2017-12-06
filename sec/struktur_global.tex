@@ -44,8 +44,38 @@ Für die Kanten eines Zellgraphen finden sich ebenfalls unterschiedliche Bezeich
 	 Ein Pfad $X_1X_2...X_l$ in $C(G)$, bei dem jede Kante ${X_i,X_{i+1}}$ anisotrop ist, wird \emph{anisotroper Pfad} genannt. Wenn dieser Pfad einen Kreis schließt, wird er als \emph{anisotroper Zyklus} bezeichnet. Gilt für einen anisotropen Pfad $|X_1|=|X_2|=...=|X_l|$ dann wird er \emph{gleichmäßig} genannt.
 \end{Definition}
 
-
-
 \subsection{Allgemeine globale Eigenschaften von CR-Graphen}
+Mit dem so gewonnenen Hintergrundwissen kann nun das folgende Lemma formuliert werden, welches globale Eigenschaften von CR-Graphen definiert.
+
+\begin{Lemma}
+	Der Zellgraph $C(G)$ eines CR-Graphen $G$ erfüllt folgende Eigenschaften:
+
+	\begin{enumerate}[label=(\Alph*)]
+		\setcounter{enumi}{2}
+		\item $C(G)$ enthält keinen gleichmäßigen, anisotropen Pfad, der zwei heterogene Zellen verbindet
+		\item $C(G)$ enthält keinen gleichmäßigen, anisotropen Zyklus
+		\item $C(G)$ enthält weder einen anisotropen Pfad $XY_1Y_2...Y_lZ$, sodass $|X|<|Y_1|=|Y_2|=...=|Y_l|>|Z|$, noch einen anisotropen Zyklus $XY_1Y_2...Y_l$, sodass $|X|<|Y_1|=|Y_2|=...=|Y_l|$ und die Zelle $Y_l$ heterogen ist
+		\item $C(G)$ enthält keinen anisotropen Pfad $XY_1Y_2...Y_l$, sodass $|X|<|Y_1|=|Y_2|=...=|Y_l|$ und die Zelle $Y_l$ heterogen ist
+	\end{enumerate}
+	\label{lemma:global1}
+\end{Lemma}
 
 \subsection{Baumartige Struktur von CR-Graphen}
+Bei genauerer Betrachtung fällt auf, dass der Zellgraph von CR-Graphen eine baumartige Struktur aufweist.
+Um das folgende Lemma verstehen zu können, wird der Begriff \emph{anisotrope Komponente} benötigt.
+\begin{Definition}
+	In einem Zellgraphen $C(G)$ bezeichnet eine \emph{anisotrope Komponente} einen Subgraphen, dessen Kanten alle isotrop sind.
+	Wenn ein Knoten keine inzidente, anisotrope Kante besitzt, dann ergibt sich daraus eine anisotrope Komponente mit nur einem Knoten.
+\end{Definition}
+
+\begin{Lemma}
+	Angenommen ein CR-Graph $G$ erfüllt die Bedingungen A-F aus den Lemmata \ref{lemma:lokal} und \ref{lemma:global1}.
+	Für jede anisotrope Komponente $A$ von $C(G)$ gelten folgende Eigenschaften:
+	
+	\begin{enumerate}[label=(\Alph*)]
+		\setcounter{enumi}{6}
+		\item $A$ ist ein Baum, der folgende Monotonieeigenschaft erfüllt: Sei $R$ eine Zelle aus $A$ mit minimaler Kardinalität, so ist $A_R$ der gerichtete Baum mit Wurzel $R$; Für jede gerichtete Kante $(X,Y)$ aus $A_R$ gilt dann $|X|\leq |Y|$
+		\item $A$ enthält maximal einen heterogenen Knoten; Wenn ein solcher Knoten existiert, hat dieser minimale Kardinalität in $A$
+	\end{enumerate}
+\end{Lemma}
+
