@@ -1,7 +1,51 @@
 \section{Globale Struktur von CR-Graphen}
 \label{sec/struktur_global}
 
-\begin{itemize}
-	\item Erklärung der globalen Struktur zugänglicher Graphen (C,D,E,F,G,H)
-	\item Ansonten wie Kapitel \ref{sec/struktur_lokal}
-\end{itemize}
+%\begin{itemize}
+%	\item Erklärung der globalen Struktur zugänglicher Graphen (C,D,E,F,G,H)
+%	\item Ansonten wie Kapitel \ref{sec/struktur_lokal}
+%\end{itemize}
+
+Zusätzlich zur lokalen Struktur ist außerdem die globale Struktur von CR-Graphen interessant.
+Der Begriff globale Struktur gibt hier an, dass der Zellgraph von $G$ bestimmte Eigenschaften erfüllen muss.
+
+\begin{Definition}
+	Der Zellgraph $C(G)$ eines Graphen $G$ wird aus dessen stabilen Partition $\mathcal{P}_G$ gebildet.
+	Es handelt sich dabei um einen vollständigen Graphen, bei dem die Knoten die Zellen von $\mathcal{P}_G$ darstellen.
+\end{Definition}
+
+\subsection{Mögliche Eigenschaften von Zellgraphen}
+Für das Verständnis der folgenden Eigenschaften von CR-Graphen ist es erforderlich einige Begriffe einzuführen und Eigenschaften von Zellgraphen zu erklären und zu benennen, wozu einige Definitionen folgen.
+Die Knoten eines Zellgraphen, auch als Zellen bezeichnet, können dabei folgende Eigenschaften aufweisen.
+
+\begin{Definition}
+	Ein Knoten $X\in C(G)$ wird \emph{homogen} genannt, wenn der Graph $G[X]$ vollständig oder leer ist. Anderenfalls wird dieser \emph{heterogen} genannt.
+\end{Definition}
+
+\begin{Definition}
+	Für eine heterogene Zelle $X\in C(G)$ finden sich je nach Beschaffenheit von $G[X]$ die Bezeichnungen \emph{matching}, \emph{co-matching} oder \emph{pentagonal}.
+	Eine homogene Zelle wird dagegen entweder \emph{leer} oder \emph{vollständig} genannt.
+\end{Definition}
+
+Für die Kanten eines Zellgraphen finden sich ebenfalls unterschiedliche Bezeichnungen, welche deren Beschaffenheit beschreiben.
+
+\begin{Definition}
+	Eine Kante ${X,Y}$ mit $X,Y\in C(G)$ wird \emph{isotrop} genannt, wenn der bipartite Graph $G[X,Y]$ vollständig oder leer ist. Anderenfalls wird diese \emph{anisotrop} genannt.
+\end{Definition}
+
+\begin{Definition}
+	Eine anisotrope Kante ${X,Y}$ wird \emph{Konstellation} genannt, wenn $G[X,Y]$ eine disjunkte Vereinigung von Sternen ist.
+	Anderenfalls wird diese \emph{Co-Konstellation} genannt.
+	Bei Co-Konstellationen bildet das \glslink{bipartites_komplement}{bipartite Komplement} von $G[X,Y]$ eine disjunkte Vereinigung von Sternen.
+	Eine isotrope Kante dagegen wird entweder \emph{leer} oder \emph{vollständig} genannt.
+\end{Definition}
+
+\begin{Definition}
+	 Ein Pfad $X_1X_2...X_l$ in $C(G)$, bei dem jede Kante ${X_i,X_{i+1}}$ anisotrop ist, wird \emph{anisotroper Pfad} genannt. Wenn dieser Pfad einen Kreis schließt, wird er als \emph{anisotroper Zyklus} bezeichnet. Gilt für einen anisotropen Pfad $|X_1|=|X_2|=...=|X_l|$ dann wird er \emph{gleichmäßig} genannt.
+\end{Definition}
+
+
+
+\subsection{Allgemeine globale Eigenschaften von CR-Graphen}
+
+\subsection{Baumartige Struktur von CR-Graphen}

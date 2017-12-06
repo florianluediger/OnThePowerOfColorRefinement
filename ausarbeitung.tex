@@ -53,6 +53,10 @@
 \newcommand*{\ldblbrace}{\{\mskip-5mu\{}	% {{
 \newcommand*{\rdblbrace}{\}\mskip-5mu\}}	% }}
 
+% Neudefinieren von \emph
+\let\emph\relax % there's no \RedeclareTextFontCommand
+\DeclareTextFontCommand{\emph}{\bfseries}
+
 \input{./ressources/glossary}
 
 \begin{document}
