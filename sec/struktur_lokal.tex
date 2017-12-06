@@ -1,9 +1,20 @@
 \section{Lokale Struktur von CR-Graphen}
 \label{sec/struktur_lokal}
 
-\begin{itemize}
-	\item Erklärung der lokalen Struktur zugänglicher Graphen (A,B)
-	\item jeweils gegebenenfalls mit ausführlicher Erklärung der Bedeutung und Beispielen
-	\item Fokussierung auf die Beweisidee für die jeweiligen Lemmata
-	\item Ausführlichere und leichter verständliche Aufbereitung einiger oder aller Beweise aus dem Paper
-\end{itemize}
+%\begin{itemize}
+%	\item Erklärung der lokalen Struktur zugänglicher Graphen (A,B)
+%	\item jeweils gegebenenfalls mit ausführlicher Erklärung der Bedeutung und Beispielen
+%	\item Fokussierung auf die Beweisidee für die jeweiligen Lemmata
+%	\item Ausführlichere und leichter verständliche Aufbereitung einiger oder aller Beweise aus dem Paper
+%\end{itemize}
+
+Um schlussendlich die Frage beantworten zu können von welcher Beschaffenheit CR-Graphen sein müssen, damit sie die in Definition \ref{def:cr-graph2} genannte Eigenschaft erfüllen, werden hier zunächst notwendige, lokale Eigenschaften solcher Graphen vorgestellt. Die Basis dieses Kapitels bildet das folgende Lemma, welches für die Zellen $X$ und $Y$ der stabilen Partition $P_G$ eines CR-Graphen $G$ einige Merkmale definiert.
+
+\begin{Lemma}
+	Die Zellen der stabilen Partition $\mathcal{P}_G$ eines CR-Graphen erfüllen folgende Eigenschaften:
+	
+	\begin{enumerate}[label=(\Alph*)]
+		\item Für beliebige Zellen $X\in \mathcal{P}_G$ ist $G[X]$ ein leerer Graph, \gls{vollstaendiger_graph}, \gls{matching_graph} $mK_2$, das Komplement eines matching Graphen oder der 5er \gls{zyklus}
+		\item Für beliebige Zellen $X,Y\in \mathcal{P}_G$ ist $G[X,Y]$ ein leerer Graph, \gls{vollstaendiger_bipartiter_graph}, eine \gls{disjunkte_vereinigung_von_sternen} $sK_{1,t}$, bei der $X$ die Menge der $s$ inneren Knoten und $Y$ die Menge der $st$ Blätter ist, oder das \glslink{bipartites_komplement}{bipartite Komplement} des zuletzt genannten Graphen
+	\end{enumerate}
+\end{Lemma}
