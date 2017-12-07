@@ -1,8 +1,36 @@
 \section{Ergebnis und Laufzeit}
 \label{sec/ergebnis}
 
-\begin{itemize}
-	\item Erklärung von Theorem 9
-	\item Vorstellung des Ergebnisses
-	\item Beweis der Laufzeit von $O((n+m)\log n)$
-\end{itemize}
+%\begin{itemize}
+%	\item Erklärung von Theorem 9
+%	\item Vorstellung des Ergebnisses
+%	\item Beweis der Laufzeit von $O((n+m)\log n)$
+%\end{itemize}
+
+Die vorgestellten lokalen und globalen Eigenschaften von CR-Graphen reichen wie im Folgenden gezeigt aus, um hinreichende Bedingungen für CR-Graphen zu formulieren und darauf basierend ein effizientes Verfahren für das Erkennen solcher Graphen zu entwickeln.
+
+\subsection{Hinreichende Bedingungen für das Erkennen von CR-Graphen}
+\begin{Theorem}
+	Für einen Graphen $G$ sind folgende Aussagen äquivalent:
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item $G$ ist ein CR-Graph
+		\item $G$ erfüllt Bedingungen A-F
+		\item $G$ erfüllt Bedingungen A, B, G und H
+	\end{enumerate}
+\end{Theorem}
+
+\emph{Beweis:} Die Äquivalenz der Aussagen wird gezeigt, indem gezeigt wird, dass gilt: $(a)\rightarrow (b)\rightarrow (c)\rightarrow (a)$.
+Die bisher erlangten Erkenntnisse ermöglichen es bereits einen großen Teil dieser Aussage zu bestätigen. Somit wurde in den Lemmata \ref{lemma:lokal} und \ref{lemma:global1} gezeigt, dass $(a)\rightarrow (b)$ gilt. Ebenfalls wurde in Lemma \ref{lemma:global2} gezeigt, dass $(b)\rightarrow (c)$ gilt. Es bleibt also nur noch zu zeigen, dass auch $(c)\rightarrow (a)$ gültig ist.
+
+[Beweis folgt]
+
+\subsection{Laufzeit}
+Zur Berechnung der Laufzeit wird im Folgenden davon ausgegangen, dass der Graph $G$ in Adjazenzlistendarstellung vorliegt.
+Nach \cite{CARDON198285} lässt sich die stabile Partition eines Graphen $G$ in Zeit $\mathcal{O}((n+m)\log n)$ berechnen.
+
+\begin{Theorem}
+	Die Klasse der CR-Graphen ist in Zeit $\mathcal{O}((n+m)\log n)$ entscheidbar. Dabei bezeichnet $n$ die Anzahl der Knoten und $m$ die Anzahl der Kanten des Eingabegraphen.
+\end{Theorem}
+
+\emph{Beweis:} [folgt]
