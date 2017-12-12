@@ -33,7 +33,16 @@ Auf Basis dieser Erkenntnisse wird die folgende Klasse von Graphen definiert.
 	\label{def:cr-graph1}
 \end{Definition}
 
-\begin{figure}[h]
+Durch die Eigenschaften des Color Refinement Algorithmus ist folgende Beziehung bekannt: Color Refinement erkennt zwei Graphen als nicht isomorph $\Rightarrow$ die Graphen sind nicht isomorph.
+Aus Definition \ref{def:cr-graph1} folgt außerdem: zwei CR-Graphen sind nicht isomorph $\Rightarrow$ Color Refinement kann diese als nicht isomorph unterscheiden.
+Somit lässt sich wie in Korollar \ref{kor:cr-graph} formuliert die Äquivalenz der Aussagen für die Klasse der CR-Graphen schlussfolgern.
+
+\begin{Korollar}
+	Für zwei Graphen aus der Klasse der CR-Graphen gilt: Color Refinement erkennt die Graphen als isomorph $\Leftrightarrow$ die Graphen sind isomorph.
+	\label{kor:cr-graph}
+\end{Korollar}
+
+\begin{figure}[t]
 	\centering
 	\fbox{\includegraphics[width=0.75\textwidth]{./img/nicht_isomorphe_graphen.png}}
 	\caption{Zwei nicht isomorphe Graphen, welche vom Color Refinement nicht unterschieden werden können}
