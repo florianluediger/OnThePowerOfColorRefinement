@@ -20,3 +20,81 @@ Die Basis dieses Kapitels bildet das folgende Lemma, welches für die Zellen $X$
 	\end{enumerate}
 	\label{lemma:lokal}
 \end{Lemma}
+
+Um das Lemma beweisen zu können, werden zunächst folgende Hilfsaussagen benötigt.
+
+\begin{Lemma}
+	Ein regulärer Graph mit Grad $d$ und $n$ Knoten ist ein \gls{unigraph}, genau dann wenn $d\in \{0,1,n-2,n-1\}$ oder $d=2$ und $n=5$.
+	\label{lemma:lokal_regulaer}
+\end{Lemma}
+
+Der Beweis zu dieser Aussage findet sich in \cite{johnson1975simple}.
+Bei genauerer Betrachtung fällt auf, dass die in \emph{(A)} genannten Graphentypen sich in diesem Lemma wieder finden. Tabelle \ref{tab:mapping_regulaer} gibt dazu eine Übersicht über die Abbildung der Aussagen.
+
+\begin{table}
+	\centering
+	\caption{Abbildung der Aussagen aus Lemma \ref{lemma:lokal} \emph{(A)} und Lemma \ref{lemma:lokal_regulaer}}
+	\label{tab:mapping_regulaer}
+	\begin{tabular}{|l|l|}
+		\hline 
+		Graphentyp aus Lemma \ref{lemma:lokal} \emph{(A)} & Definition aus Lemma \ref{lemma:lokal_regulaer} \\ 
+		\hline 
+		Leerer Graph & $d=0$ \\ 
+		\hline 
+		Vollständiger Graph & $d=n-1$ \\ 
+		\hline 
+		Matching Graph & $d=1$ \\ 
+		\hline 
+		Komplement eines Matching Graphen & $d=n-2$ \\ 
+		\hline 
+		5er Zyklus & $d=2$ und $n=5$ \\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+\begin{Lemma}
+	Sei $G$ ein bipartiter Graph mit den beiden Komponenten $X$ und $Y$. 
+	Die Isomorphieeigenschaften von $G$ sind genau dann vollständig dadurch definiert, dass die $m$ Knoten aus $X$ den Grad $c$ und die $n$ Knoten aus $Y$ den Grad $d$ haben, wenn $c\in \{0,1,n-1,n\}$ oder $d\in \{0,1,m-1,m\}$ gilt.
+	\label{lemma:lokal_bipartit}
+\end{Lemma}
+
+Bewiesen wird diese Aussage in \cite{koren1976pairs}.
+Auch für bipartite Graphen können die Aussagen von Lemma \ref{lemma:lokal} (B) und Lemma \ref{lemma:lokal_bipartit} aufeinander abgebildet werden, was in Tabelle \ref{tab:mapping_bipartit} übersichtlich dargestellt wird. \\
+
+\begin{table}
+	\centering
+	\caption{Abbildung der Aussagen aus Lemma \ref{lemma:lokal} (B) und Lemma \ref{lemma:lokal_bipartit}}
+	\label{tab:mapping_bipartit}
+	\begin{tabular}{|l|l|}
+		\hline 
+		Graphentyp aus Lemma \ref{lemma:lokal} (B) & Definition aus Lemma \ref{lemma:lokal_bipartit} \\ 
+		\hline 
+		Leerer Graph & $d=c=0$ \\ 
+		\hline 
+		Vollständiger bipartiter Graph & $d=m$ und $c=n$ \\ 
+		\hline 
+		Disjunkte Vereinigung von Sternen & $d=1$ oder $c=1$ \\ 
+		\hline 
+		Komplement einer disjunkten Vereinigung von Sternen & $d=m-1$ oder $c=n-1$ \\ 
+		\hline 
+	\end{tabular} 
+\end{table}
+
+Wenn ein Graph $G$ nun einen Subgraphen $G[X]$ oder $G[X,Y]$ mit $X,Y\in \mathcal{P}_G$ enthält, dessen Typ allerdings nicht in Lemma \ref{lemma:lokal} aufgelistet wird, so lässt sich dieser durch einen nicht-isomorphen regulären oder biregulären Graphen mit gleichem Grad ersetzen. Diese Aussage folgt daraus, dass dessen Isomorphieeigenschaften wie in Lemma \ref{lemma:lokal_regulaer} und \ref{lemma:lokal_bipartit} dargestellt nicht allein durch ihre Parameter definiert sind, was das Ersetzen durch einen nicht-isomorphen Graphen mit eben diesen Parametern unmöglich machen würde.
+
+Diese Ergebnisse lassen sich für den Beweis von Lemma \ref{lemma:lokal} nutzen, wenn gezeigt wird, dass der durch das Ersetzen des Subgraphen entstandene Graph $H$ vom Color Refinement nicht von $G$ unterschieden werden kann. Im Folgenden gilt dazu, dass $G$ und $H$ die gleiche Knotenmenge enthalten und die Farben für einen Knoten $u$ durch $C^i_G(u)$ und $C^i_H(u)$ für die jeweiligen Graphen definiert sind.
+
+\begin{Lemma}
+	Seien $X$ und $Y$ Zellen der stabilen Partition eines Graphen $G$.
+	\begin{enumerate}[label=(\alph*)]
+		\item  Ist der Graph $H$ aus $G$ erstellt worden, indem die Kanten eines Subgraphen $G[X]$ mit denen eines regulären Graphen mit dem gleichen Grad auf der gleichen Knotenmenge $X$ ersetzt wurde, so gilt: $C^i_G(u)=C^i_H(u)$ für alle $u\in V(G)$ und beliebiges $i$.
+		\item Ist der Graph $H$ aus $G$ erstellt worden, indem die Kanten eines Subgraphen $G[X,Y]$ mit denen eines biregulären Graphen mit dem gleichen Grad und den gleichen Partitionen ersetzt wurden, sodass die Knotengrade erhalten bleiben, gilt somit: $C^i_G(u)=C^i_H(u)$ für alle $u\in V(G)$ und beliebiges $i$.
+	\end{enumerate}
+	\label{lemma:lokal_nicht_unterscheidbar}
+\end{Lemma}
+
+\emph{Beweis von Lemma \ref{lemma:lokal}:}
+
+\emph{(A)} Sei $G[X]$ ein Graph, dessen Struktur nicht in Lemma \ref{lemma:lokal} \emph{(A)} aufgelistet wird, so ist dieser wie in Lemma \ref{lemma:lokal_regulaer} dargestellt, kein Unigraph. Somit ist es möglich $G[X]$ innerhalb von $G$ durch einen nicht-isomorphen Graphen mit gleichen Parametern zu ersetzen. Der so entstandene Graph $H$ ist nicht isomorph zum Ursprungsgraphen $G$, da die Subgraphen $G[X]$ und $H[X]$ nicht isomorph sind. Teil (a) von Lemma \ref{lemma:lokal_nicht_unterscheidbar} hingegen zeigt, dass Gleichung \ref{eq:2} für beliebige $i$ erfüllt ist und das Color Refinement die beiden Graphen somit nicht unterscheiden kann. Aus dieser Aussage folgt, dass der Graph $G$ nicht zu der Klasse der CR-Graphen gehört. Durch Kontraposition folgt nun, dass ein CR-Graph die in Lemma \ref{lemma:lokal} \emph{(A)} genannten Eigenschaften in jedem Fall erfüllt.
+
+\emph{(B)} Diese Aussage lässt sich unter Zuhilfenahme von Lemma \ref{lemma:lokal_bipartit} und Lemma \ref{lemma:lokal_nicht_unterscheidbar} (ii) sehr ähnlich zu \emph{(A)} begründen.
