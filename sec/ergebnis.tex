@@ -33,4 +33,24 @@ Nach \cite{CARDON198285} lässt sich die stabile Partition eines Graphen $G$ in 
 	Die Klasse der CR-Graphen ist in Zeit $\mathcal{O}((n+m)\log n)$ entscheidbar. Dabei bezeichnet $n$ die Anzahl der Knoten und $m$ die Anzahl der Kanten des Eingabegraphen.
 \end{Theorem}
 
-\emph{Beweis:} [folgt]
+\emph{Beweis:} Zunächst wird die stabile Partition $\mathcal{P}_G=\{X_1,X_2,...,X_k\}$ berechnet, was wie eingangs erwähnt die Laufzeit $\mathcal{O}((n+m)\log n)$ benötigt.
+Außerdem wird $C^*(G)$ definiert als der Zellgraph, bei dem sämtliche leeren Kanten, also solche bei denen keine Verbindungen zwischen den Elementen der beiden Endpunkte besteht, entfernt wurden.
+
+Für die Elemente $X_i\in C^*(G)$ werden die Adjazenzlisten gebildet, indem die Adjazenzliste eines beliebigen Knoten $u\in X_i$ durchlaufen wird und sämtliche Zellen aufgelistet werden, welche einen zu $u$ adjazenten Knoten enthalten.
+Die dadurch gewonnenen Informationen sind identisch für alle Knoten aus $X_i$, da diese alle gleichartige Nachbarschaften besitzen, weshalb es ausreicht die Operation für einen beliebigen Knoten durchzuführen.
+Durch die Informationen aus der Adjazenzliste lässt sich der Grad der Knoten innerhalb der Zellen bestimmen und somit leicht Bedingung \emph{A} durch die in Lemma \ref{lemma:lokal_regulaer} vorgestellten Bedingungen für jeden Subgraphen $G[X_i]$ überprüfen.
+
+Für jede Kante ${X_i,X_j}$ aus $C^*(G)$ wird der Wert $d_{ij}$ berechnet, welcher die Anzahl der Nachbarn in $X_j$ beschreibt, zu denen jeder Knoten aus $X_i$ adjazent ist.
+Dieser Wert wird ebenfalls für den Fall $i=j$ betrachtet, wobei die Nachbarn innerhalb der Zelle gezählt werden.
+Dadurch, dass die Werte $|X_i|$, $|X_j|$ und $d_{ij}$ nun bekannt sind, lässt sich Bedingung \emph{B} durch die in Lemma \ref{lemma:lokal_bipartit} vorgestellten Bedingungen überprüfen.
+
+Da alle Zellen des Zellgraphen $C^*(G)$ im schlimmsten Falle unterschiedliche Farben haben, gibt es maximal $n$ Zellen.
+Mit dem beschriebenen Verfahren können die Bedingungen \emph{A} und \emph{B} somit in der Zeit $\mathcal{O}(n)$ überprüft werden.
+
+Zum Überprüfen von Bedingung \emph{H} wird eine Breitensuche auf dem Zellgraphen $C^*(G)$ durchgeführt, welche alle anisotropen Komponenten findet und gleichzeitig überprüft, ob diese eine Baumstruktur aufweisen und nur eine anisotrope Komponente enthält.
+
+Wird diese Breitensuche nun von der Zelle minimaler Kardinalität für jede Komponente wiederholt, so lässt sich die in Bedingung \emph{G} beschriebene Monotonieeigenschaft für jede Kante überprüfen.
+
+Der Breitensuchealgorithmus benötigt eine Laufzeit von $\mathcal{O}(n+m)$, da der Zellgraph maximal $n$ Knoten und maximal $m$ Kanten besitzt.
+
+Es ist somit zu erkennen, dass das Errechnen der stabilen Partition, auf der die ganzen Operationen ausgeführt werden mit $\mathcal{O}((n+m)\log n)$ die dominierende Laufzeit des Algorithmus ist.
