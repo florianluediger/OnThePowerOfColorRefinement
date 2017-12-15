@@ -60,6 +60,35 @@ Mit dem so gewonnenen Hintergrundwissen kann nun das folgende Lemma formuliert w
 	\label{lemma:global1}
 \end{Lemma}
 
+\emph{Beweis C:} Angenommen $P$ wäre, entgegen Bedingung \emph{C}, ein gleichmäßiger, anisotroper Pfad in $C(G)$, welcher die beiden anisotropen Komponenten $X$ und $Y$ verbindet.
+Da es sich um einen gleichmäßigen Pfad handelt, besitzen sämtliche Komponenten auf dem Pfad die Kardinalität $k=|X|=|Y|$.
+Alle Kanten in $P$, die eine Co-Konstellation bilden, werden nun komplementiert, sodass diese eine Konstellation ergeben.
+Da nun sämtliche Kanten aus $P$ eine Konstellation darstellen und die Kardinalität aller Komponenten identisch ist, können die Sterne, welche die disjunkte Vereinigung für die Konstellationen bilden nur eine einzige Form annehmen.
+Diese bestehen aus einem Zentralknoten und einem Blatt, wobei diese in unterschiedlichen Komponenten liegen.
+Dadurch, dass sämtliche Kanten in $P$ diese Form annehmen ergeben sich $k$ knotendisjunkte Pfade zwischen $X$ und $Y$.
+Es sind also alle Knoten aus $X$ mit genau einem Knoten aus $Y$ durch einen Pfad verbunden und andersherum.
+Sei $v\in X$ durch einen solchen Pfad mit seinem Gegenstück $v^*\in Y$ verbunden.
+Der Pfad $P$ wird conducting genannt, wenn diese Abbildung von Knoten einen Isomorphismus von $G[X]$ auf $G[Y]$ darstellt.
+Dazu müssen zwei Knoten $u,v\in X$ genau dann adjazent sein wenn ihre Gegenstücke $u^*,v^*\in Y$ adjazent sind.
+Angenommen eine der beiden Komponenten ist matching und die andere ist co-matching, dann wird $P$ ebenfalls conducting genannt, wenn die Isomorphie zwischen der matching Komponente und dem Komplement der co-matching Komponente besteht.
+
+Nachfolgend wird ein Graph $H$ erstellt werden, der nicht zu $G$ isomorph ist, welchen das Color Refinement allerdings nicht von $G$ unterscheiden kann.
+Da $X$ und $Y$ heterogen sind, können die Kanten des Subgraphen $G[X]$ durch einen isomorphen aber unterschiedlichen Graphen mit der gleichen Knotenmenge $X$ ersetzt werden.
+Ist $P$ in $G$ conducting, so muss $G[X]$ so ersetzt werden, dass der entstehende Pfad in $H$ nicht conducting ist, anderenfalls muss der entsprechende Pfad in $H$ conducting sein.
+Ein Beispiel für ein solches Ersetzen findet sich in Abbildung \ref{fig:global_c}.
+
+\begin{figure}[t]
+	\centering
+	\fbox{\includegraphics[width=0.75\textwidth]{./img/global_c.jpg}}
+	\caption{Beispiel für das Ersetzen eines Subgraphen in Lemma \ref{lemma:global1} \emph{C}}
+	\label{fig:global_c}
+\end{figure}
+
+Lemma \ref{lemma:lokal_nicht_unterscheidbar} (a) besagt nun, dass der Color Refinement Algorithmus für $G$ und $H$ die gleiche Färbung errechnet und somit nicht zwischen den beiden unterscheiden kann.
+Außerdem besagt Lemma \ref{lemma:faerbung_isomorphismus}, dass jeder Isomorphismus zwischen $G$ und $H$ Zellen auf sich selbst abbilden muss.
+Da also gilt $\phi (v^*)=\phi (v)^*$, muss $\phi $ die Eigenschaft von $P$ erhalten conducting oder nicht zu sein, was in diesem konstruierten Beispiel nicht erfüllt ist.
+Es folgt, dass $G$ und $H$ nicht isomorph sind und $G$ daher kein CR-Graph sein kann.
+
 \subsection{Baumartige Struktur von CR-Graphen}
 Bei genauerer Betrachtung fällt auf, dass der Zellgraph von CR-Graphen eine baumartige Struktur aufweist.
 Um das folgende Lemma verstehen zu können, wird der Begriff \emph{anisotrope Komponente} benötigt.
