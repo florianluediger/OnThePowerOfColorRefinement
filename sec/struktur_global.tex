@@ -75,7 +75,7 @@ Angenommen eine der beiden Komponenten ist matching und die andere ist co-matchi
 Nachfolgend wird ein Graph $H$ erstellt werden, der nicht zu $G$ isomorph ist, welchen das Color Refinement allerdings nicht von $G$ unterscheiden kann.
 Da $X$ und $Y$ heterogen sind, können die Kanten des Subgraphen $G[X]$ durch einen isomorphen aber unterschiedlichen Graphen mit der gleichen Knotenmenge $X$ ersetzt werden.
 Ist $P$ in $G$ conducting, so muss $G[X]$ so ersetzt werden, dass der entstehende Pfad in $H$ nicht conducting ist, anderenfalls muss der entsprechende Pfad in $H$ conducting sein.
-Ein Beispiel für ein solches Ersetzen findet sich in Abbildung \ref{fig:global_c}.
+Ein Beispiel für ein solches Ersetzen findet sich in Abbildung \ref{fig:global_c}.\\
 
 \begin{figure}[t]
 	\centering
@@ -88,6 +88,24 @@ Lemma \ref{lemma:lokal_nicht_unterscheidbar} (a) besagt nun, dass der Color Refi
 Außerdem besagt Lemma \ref{lemma:faerbung_isomorphismus}, dass jeder Isomorphismus zwischen $G$ und $H$ Zellen auf sich selbst abbilden muss.
 Da also gilt $\phi (v^*)=\phi (v)^*$, muss $\phi $ die Eigenschaft von $P$ erhalten conducting oder nicht zu sein, was in diesem konstruierten Beispiel nicht erfüllt ist.
 Es folgt, dass $G$ und $H$ nicht isomorph sind und $G$ daher kein CR-Graph sein kann.
+
+\emph{Beweis D:} Es wird wieder entgegen der Bedingung \emph{D} angenommen, dass $C(G)$ einen gleichmäßigen, anisotropen Zyklus $Q$ der Länge $m$ enthält.
+Da dieser gleichmäßig ist, besitzen sämtliche Zellen in $Q$ die gleiche Kardinalität $k$.
+Wie im Beweis von \emph{C} kann nun der Graph $G[A,B]$ für jede Co-Konstellation ${A,B}$ komplementiert werden, sodass ein Zyklus entsteht, welcher nur Konstellationen als Kanten enthält.
+Ebenfalls wie im Beweis von \emph{C} gibt es eine eins zu eins Beziehung zwischen den Knoten zweier Benachbarter Komponenten, wodurch eine knotendisjunkte Vereinigung von Kreisen in $G$ entsteht.
+Alle Kreise besitzen dabei ein Vielfaches der Länge $m$, wobei so im Extremfall ein Kreis der Länge $km$ oder $k$ Kreise der Länge $m$ vorliegen.
+
+Durch die Anzahl der Kreise und deren Länge können die Isomorphieeigenschaften des entstehenden Subgraphen vollständig beschreiben, sodass der Isomorphietyp für den Zyklus $Q$ nachfolgend als $\tau (Q)$ bezeichnet wird.
+Sei $\phi $ ein Isomorphismus von $G$ zu einem anderen Graphen $H$, so ist $\phi '$ der auf den Zellgraphen übertragene Isomorphismus von $C(G)$ zu $C(H)$.
+Durch die Definition von $\tau $ ergibt sich, dass $\tau (\phi '(Q))=\tau (Q)$ gelten muss.
+Intuitiv bedeutet dies, dass ein Kreis einer bestimmten Größe nur auf einen anderen Kreis abgebildet werden kann, welcher die selbe Größe besitzt.
+
+Seien $X,Y\in Q$ zwei aufeinanderfolgende Zellen, so kann der dadurch entstehende Subgraph $G[X,Y]$ durch einen isomorphen aber nicht identischen Graphen ersetzt werden, da die Kante {X,Y} anisotrop ist.
+Somit entsteht ein neuer Graph $H$, welcher beispielsweise so konstruiert sein kann, dass für den betrachteten Zyklus die beiden eingangs erwähnten Extreme vorliegen.
+Dadurch, dass sich hier zwei Möglichkeiten ergeben wie $\tau (Q)$ nach dem Austauschen aussehen kann, ist es möglich den Subgraphen $G[X,Y]$ so zu ersetzen, dass $\tau (Q)$ sich ändert.
+
+Es wird wieder das Lemma \ref{lemma:lokal_nicht_unterscheidbar} genutzt, um zu zeigen, dass das Color Refinement nicht zwischen $G$ und $H$ unterschieden werden kann.
+Außerdem ist $G$ nicht isomorph zu $H$, da sich $H$ so konstruieren lässt, dass $\tau (Q)$ in beiden Graphen unterschiedlich ist, wodurch der Graph $G$ nicht zu der Klasse der CR-Graphen gehören kann.
 
 \subsection{Baumartige Struktur von CR-Graphen}
 Bei genauerer Betrachtung fällt auf, dass der Zellgraph von CR-Graphen eine baumartige Struktur aufweist.
