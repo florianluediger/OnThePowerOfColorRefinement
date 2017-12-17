@@ -75,7 +75,7 @@ Angenommen eine der beiden Komponenten ist matching und die andere ist co-matchi
 Nachfolgend wird ein Graph $H$ erstellt werden, der nicht zu $G$ isomorph ist, welchen das Color Refinement allerdings nicht von $G$ unterscheiden kann.
 Da $X$ und $Y$ heterogen sind, können die Kanten des Subgraphen $G[X]$ durch einen isomorphen aber unterschiedlichen Graphen mit der gleichen Knotenmenge $X$ ersetzt werden.
 Ist $P$ in $G$ conducting, so muss $G[X]$ so ersetzt werden, dass der entstehende Pfad in $H$ nicht conducting ist, anderenfalls muss der entsprechende Pfad in $H$ conducting sein.
-Ein Beispiel für ein solches Ersetzen findet sich in Abbildung \ref{fig:global_c}.\\
+Ein Beispiel für ein solches Ersetzen findet sich in Abbildung \ref{fig:global_c}.
 
 \begin{figure}[t]
 	\centering
@@ -105,7 +105,59 @@ Somit entsteht ein neuer Graph $H$, welcher beispielsweise so konstruiert sein k
 Dadurch, dass sich hier zwei Möglichkeiten ergeben wie $\tau (Q)$ nach dem Austauschen aussehen kann, ist es möglich den Subgraphen $G[X,Y]$ so zu ersetzen, dass $\tau (Q)$ sich ändert.
 
 Es wird wieder das Lemma \ref{lemma:lokal_nicht_unterscheidbar} genutzt, um zu zeigen, dass das Color Refinement nicht zwischen $G$ und $H$ unterschieden werden kann.
-Außerdem ist $G$ nicht isomorph zu $H$, da sich $H$ so konstruieren lässt, dass $\tau (Q)$ in beiden Graphen unterschiedlich ist, wodurch der Graph $G$ nicht zu der Klasse der CR-Graphen gehören kann.
+Außerdem ist $G$ nicht isomorph zu $H$, da sich $H$ so konstruieren lässt, dass $\tau (Q)$ in beiden Graphen unterschiedlich ist, wodurch der Graph $G$ nicht zu der Klasse der CR-Graphen gehören kann.\\
+
+\emph{Beweis E:} Sei $P=XY_1Y_2...Y_lZ$ ein anisotroper Pfad in $G$, sodass dessen Kardinalitäten durch $|X|<|Y_1|=|Y_2|=...=|Y_l|>|Z|$ beschrieben werden.
+Dabei sei es erlaubt, dass $X=Z$ ist und somit ein Kreis entsteht.
+Für alle Kanten aus $P$, welche eine Co-Konstellation sind, wird im Folgenden das bipartite Komplement betrachtet, sodass sämtliche Kanten eine Konstellation bilden.
+Somit stellen die Subgraphen $G[X,Y_1]=sK_{1,t}$ und $G[Z,Y_l]=aK_{1,b}$ mit $s,a,t,b\geq 2$ disjunkte Vereinigungen von Sternen dar.
+Es folgt, dass $|X|=s, |Z|=a$ und $|Y_1|=|Y_l|=st=ab$ sind.
+In dem Beweis zu Bedingung \emph{C} wurde bereits gezeigt, dass der gleichmäßige, anisotrope Pfad $Y_1Y_2...Y_l$ eine Abbildung der Knoten der Zellen $Y_1$ und $Y_l$ bildet, welche im Folgenden dazu verwendet wird die Identifikation $Y$ des gesamten Pfades zu bilden.
+Der gesamte Pfad lässt sich zusammenfassen, indem $Y=Y_1=Y_l=\{1,2,...,st\}$ als Identifikation genutzt wird.
+Diese lässt sich unterteilen, indem die Menge $Y_x$ für beliebige $x\in X$ die zu $x$ adjazenten Knoten in $Y$ beschreibt.
+Eine ähnliche Menge $Y_z$ für alle $z\in Z$ lässt sich durch die zu $z$ adjazenten Knoten aus $Y$ bilden.
+Daraus folgt, dass für beliebige $x\neq x'$ aus $X$ und $z\neq z'$ aus Z folgendes gilt:
+\begin{displaymath}
+	|Y_x|=t\text{, }|Y_z|=b\text{, }Y_x\cap Y_{x'}=\emptyset \text{ und }Y_z\cap Y_{z'}=\emptyset
+\end{displaymath}
+Die hier definierten Symbole werden in Abbildung \ref{fig:hypergraph1} beispielhaft dargestellt.
+
+%TODO links und rechts tauschen!
+\begin{figure}[t]
+	\centering
+	\fbox{\includegraphics[width=0.75\textwidth]{./img/hypergraph.png}}
+	\caption{Beispiel für die Darstellung der im Beweis für Bedingung \emph{C} eingeführten Symbole}
+	\label{fig:hypergraph1}
+\end{figure}
+
+
+Es wird nun der \gls{hypergraph} $\mathcal{Y}_G$ auf den Knoten von $Y$ gebildet. 
+Dabei wird für jedes $x\in X$ und $z\in Z$ eine Hyperkante aus der Knotenmenge von $Y_x$ beziehungsweise $Y_z$ erstellt, wodurch sich die gesamte Kantenmenge durch $\{Y_x\}_{x\in X}\cup \{Y_z\}_{z\in Z}$ zusammensetzt.
+Zwei dieser Hyperkanten sind in Abbildung \ref{fig:hypergraph1} beispielhaft eingetragen, der Graph enthält selbstverständlich aber noch weitere.
+Falls für irgendwelche $x$ und $z$ die Mengen $Y_x$ und $Y_z$ identisch sind, so enthält dieser Graph auch Mehrfachkanten.
+Der ursprünglich betrachtete Pfad $P$ wird \emph{flach} genannt, sofern kein Paar $(x,z)\in X\times Y$ existiert, sodass keine der entsprechenden Hyperkanten $Y_x$ und $Y_z$ die andere enthält.
+Es werden nun die Knoten in $Y$ so umsortiert, dass die Hyperkanten $Y_z, z\in Z$ aufeinanderfolgende Intervalle beschreiben, was in dem abgebildeten Beispiel bereits optisch so dargestellt wurde.
+
+Es wird nun wieder ein zu $G$ nicht isomorpher Graph $H$ gebildet, welcher vom Color Refinement nicht von diesem unterschieden werden kann.
+Ist $P$ in $G$ flach, wird $H$ so konstruiert, dass der Pfad $P$ nicht mehr flach ist.
+Dies ist möglich, indem die Kanten des Subgraphen $G[X,Y_1]$ durch einen isomorphen aber anderen Subgraphen ersetzt werden, sodass die in $\mathcal{Y}_H$ gebildeten Hyperkanten in aufeinanderfolgenden Intervallen stehen.
+Formal wird also $\mathcal{Y}_H=\{Y_i\}_{i\in [s]}\cup \{Y_z\}_{z\in Z}$ mit $Y_i=\{(i-1)t+1,2,...,it\}$ definiert.
+Der Pfad $P$ ist somit nicht mehr flach, da sowohl wie vorher beschrieben die Hyperkanten ${Y_z}$, als auch die Hyperkanten $\{Y_x\}$ in aufeinanderfolgender Reihenfolge in Y liegen, wodurch sichergestellt ist, dass es immer ein $(x,z)$, sodass eine der entsprechenden Hyperkanten die andere einschließt.
+Für das vorgestellte Beispiel ist in Abbildung \ref{fig:hypergraph2} diese Erweiterung mit einem ersetzten Subgraphen $G[X,Y_1]$, sowie den Hyperkanten $\{Y_x\}$ in rot und $\{Y_z\}$ in grün zu sehen.
+
+%TODO Abblidung einfügen!
+\begin{figure}[t]
+	\centering
+	\fbox{\includegraphics[width=0.75\textwidth]{./img/hypergraph.png}}
+	\caption{Erweiterung des Beispiels, sodass der Pfad nicht mehr flach ist}
+	\label{fig:hypergraph2}
+\end{figure}
+
+Ist $P$ in $G$ allerdings nicht flach, so wird der Subgraph $G[X,Y_1]$ in $H$ so ersetzt, dass der entsprechende Pfad $P$ in $H$ flach wird.
+Formal ist also $Y_i=\{i,i+s,...,i+(t-1)s\}$.
+
+$H$ ist somit in der Tat nicht zu $G$ isomorph, da für diese Eigenschaft der Pfad $P$ in beiden Graphen entweder flach oder in beiden Graphen nicht flach sein müsste.
+Aus Teil (a) von Lemma \ref{lemma:lokal_nicht_unterscheidbar} folgt außerdem, dass das Color Refinement die beiden Graphen nicht unterscheiden kann, wodurch klar ist, dass der Graph $G$ kein CR-Graph sein kann.
 
 \subsection{Baumartige Struktur von CR-Graphen}
 Bei genauerer Betrachtung fällt auf, dass der Zellgraph von CR-Graphen eine baumartige Struktur aufweist.
