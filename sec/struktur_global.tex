@@ -157,7 +157,20 @@ Ist $P$ in $G$ allerdings nicht flach, so wird der Subgraph $G[X,Y_1]$ in $H$ so
 Formal ist also $Y_i=\{i,i+s,...,i+(t-1)s\}$.
 
 $H$ ist somit in der Tat nicht zu $G$ isomorph, da für diese Eigenschaft der Pfad $P$ in beiden Graphen entweder flach oder in beiden Graphen nicht flach sein müsste.
-Aus Teil (a) von Lemma \ref{lemma:lokal_nicht_unterscheidbar} folgt außerdem, dass das Color Refinement die beiden Graphen nicht unterscheiden kann, wodurch klar ist, dass der Graph $G$ kein CR-Graph sein kann.
+Aus Teil (a) von Lemma \ref{lemma:lokal_nicht_unterscheidbar} folgt außerdem, dass das Color Refinement die beiden Graphen nicht unterscheiden kann, wodurch klar ist, dass der Graph $G$ kein CR-Graph sein kann.\\
+
+\emph{Beweis F:} Dieser Beweis läuft ähnlich wie der von Bedingung \emph{E} ab, weshalb sich viele Parallelen erkennen lassen.
+Sei $P=XY_1Y_2...Y_l$ ein anisotroper Pfad in $C(G)$, wobei die Kardinalitäten der Zellen dem Schema $|X|<|Y_1|=|Y_2|=...=|Y_l|$ folgen und $Y_l$ heterogen ist.
+Für alle Kanten des Pfades, welche eine Co-Konstellation sind, wird im Folgenden wieder das Komplement betrachtet.
+Es sei $G[X,Y_1]=sK_{1,t}$ eine disjunkte Vereinigung von Sternen mit $s,t\geq 2$ und $|Y_1|=st$, wodurch $Y_l$ nur gerade Kardinalität haben kann.
+Nach Lemma \ref{lemma:lokal} \emph{A} kann $Y_l$ nur ein Matching Graph oder dessen Komplement sein, in welchem Falle ab sofort das Komplement von $Y_l$ betrachtet wird.
+Dies ist der Fall, da auszuschließen ist, dass der heterogene Knoten nicht vollständig oder leer sein kann und ein 5er \gls{zyklus} ebenfalls nicht möglich ist, da $Y_l$ gerade Kardinalität hat.
+
+Es wird nun wie im Beweis von \emph{E} die Identität $Y=Y_1=Y_l=\{1,2,...,st\}$ gebildet.
+Außerdem wird der Hypergraph $\mathcal{Y}_G=\{Y_x\}_{x\in X}\cup \mathcal{E}$ erstellt, wobei $Y_x$ wieder die Menge der zu $x\in X$ adjazenten Knoten in $Y$ und $\mathcal{E}$ die Menge der Paare aus $G[Y_l]$, welche durch eine Matching-Kante verbunden sind, definiert.
+
+Nun kann wie im Beweis von Bedingung \emph{E} der Isomorphietyp von $\mathcal{Y}_G$ verändert werden, indem die Kanten von $G[X,Y_1]$ durch einen isomorphen aber anderen Graphen ersetzt werden.
+Somit kann ein zu $G$ nicht isomorpher Graph $H$ erzeugt werden, welcher aber nach Lemma \ref{lemma:lokal_nicht_unterscheidbar} nicht durch das Color Refinement von diesem unterschieden werden kann.
 
 \subsection{Baumartige Struktur von CR-Graphen}
 Bei genauerer Betrachtung fällt auf, dass der Zellgraph von CR-Graphen eine baumartige Struktur aufweist.
