@@ -75,11 +75,57 @@ Angenommen eine der beiden Komponenten ist matching und die andere ist co-matchi
 Nachfolgend wird ein Graph $H$ erstellt werden, der nicht zu $G$ isomorph ist, welchen das Color Refinement allerdings nicht von $G$ unterscheiden kann.
 Da $X$ und $Y$ heterogen sind, können die Kanten des Subgraphen $G[X]$ durch einen isomorphen aber unterschiedlichen Graphen mit der gleichen Knotenmenge $X$ ersetzt werden.
 Ist $P$ in $G$ conducting, so muss $G[X]$ so ersetzt werden, dass der entstehende Pfad in $H$ nicht conducting ist, anderenfalls muss der entsprechende Pfad in $H$ conducting sein.
-Ein Beispiel für ein solches Ersetzen findet sich in Abbildung \ref{fig:global_c}.
+Ein Beispiel für ein solches Ersetzen von $G[X]$ findet sich in Abbildung \ref{fig:global_c}.
+Dabei ist der durch die gestrichelten Linien dargestellte Pfad im Ausgangsgraphen links conducting und im modifizierten Graphen rechts nicht mehr, wodurch die Graphen nicht mehr isomorph sind.
 
 \begin{figure}[t]
 	\centering
-	\fbox{\includegraphics[width=0.75\textwidth]{./img/global_c.jpg}}
+	\begin{tikzpicture}
+		\begin{scope}
+			\node[main node] (1) {$1$};
+			\node[main node] (2) [below left = 0.5cm and 0.85 of 1] {$2$};
+			\node[main node] (3) [below = 1cm of 1] {$3$};
+			\node[main node] (4) [right = 3cm of 1] {$4$};
+			\node[main node] (5) [right = 3cm of 2] {$5$};
+			\node[main node] (6) [right = 3cm of 3] {$6$};
+
+			\path[draw,very thick]
+			(1) edge node {} (3)
+			(4) edge node {} (5);
+			
+			\path[draw,dashed]
+			(1) edge node {} (4)
+			(3) edge node {} (5);
+			
+			\node (ctrl) [below left = 1cm and 0.3cm of 3] {};			
+			\draw[dashed] (2) .. controls (ctrl) .. (6);
+			
+			\node (fix circle) [right = -0.2cm of 5] {};
+			\node[draw=red,dashed,fit=(4) (fix circle) (6),circle] (circle) {};
+			
+			\node[red] (text) [right = -1.2cm of circle] {$G[X]$};
+		\end{scope}
+		
+		\begin{scope}[xshift=9cm]
+			\node[main node] (1) {$1$};
+			\node[main node] (2) [below left = 0.5cm and 0.85 of 1] {$2$};
+			\node[main node] (3) [below = 1cm of 1] {$3$};
+			\node[main node] (4) [right = 3cm of 1] {$4$};
+			\node[main node] (5) [right = 3cm of 2] {$5$};
+			\node[main node] (6) [right = 3cm of 3] {$6$};
+			
+			\path[draw,very thick]
+			(1) edge node {} (3)
+			(5) edge node {} (6);
+			
+			\path[draw,dashed]
+			(1) edge node {} (4)
+			(3) edge node {} (5);
+			
+			\node (ctrl) [below left = 1cm and 0.3cm of 3] {};			
+			\draw[dashed] (2) .. controls (ctrl) .. (6);
+		\end{scope}
+	\end{tikzpicture}
 	\caption{Beispiel für das Ersetzen eines Subgraphen in Lemma \ref{lemma:global1} \emph{C}}
 	\label{fig:global_c}
 \end{figure}
@@ -122,10 +168,102 @@ Daraus folgt, dass für beliebige $x\neq x'$ aus $X$ und $z\neq z'$ aus Z folgen
 \end{displaymath}
 Die hier definierten Symbole werden in Abbildung \ref{fig:hypergraph1} beispielhaft dargestellt.
 
-%TODO links und rechts tauschen!
 \begin{figure}[t]
 	\centering
-	\fbox{\includegraphics[width=0.75\textwidth]{./img/hypergraph.png}}
+	\begin{tikzpicture}
+		\begin{scope}
+			\node[main node] (1) {$1$};
+			\node[main node] (2) [below = 0.5cm of 1] {$2$};
+			
+			\node[main node] (3) [left = 3cm of 1] {$3$};
+			\node[main node] (4) [above = 0.5cm of 3] {$4$};
+			\node[main node] (5) [above = 0.5cm of 4] {$5$};
+			\node[main node] (6) [below = 0.5cm of 3] {$6$};
+			\node[main node] (7) [below = 0.5cm of 6] {$7$};
+			\node[main node] (8) [below = 0.5cm of 7] {$8$};
+			
+			\node[main node] (9) [above left = 0.2cm and 3cm of 3] {$9$};
+			\node[main node] (10) [below = 0.5cm of 9] {$10$};
+			\node[main node] (11) [below = 0.5cm of 10] {$11$};
+
+			\path[draw,thick]
+			(2) edge node {} (6)
+			(2) edge node {} (7)
+			(2) edge node {} (8)
+			(9) edge node {} (5)
+			(9) edge node {} (3)
+			(11) edge node {} (6)
+			(11) edge node {} (8);
+			
+			\path[draw,thick,green]
+			(10) edge node {} (4)
+			(10) edge node {} (7);
+			
+			\path[draw,thick,red]
+			(1) edge node {} (5)
+			(1) edge node {} (4)
+			(1) edge node {} (3);
+			
+			\node (X) [below = 0.2cm of 11] {$X=2K_{1,3}$};
+			\node (Y) [below = 0.2cm of 8] {$Y$};
+			\node (Z) [below = 0.2cm of 2] {$Z=3K_{1,2}$};
+			
+			\node[bezier] (tl5) [above left = 0.35cm and 0.1cm of 5] {};
+			\node[bezier] (tr5) [above right = 0.35cm and 0.1cm of 5] {};
+			\node[bezier] (l5) [left = 0.1cm of 5] {};
+			\node[bezier] (r5) [right = 0.1cm of 5] {};
+			
+			\node[bezier] (l3) [left = 0.1cm of 3] {};
+			\node[bezier] (r3) [right = 0.1cm of 3] {};
+			\node[bezier] (bl3) [below left = 0.35cm and 0.1cm of 3] {};
+			\node[bezier] (br3) [below right = 0.35cm and 0.1cm of 3] {};
+			
+			\draw[very thick,dashed,red] (l5) .. controls (tl5) and (tr5) .. (r5)
+			(r5) -- (r3)
+			(r3) .. controls (br3) and (bl3) .. (l3)
+			(l3) -- (l5);
+			
+			
+			\node[bezier] (tr7) [above right = 0.1cm and 0.35cm of 7] {};
+			\node[bezier] (br7) [below right = 0.1cm and 0.35cm of 7] {};
+			\node[bezier] (t7) [above = 0.1cm of 7] {};
+			\node[bezier] (b7) [below = 0.1cm of 7] {};
+			
+			\node[bezier] (tl7) [left = 0.5cm of t7] {};
+			\node[bezier] (bl6) [below left = 0.1cm and 0.35cm of 6] {};
+			
+			\node[bezier] (tr4) [above right = 0.1cm and 0.35cm of 4] {};
+			\node[bezier] (br4) [below right = 0.1cm and 0.35cm of 4] {};
+			\node[bezier] (t4) [above = 0.1cm of 4] {};
+			\node[bezier] (b4) [below = 0.1cm of 4] {};
+			
+			\node[bezier] (bl4) [left = 0.5cm of b4] {};
+			\node[bezier] (tl3) [above left = 0.1cm and 0.35cm of 3] {};
+			
+			\node[bezier] (tlx1) [left = 0.7cm of t4] {};
+			\node[bezier] (tlx2) [below left = 0.1cm and 0.4cm of tlx1] {};
+			\node[bezier] (tlx3) [below left = 0.5cm and 0.5cm of tlx1] {};
+			
+			\node[bezier] (blx1) [left = 0.7cm of b7] {};
+			\node[bezier] (blx2) [above left = 0.1cm and 0.4cm of blx1] {};
+			\node[bezier] (blx3) [above left = 0.5cm and 0.5cm of blx1] {};
+			
+			\draw[very thick,dashed,green] 
+			(b7) -- (blx1)
+			(blx1) .. controls (blx2) .. (blx3)
+			(blx3) -- (tlx3)
+			(tlx3) .. controls (tlx2) .. (tlx1)
+			(tlx1) -- (t4)
+			(t4) .. controls (tr4) and (br4) .. (b4)
+			(b4) .. controls (bl4) .. (tl3)
+			(tl3) -- (bl6)
+			(bl6) .. controls (tl7) .. (t7)
+			(t7) .. controls (tr7) and (br7) .. (b7);
+			
+			\node (Yx) [green, right = 1.3cm of 10] {$Y_x$};
+			\node (Yz) [red, right = 0.1cm of 5] {$Y_z$};
+		\end{scope}
+	\end{tikzpicture}
 	\caption{Beispiel für die Darstellung der im Beweis für Bedingung \emph{C} eingeführten Symbole}
 	\label{fig:hypergraph1}
 \end{figure}
@@ -143,12 +281,123 @@ Ist $P$ in $G$ flach, wird $H$ so konstruiert, dass der Pfad $P$ nicht mehr flac
 Dies ist möglich, indem die Kanten des Subgraphen $G[X,Y_1]$ durch einen isomorphen aber anderen Subgraphen ersetzt werden, sodass die in $\mathcal{Y}_H$ gebildeten Hyperkanten in aufeinanderfolgenden Intervallen stehen.
 Formal wird also $\mathcal{Y}_H=\{Y_i\}_{i\in [s]}\cup \{Y_z\}_{z\in Z}$ mit $Y_i=\{(i-1)t+1,2,...,it\}$ definiert.
 Der Pfad $P$ ist somit nicht mehr flach, da sowohl wie vorher beschrieben die Hyperkanten ${Y_z}$, als auch die Hyperkanten $\{Y_x\}$ in aufeinanderfolgender Reihenfolge in Y liegen, wodurch sichergestellt ist, dass es immer ein $(x,z)$, sodass eine der entsprechenden Hyperkanten die andere einschließt.
-Für das vorgestellte Beispiel ist in Abbildung \ref{fig:hypergraph2} diese Erweiterung mit einem ersetzten Subgraphen $G[X,Y_1]$, sowie den Hyperkanten $\{Y_x\}$ in rot und $\{Y_z\}$ in grün zu sehen.
+Für das vorgestellte Beispiel ist in Abbildung \ref{fig:hypergraph2} diese Erweiterung mit einem ersetzten Subgraphen $G[X,Y_1]$, sowie den Hyperkanten $\{Y_x\}$ in grün und $\{Y_z\}$ in rot zu sehen.
+Es ist erkennbar, dass einige der Mengen von $\{Y_x\}$ vollständig in einer Menge von $\{Y_z\}$ ligen, womit der Pfad nicht mehr flach ist.
 
-%TODO Abblidung einfügen!
 \begin{figure}[t]
 	\centering
-	\fbox{\includegraphics[width=0.75\textwidth]{./img/hypergraph.png}}
+	\begin{tikzpicture}
+		\begin{scope}
+			\node[main node] (1) {$1$};
+			\node[main node] (2) [below = 0.5cm of 1] {$2$};
+			
+			\node[main node] (3) [left = 3cm of 1] {$3$};
+			\node[main node] (4) [above = 0.5cm of 3] {$4$};
+			\node[main node] (5) [above = 0.5cm of 4] {$5$};
+			\node[main node] (6) [below = 0.5cm of 3] {$6$};
+			\node[main node] (7) [below = 0.5cm of 6] {$7$};
+			\node[main node] (8) [below = 0.5cm of 7] {$8$};
+			
+			\node[main node] (9) [above left = 0.2cm and 3cm of 3] {$9$};
+			\node[main node] (10) [below = 0.5cm of 9] {$10$};
+			\node[main node] (11) [below = 0.5cm of 10] {$11$};
+			
+			\path[draw,thick,red]
+			(1) edge node {} (5)
+			(1) edge node {} (4)
+			(1) edge node {} (3)
+			(2) edge node {} (6)
+			(2) edge node {} (7)
+			(2) edge node {} (8);
+			
+			\path[draw,thick,green]
+			(9) edge node {} (5)
+			(9) edge node {} (4)
+			(10) edge node {} (3)
+			(10) edge node {} (6)
+			(11) edge node {} (7)
+			(11) edge node {} (8);
+			
+			\node (X) [below = 0.2cm of 11] {$X$};
+			\node (Y) [below = 0.2cm of 8] {$Y$};
+			\node (Z) [below = 0.2cm of 2] {$Z$};
+			
+			\node[bezier] (tl5) [above left = 0.35cm and 0.1cm of 5] {};
+			\node[bezier] (tr5) [above right = 0.35cm and 0.1cm of 5] {};
+			\node[bezier] (l5) [left = 0.1cm of 5] {};
+			\node[bezier] (r5) [right = 0.1cm of 5] {};
+			
+			\node[bezier] (l3) [left = 0.1cm of 3] {};
+			\node[bezier] (r3) [right = 0.1cm of 3] {};
+			\node[bezier] (bl3) [below left = 0.35cm and 0.1cm of 3] {};
+			\node[bezier] (br3) [below right = 0.35cm and 0.1cm of 3] {};
+			
+			\draw[very thick,dashed,red] (l5) .. controls (tl5) and (tr5) .. (r5)
+			(r5) -- (r3)
+			(r3) .. controls (br3) and (bl3) .. (l3)
+			(l3) -- (l5);
+			
+			\node[bezier] (tl6) [above left = 0.35cm and 0.1cm of 6] {};
+			\node[bezier] (tr6) [above right = 0.35cm and 0.1cm of 6] {};
+			\node[bezier] (l6) [left = 0.1cm of 6] {};
+			\node[bezier] (r6) [right = 0.1cm of 6] {};
+			
+			\node[bezier] (l8) [left = 0.1cm of 8] {};
+			\node[bezier] (r8) [right = 0.1cm of 8] {};
+			\node[bezier] (bl8) [below left = 0.35cm and 0.1cm of 8] {};
+			\node[bezier] (br8) [below right = 0.35cm and 0.1cm of 8] {};
+			
+			\draw[very thick,dashed,red] (l6) .. controls (tl6) and (tr6) .. (r6)
+			(r6) -- (r8)
+			(r8) .. controls (br8) and (bl8) .. (l8)
+			(l8) -- (l6);
+			
+			\node[bezier] (tl52) [above left = 0.45cm and 0.2cm of 5] {};
+			\node[bezier] (tr52) [above right = 0.45cm and 0.2cm of 5] {};
+			\node[bezier] (l52) [left = 0.2cm of 5] {};
+			\node[bezier] (r52) [right = 0.2cm of 5] {};
+			
+			\node[bezier] (l42) [left = 0.2cm of 4] {};
+			\node[bezier] (r42) [right = 0.2cm of 4] {};
+			\node[bezier] (bl42) [below left = 0.45cm and 0.2cm of 4] {};
+			\node[bezier] (br42) [below right = 0.45cm and 0.2cm of 4] {};
+			
+			\draw[very thick,dashed,green] (l52) .. controls (tl52) and (tr52) .. (r52)
+			(r52) -- (r42)
+			(r42) .. controls (br42) and (bl42) .. (l42)
+			(l42) -- (l52);
+			
+			\node[bezier] (tl32) [above left = 0.45cm and 0.2cm of 3] {};
+			\node[bezier] (tr32) [above right = 0.45cm and 0.2cm of 3] {};
+			\node[bezier] (l32) [left = 0.2cm of 3] {};
+			\node[bezier] (r32) [right = 0.2cm of 3] {};
+			
+			\node[bezier] (l62) [left = 0.2cm of 6] {};
+			\node[bezier] (r62) [right = 0.2cm of 6] {};
+			\node[bezier] (bl62) [below left = 0.45cm and 0.2cm of 6] {};
+			\node[bezier] (br62) [below right = 0.45cm and 0.2cm of 6] {};
+			
+			\draw[very thick,dashed,green] (l32) .. controls (tl32) and (tr32) .. (r32)
+			(r32) -- (r62)
+			(r62) .. controls (br62) and (bl62) .. (l62)
+			(l62) -- (l32);
+			
+			\node[bezier] (tl72) [above left = 0.45cm and 0.2cm of 7] {};
+			\node[bezier] (tr72) [above right = 0.45cm and 0.2cm of 7] {};
+			\node[bezier] (l72) [left = 0.2cm of 7] {};
+			\node[bezier] (r72) [right = 0.2cm of 7] {};
+			
+			\node[bezier] (l82) [left = 0.2cm of 8] {};
+			\node[bezier] (r82) [right = 0.2cm of 8] {};
+			\node[bezier] (bl82) [below left = 0.45cm and 0.2cm of 8] {};
+			\node[bezier] (br82) [below right = 0.45cm and 0.2cm of 8] {};
+			
+			\draw[very thick,dashed,green] (l72) .. controls (tl72) and (tr72) .. (r72)
+			(r72) -- (r82)
+			(r82) .. controls (br82) and (bl82) .. (l82)
+			(l82) -- (l72);
+		\end{scope}
+	\end{tikzpicture}
 	\caption{Erweiterung des Beispiels, sodass der Pfad nicht mehr flach ist}
 	\label{fig:hypergraph2}
 \end{figure}

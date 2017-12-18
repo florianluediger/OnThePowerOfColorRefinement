@@ -44,7 +44,43 @@ Somit lässt sich wie in Korollar \ref{kor:cr-graph} formuliert die Äquivalenz 
 
 \begin{figure}[t]
 	\centering
-	\fbox{\includegraphics[width=0.75\textwidth]{./img/nicht_isomorphe_graphen.png}}
+	\begin{tikzpicture}
+		\begin{scope}
+			\node[main node] (1) {$1$};
+			\node[main node] (2) [below left = 0.8cm and 1.4cm of 1]  {$2$};
+			\node[main node] (6) [below right = 0.8cm and 1.4cm of 1] {$6$};
+			\node[main node] (3) [below = 1.4cm of 2] {$3$};
+			\node[main node] (5) [below = 1.4cm of 6] {$5$};
+			\node[main node] (4) [below right = 0.8cm and 1.4cm of 3] {$4$};
+			
+			\path[draw,thick]
+			(1) edge node {} (2)
+			(2) edge node {} (3)
+			(3) edge node {} (4)
+			(4) edge node {} (5)
+			(5) edge node {} (6)
+			(6) edge node {} (1);
+		\end{scope}
+		
+		\node [below right = 0.4cm and 1.3cm of 6] {\huge $\not\simeq$};
+		
+		\begin{scope}[xshift=8cm]
+			\node[main node] (1) {$1$};
+			\node[main node] (2) [below left = 0.8cm and 1.4cm of 1]  {$2$};
+			\node[main node] (6) [below right = 0.8cm and 1.4cm of 1] {$6$};
+			\node[main node] (3) [below = 1.4cm of 2] {$3$};
+			\node[main node] (5) [below = 1.4cm of 6] {$5$};
+			\node[main node] (4) [below right = 0.8cm and 1.4cm of 3] {$4$};
+			
+			\path[draw,thick]
+			(1) edge node {} (2)
+			(2) edge node {} (6)
+			(3) edge node {} (4)
+			(4) edge node {} (5)
+			(5) edge node {} (3)
+			(6) edge node {} (1);
+		\end{scope}
+	\end{tikzpicture}
 	\caption{Zwei nicht isomorphe Graphen, welche vom Color Refinement nicht unterschieden werden können}
 	\label{fig:nicht_isomorphe_graphen}
 \end{figure}

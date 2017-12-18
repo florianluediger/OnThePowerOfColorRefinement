@@ -36,6 +36,7 @@
 \usepackage[nogroupskip,style=altlist]{glossaries}			% Verwaltung des Glossars
 \usepackage{enumitem}										% Erweiterte Funktionen der enumerate Umgebung
 \usepackage[autostyle=true,german=quotes]{csquotes}			% Wird für den Befehl \enquote benötigt
+\usepackage{tikz}											% Ermöglicht das Zeichnen von Grafiken
 
 \captionsetup{farskip=10pt,topadjust=0pt,captionskip=10pt,nearskip=0pt,margin=10pt}
 
@@ -57,6 +58,12 @@
 % Neudefinieren von \emph
 \let\emph\relax % there's no \RedeclareTextFontCommand
 \DeclareTextFontCommand{\emph}{\bfseries}
+
+% Treffen von Einstellungen für tikz
+\usetikzlibrary{positioning}
+\usetikzlibrary{fit}
+\tikzset{main node/.style={circle,fill=blue!30,draw,minimum size=0.7cm,inner sep=0pt},}
+\tikzset{bezier/.style={inner sep=0pt,minimum size=0cm},}
 
 \input{./ressources/glossary}
 
