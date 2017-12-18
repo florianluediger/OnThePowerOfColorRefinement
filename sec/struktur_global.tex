@@ -218,7 +218,7 @@ Die hier definierten Symbole werden in Abbildung \ref{fig:hypergraph1} beispielh
 			\node[bezier] (bl3) [below left = 0.35cm and 0.1cm of 3] {};
 			\node[bezier] (br3) [below right = 0.35cm and 0.1cm of 3] {};
 			
-			\draw[very thick,dashed,red] (l5) .. controls (tl5) and (tr5) .. (r5)
+			\draw[very thick,dotted,red] (l5) .. controls (tl5) and (tr5) .. (r5)
 			(r5) -- (r3)
 			(r3) .. controls (br3) and (bl3) .. (l3)
 			(l3) -- (l5);
@@ -262,6 +262,10 @@ Die hier definierten Symbole werden in Abbildung \ref{fig:hypergraph1} beispielh
 			
 			\node (Yx) [green, right = 1.3cm of 10] {$Y_x$};
 			\node (Yz) [red, right = 0.1cm of 5] {$Y_z$};
+			
+			\node (text1) [below = 1cm of 8] {$s=2$, $t=3$, $a=3$, $b=2$};
+			\node (text2) [below = 0.2cm of text1] {$|X|=s=2$, $|Z|=a=3$, $Y_1|=|Y_l|=|Y|=st=ab=6$};
+			\node (text3) [below = 0.2cm of text2] {$|Y_x|=t=3$, $|Y_z|=b=2$};
 		\end{scope}
 	\end{tikzpicture}
 	\caption{Beispiel für die Darstellung der im Beweis für Bedingung \emph{C} eingeführten Symbole}
@@ -332,7 +336,7 @@ Es ist erkennbar, dass einige der Mengen von $\{Y_x\}$ vollständig in einer Men
 			\node[bezier] (bl3) [below left = 0.35cm and 0.1cm of 3] {};
 			\node[bezier] (br3) [below right = 0.35cm and 0.1cm of 3] {};
 			
-			\draw[very thick,dashed,red] (l5) .. controls (tl5) and (tr5) .. (r5)
+			\draw[very thick,dotted,red] (l5) .. controls (tl5) and (tr5) .. (r5)
 			(r5) -- (r3)
 			(r3) .. controls (br3) and (bl3) .. (l3)
 			(l3) -- (l5);
@@ -347,7 +351,7 @@ Es ist erkennbar, dass einige der Mengen von $\{Y_x\}$ vollständig in einer Men
 			\node[bezier] (bl8) [below left = 0.35cm and 0.1cm of 8] {};
 			\node[bezier] (br8) [below right = 0.35cm and 0.1cm of 8] {};
 			
-			\draw[very thick,dashed,red] (l6) .. controls (tl6) and (tr6) .. (r6)
+			\draw[very thick,dotted,red] (l6) .. controls (tl6) and (tr6) .. (r6)
 			(r6) -- (r8)
 			(r8) .. controls (br8) and (bl8) .. (l8)
 			(l8) -- (l6);
