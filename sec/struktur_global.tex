@@ -427,9 +427,10 @@ Somit kann ein zu $G$ nicht isomorpher Graph $H$ erzeugt werden, welcher aber na
 
 \subsection{Baumartige Struktur von CR-Graphen}
 Bei genauerer Betrachtung fällt auf, dass der Zellgraph von CR-Graphen eine baumartige Struktur aufweist.
-Um das folgende Lemma verstehen zu können, wird der Begriff \emph{anisotrope Komponente} benötigt.
+Dies folgt schon daraus, dass Bedingung \emph{D} und \emph{E} zusammen verbieten, dass in einem Subgraphen mit ausschließlich anisotropen Kanten, keine Kreise erlaubt sind und somit eine Baumstruktur erkennbar ist.
+Um das folgende Lemma verstehen zu können, welches diese Baumstruktur genauer spezifiziert, wird der Begriff \emph{anisotrope Komponente} benötigt.
 \begin{Definition}
-	In einem Zellgraphen $C(G)$ bezeichnet eine \emph{anisotrope Komponente} einen Subgraphen, dessen Kanten alle isotrop sind.
+	In einem Zellgraphen $C(G)$ bezeichnet eine \emph{anisotrope Komponente} einen Subgraphen, dessen Kanten alle anisotrop sind.
 	Wenn eine Zelle keine inzidente, anisotrope Kante besitzt, dann ergibt sich daraus eine anisotrope Komponente mit nur einer Zelle.
 \end{Definition}
 
@@ -445,3 +446,14 @@ Um das folgende Lemma verstehen zu können, wird der Begriff \emph{anisotrope Ko
 	\label{lemma:global2}
 \end{Lemma}
 
+\emph{Beweis G:} Wegen Bedingung \emph{D} kann $A$ keinen gleichmäßigen, anisotropen Zyklus enthalten und das Vorkommen sämtlicher anderer anisotroper Zyklen wird durch Bedingung \emph{E} ausgeschlossen. Außerdem folgt aus \emph{E} die Monotonieeigenschaft.\\
+
+\emph{Beweis H:} Angenommen es gäbe zwei heterogene Zellen $S$ und $T$ in $A$, dann sei $S=Z_1,Z_2,...,Z_l=T$ der Pfad, welcher die beiden verbindet.
+Die Monotonieeigenschaft von Bedingung \emph{G}, gibt es ein $j$, sodass $|Z_1|\geq ... \geq |Z_j|\leq ... \leq |Z_l|$ gilt, wobei außerdem $j\in \{1,l\}$ erlaubt ist.
+Dabei stellt $Z_j$ die Wurzel des in \emph{G} beschriebenen Baumes dar.
+Durch Bedingung \emph{C} ist außerdem ausgeschlossen, dass dieser Pfad gleichmäßig ist, weshalb mindestens eine der Ungleichungen strikt sein muss.
+Die Existenz eines so geformten Pfades ist allerdings durch Bedingung \emph{F} ausgeschlossen.
+
+Nun bleibt noch zu zeigen, dass eine heterogene Zelle $R$ in $A$ minimale Kardinalität innerhalb von $A$ besitzt.
+Im Folgenden wird dazu ein Pfad $R=Z_1,Z_2,...,Z_l=S$ betrachtet, welcher $R$ mit der Zelle $S$ verbindet, welche minimale Kardinalität in $A$ besitzt.
+Ebenfalls aus Bedingung \emph{F} und durch die Monotonieegenschaft von Bedingung \emph{G} folgt, dass dieser Pfad gleichmäßig sein muss, weshalb $|R|=|S|$ gelten muss und $R$ damit ebenfalls eine Zelle minimaler Kardinalität ist.
