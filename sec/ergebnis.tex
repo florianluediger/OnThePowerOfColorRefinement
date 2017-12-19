@@ -44,7 +44,7 @@ Aus dieser Eigenschaft und Bedingung \emph{A} folgt somit, dass $G[X]$ ein Unigr
 Behauptung (b) folgt nach derselben Begründung aus Bedingung \emph{B}.\\
 
 Da die in Lemma \ref{lemma:zell_isomorphismus} festgestellte Isomorphie zwischen den Zellgraphen $C(G)$ und $C(H)$ nicht ausreicht, um auf eine Isomorphie zwischen $G$ und $H$ zu schließen, wird im Folgenden der Isomorphismus $\phi $ aufgestellt.
-Siehe dazu auch Kapitel [soundso], wo beschrieben wird, dass für den vorgestellten Graphen, welcher kein CR-Graph ist, die Bedingungen \emph{A} und \emph{B} dennoch erfüllt sind. %TODO Verweis einfügen
+Siehe dazu auch Kapitel \ref{sec/anwendungsbeispiel}, wo beschrieben wird, dass für den vorgestellten Graphen, welcher kein CR-Graph ist, die Bedingungen \emph{A} und \emph{B} dennoch erfüllt sind.
 Lemma \ref{lemma:zell_isomorphismus} lässt darauf schließen, dass $\phi (X)=f(X)$ bereits ein gültiger Isomorphismus zum Abbilden der Subgraphen von Zellen aufeinander ist.
 
 Die lokalen Eigenschaften von CR-Graphen helfen also dabei diesen Isomorphismus teilweise aufzustellen, dieser muss allerdings auch Zellübergreifend korrekt definiert sein, weshalb die globalen Eigenschaften ebenfalls benötigt werden.
@@ -57,6 +57,112 @@ Angenommen $\phi$ sei bereits für die Zelle $X$ definiert, so kann dieses über
 Für die Zelle $Y$ muss $\phi$ dann nur noch so gewählt werden, dass dieses einen Isomorphismus von $G[X,Y]$ nach $H[f(X),f(Y)]$ darstellt, was wegen (b) und der Tatsache, dass alle Knoten von $Y$ den Grad 1 im bipartiten Graphen $G[X,Y]$ oder dessen bipartiten Komplement hat, was ebenfalls für $f(Y)$ gilt, möglich ist.\\
 
 Da $\phi$ durch seine Konstruktion ein Isomorphismus zwischen $G[X]$ und $H[f(X)]$ sowie zwischen $G[X,Y]$ und $H[f(X),f(Y)]$ ist, ergibt sich, dass $\phi$ ebenfalls ein Isomorphismus von $G$ zu $H$ ist.
+
+\subsection{Anwendungsbeispiel}
+\label{sec/anwendungsbeispiel}
+Um die Verwendung der unterschiedlichen Bedingungen zu veranschaulichen wird das aus Kapitel \ref{sec/cr} bekannte Beispiel, wie in Abbildung \ref{fig:anwendungsbeispiel} erkennbar, um zwei Knoten erweitert und im Folgenden auf die Bedingungen überprüft.
+Im Bild sind außerdem die zu der stabilen Partition gehörenden Knotenfärbungen eingezeichnet worden.
+Um die Zuordnung zu den Partitionen im Text zu erleichtern wird die von den blauen Knoten geformte Partition und deren Zellen $\mathcal{B}$, die der grünen Knoten $\mathcal{G}$ und die der roten Knoten $\mathcal{R}$ genannt.
+
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture}
+		\begin{scope}
+			\node[main node] (1) [fill=green!30]{$1$};
+			\node[main node] (2) [fill=red!30,below left = 0.8cm and 1.4cm of 1]  {$2$};
+			\node[main node] (6) [fill=red!30,below right = 0.8cm and 1.4cm of 1] {$6$};
+			\node[main node] (3) [fill=red!30,below = 1.4cm of 2] {$3$};
+			\node[main node] (5) [fill=red!30,below = 1.4cm of 6] {$5$};
+			\node[main node] (4) [fill=green!30,below right = 0.8cm and 1.4cm of 3] {$4$};
+			\node[main node] (7) [above = 1.4cm of 1] {$7$};
+			\node[main node] (8) [below = 1.4cm of 4] {$8$};
+			
+			\path[draw,thick]
+			(1) edge node {} (2)
+			(2) edge node {} (3)
+			(3) edge node {} (4)
+			(4) edge node {} (5)
+			(5) edge node {} (6)
+			(6) edge node {} (1)
+			(1) edge node {} (7)
+			(4) edge node {} (8);
+		\end{scope}
+		
+		\node (simeq) [below right = 0.4cm and 1.3cm of 6] {\huge $\not\simeq$};
+		
+		\node (B) [below right = 2cm and -0.6cm of simeq] {$\rightarrow \mathcal{B}$};
+		\node (G) [below = 0.2cm of B] {$\rightarrow \mathcal{G}$};
+		\node (R) [below = 0.2cm of G] {$\rightarrow \mathcal{R}$};
+		\node[main node] (B1) [left = 0cm of B] {};
+		\node[main node] (G1) [fill=green!30,left = 0cm of G] {};
+		\node[main node] (R1) [fill=red!30,left = 0cm of R] {};
+		
+		\begin{scope}[xshift=8cm]
+			\node[main node] (1) [fill=green!30]{$1$};
+			\node[main node] (2) [fill=red!30,below left = 0.8cm and 1.4cm of 1]  {$2$};
+			\node[main node] (6) [fill=red!30,below right = 0.8cm and 1.4cm of 1] {$6$};
+			\node[main node] (3) [fill=red!30,below = 1.4cm of 2] {$3$};
+			\node[main node] (5) [fill=red!30,below = 1.4cm of 6] {$5$};
+			\node[main node] (4) [fill=green!30,below right = 0.8cm and 1.4cm of 3] {$4$};
+			\node[main node] (7) [above = 1.4cm of 1] {$7$};
+			\node[main node] (8) [below = 1.4cm of 4] {$8$};
+			
+			\path[draw,thick]
+			(1) edge node {} (2)
+			(2) edge node {} (6)
+			(3) edge node {} (4)
+			(4) edge node {} (5)
+			(5) edge node {} (3)
+			(6) edge node {} (1)
+			(1) edge node {} (7)
+			(4) edge node {} (8);
+		\end{scope}
+	\end{tikzpicture}
+	\caption{Zwei nicht isomorphe Graphen, welche vom Color Refinement nicht unterschieden werden können}
+	\label{fig:anwendungsbeispiel}
+\end{figure}
+
+\emph{Bedingung A:} Bedingung \emph{A} wird von beiden Graphen erfüllt, denn $G[\mathcal{B}]$ und $G[\mathcal{G}]$ enthalten keine Kanten und $G[\mathcal{R}]$ ist ein matching-Graph.
+
+\emph{Bedingung B:} Auch diese Bedingung wird von dem betrachteten Graphen erfüllt, sodass die bipartiten Subgraphen $G[\mathcal{B},\mathcal{G}]$ und $G[\mathcal{R},\mathcal{G}]$ jeweils eine disjunkte Vereinigung von Sternen sind und $G[\mathcal{B},\mathcal{R}]$ ein leerer Graph ist.\\
+
+Um nachfolgend geeignet auf die globalen Eigenschaften des vorgestellten Graphenpaars eingehen zu können, wird in Abbildung \ref{fig:anwendungsbeispiel_cell} der zugehörige Zellgraph aufgezeichnet, welcher für beide Graphen identisch ist.
+
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture}
+		\begin{scope}
+			\node[main node] (1) {$1$};
+			\node[main node] (2) [fill=green!30,below left = 0.5cm and 0.85cm of 1] {$2$};
+			\node[main node] (3) [dashed,fill=red!30,below = 1cm of 1] {$3$};
+			
+			\path[draw,thick,dashed] (1) edge node {} (2);
+			\path[draw,thick,dashed] (2) edge node {} (3);
+			\path[draw,thick] (1) edge node {} (3);
+		\end{scope}
+		\begin{scope}[xshift=4cm]
+			\node[main node] (1) [fill=white] {1};
+			\node[main node] (2) [fill=white,dashed,below = 0.15cm of 1] {2};
+			
+			\node (t1) [right = 0.2cm of 1] {homogene Zelle};
+			\node (t2) [right = 0.2cm of 2] {heterogene Zelle};
+			
+			\node[bezier] (31) [below left = 0.55cm and 0.15cm of 2] {};
+			\node[bezier] (32) [right = 0.85cm of 31] {};
+			\path[draw,thick] (31) edge node {} (32);
+			
+			\node[bezier] (41) [below = 0.75cm of 31] {};
+			\node[bezier] (42) [right = 0.85cm of 41] {};
+			\path[draw,thick,dashed] (41) edge node {} (42);
+			
+			\node (t3) [right = 0.12cm of 32] {isotrope Kante};
+			\node (t4) [right = 0.12cm of 42] {anisotrope Kante};
+			
+		\end{scope}
+	\end{tikzpicture}
+	\caption{Der zu dem Beispiel aus Abbildung \ref{fig:anwendungsbeispiel} passende Zellgraph, welcher für beide Graphen identisch ist.}
+	\label{fig:anwendungsbeispiel_cell}
+\end{figure}
 
 \subsection{Laufzeit}
 Zur Berechnung der Laufzeit wird im Folgenden davon ausgegangen, dass der Graph $G$ in Adjazenzlistendarstellung vorliegt.
