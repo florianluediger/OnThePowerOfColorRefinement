@@ -132,9 +132,9 @@ Um nachfolgend geeignet auf die globalen Eigenschaften des vorgestellten Graphen
 	\centering
 	\begin{tikzpicture}
 		\begin{scope}
-			\node[main node] (1) {$1$};
+			\node[main node] (1) {$2$};
 			\node[main node] (2) [fill=green!30,below left = 0.5cm and 0.85cm of 1] {$2$};
-			\node[main node] (3) [dashed,fill=red!30,below = 1cm of 1] {$3$};
+			\node[main node] (3) [dashed,fill=red!30,below = 1cm of 1] {$4$};
 			
 			\path[draw,thick,dashed] (1) edge node {} (2);
 			\path[draw,thick,dashed] (2) edge node {} (3);
@@ -158,11 +158,38 @@ Um nachfolgend geeignet auf die globalen Eigenschaften des vorgestellten Graphen
 			\node (t3) [right = 0.12cm of 32] {isotrope Kante};
 			\node (t4) [right = 0.12cm of 42] {anisotrope Kante};
 			
+			\node[main node] (5) [fill = white, below = 1.6cm of 2] {$x$};
+			\node (t5) [right = 0.2cm of 5] {Kardinalität $x$};
+			
 		\end{scope}
 	\end{tikzpicture}
 	\caption{Der zu dem Beispiel aus Abbildung \ref{fig:anwendungsbeispiel} passende Zellgraph, welcher für beide Graphen identisch ist.}
 	\label{fig:anwendungsbeispiel_cell}
 \end{figure}
+
+\emph{Bedingung C:} Da der vorgestellte Graph nur die heterogene Zelle $\mathcal{R}$ enthält, kann es keinen anisotropen Pfad zwischen zwei heterogenen Zellen geben.
+Diese Voraussetzung ist also erfüllt.
+
+\emph{Bedingung D:} Der Graph enthält auch keinen gleichmäßigen, anisotropen Zyklus, da die Kante $\{\mathcal{B},\mathcal{R}\}$ isotrop ist.
+Somit ist diese Bedingung ebenso erfüllt.
+
+\emph{Bedingung E:} Der in \emph{E} beschriebene anisotrope Pfad muss mindestens drei Zellen enthalten, was in diesem Beispiel nur durch den Pfad $\mathcal{B}\mathcal{G}\mathcal{R}$ gegeben ist.
+Dieser erfüllt allerdings nicht die Bedingung $|\mathcal{B}|<|\mathcal{G}|>|\mathcal{R}|$.
+Außerdem ist kein anisotroper Zyklus vorhanden, weshalb Voraussetzung \emph{E} wie die vorherhigen Bedingungen ebenfalls erfüllt ist.
+
+\emph{Bedingung F:} Der Pfad $\mathcal{G}\mathcal{R}$ trifft auf die Beschreibung aus der Bedingung zu, da $|\mathcal{G}|<|\mathcal{R}|$ ist und die Zelle $\mathcal{R}$ heterogen ist.
+Somit ist diese Bedingung nicht erfüllt und es kann aus \emph{A-F} gefolgert werden, dass der Graph kein CR-Graph ist.\\
+
+Der Vollständigkeit halber werden im Folgenden außerdem Bedingungen \emph{G} und \emph{H} überprüft werden, um zu zeigen, dass auch das Überprüfen der Bedingungen \emph{A,B,G} und \emph{H} ausreicht, um den Graphen als nicht-CR-Graphen zu entlarven.
+Dabei gibt es im vorgestellten Graphen drei unterschiedliche anisotrope Komponenten, welche aus mehr als einem Knoten bestehen, nämlich $\{\mathcal{B},\mathcal{G}\}$, $\{\mathcal{G},\mathcal{R}\}$ und $\{\mathcal{B},\mathcal{G},\mathcal{R}\}$.
+
+\emph{Bedingung G:} Eine anisotrope Komponente, welche die Monotonieeigenschaft nicht erfüllt, müsste mindestens drei Zellen enthalten, weshalb nur die Komponente $\{\mathcal{B},\mathcal{G},\mathcal{R}\}$ infrage käme.
+Diese erfüllt diese Eigenschaft allerdings, egal ob $\mathcal{B}$ oder $\mathcal{G}$ als Wurzel definiert werden.
+Es lässt sich im vorgestellten Graphen also keine anisotrope Komponente finden, für die die Monotonieeigenschaft nicht erfüllt ist, wodurch die Voraussetzung erfüllt ist.
+
+\emph{Bedingung H:} Für die anisotrope Komponente $\{\mathcal{G},\mathcal{R}\}$ ist diese Voraussetzung nicht erfüllt.
+Diese enthält zwar nur die heterogene Zelle $\mathcal{R}$, diese besitzt allerdings nicht die minimale Kardinalität innerhalb der Komponente.
+Somit ist auch hier erkennbar, dass die Bedingungen \emph{A,B,G} und \emph{H} zusammen ausreichen, um zu erkennen, dass der Graph kein CR-Graph ist.
 
 \subsection{Laufzeit}
 Zur Berechnung der Laufzeit wird im Folgenden davon ausgegangen, dass der Graph $G$ in Adjazenzlistendarstellung vorliegt.
