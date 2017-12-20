@@ -133,7 +133,7 @@ Dabei ist der durch die gestrichelten Linien dargestellte Pfad im Ausgangsgraphe
 Lemma \ref{lemma:lokal_nicht_unterscheidbar} (a) besagt nun, dass der Color Refinement Algorithmus für $G$ und $H$ die gleiche Färbung errechnet und somit nicht zwischen den beiden unterscheiden kann.
 Außerdem besagt Lemma \ref{lemma:faerbung_isomorphismus}, dass jeder Isomorphismus zwischen $G$ und $H$ Zellen auf sich selbst abbilden muss.
 Da also gilt $\phi (v^*)=\phi (v)^*$, muss $\phi $ die Eigenschaft von $P$ erhalten conducting oder nicht zu sein, was in diesem konstruierten Beispiel nicht erfüllt ist.
-Es folgt, dass $G$ und $H$ nicht isomorph sind und $G$ daher kein CR-Graph sein kann.\\
+Es folgt, dass $G$ und $H$ nicht isomorph sind und $G$ daher kein CR-Graph sein kann.$\hfill\square$\\
 
 \emph{Beweis D:} Es wird wieder entgegen der Bedingung \emph{D} angenommen, dass $C(G)$ einen gleichmäßigen, anisotropen Zyklus $Q$ der Länge $m$ enthält.
 Da dieser gleichmäßig ist, besitzen sämtliche Zellen in $Q$ die gleiche Kardinalität $k$.
@@ -151,7 +151,7 @@ Somit entsteht ein neuer Graph $H$, welcher beispielsweise so konstruiert sein k
 Dadurch, dass sich hier zwei Möglichkeiten ergeben wie $\tau (Q)$ nach dem Austauschen aussehen kann, ist es möglich den Subgraphen $G[X,Y]$ so zu ersetzen, dass $\tau (Q)$ sich ändert.
 
 Es wird wieder das Lemma \ref{lemma:lokal_nicht_unterscheidbar} genutzt, um zu zeigen, dass das Color Refinement nicht zwischen $G$ und $H$ unterschieden werden kann.
-Außerdem ist $G$ nicht isomorph zu $H$, da sich $H$ so konstruieren lässt, dass $\tau (Q)$ in beiden Graphen unterschiedlich ist, wodurch der Graph $G$ nicht zu der Klasse der CR-Graphen gehören kann.\\
+Außerdem ist $G$ nicht isomorph zu $H$, da sich $H$ so konstruieren lässt, dass $\tau (Q)$ in beiden Graphen unterschiedlich ist, wodurch der Graph $G$ nicht zu der Klasse der CR-Graphen gehören kann.$\hfill\square$\\
 
 \emph{Beweis E:} Sei $P=XY_1Y_2...Y_lZ$ ein anisotroper Pfad in $G$, sodass dessen Kardinalitäten durch $|X|<|Y_1|=|Y_2|=...=|Y_l|>|Z|$ beschrieben werden.
 Dabei sei es erlaubt, dass $X=Z$ ist und somit ein Kreis entsteht.
@@ -410,7 +410,7 @@ Ist $P$ in $G$ allerdings nicht flach, so wird der Subgraph $G[X,Y_1]$ in $H$ so
 Formal ist also $Y_i=\{i,i+s,...,i+(t-1)s\}$.
 
 $H$ ist somit in der Tat nicht zu $G$ isomorph, da für diese Eigenschaft der Pfad $P$ in beiden Graphen entweder flach oder in beiden Graphen nicht flach sein müsste.
-Aus Teil (a) von Lemma \ref{lemma:lokal_nicht_unterscheidbar} folgt außerdem, dass das Color Refinement die beiden Graphen nicht unterscheiden kann, wodurch klar ist, dass der Graph $G$ kein CR-Graph sein kann.\\
+Aus Teil (a) von Lemma \ref{lemma:lokal_nicht_unterscheidbar} folgt außerdem, dass das Color Refinement die beiden Graphen nicht unterscheiden kann, wodurch klar ist, dass der Graph $G$ kein CR-Graph sein kann.$\hfill\square$\\
 
 \emph{Beweis F:} Dieser Beweis läuft ähnlich wie der von Bedingung \emph{E} ab, weshalb sich viele Parallelen erkennen lassen.
 Sei $P=XY_1Y_2...Y_l$ ein anisotroper Pfad in $C(G)$, wobei die Kardinalitäten der Zellen dem Schema $|X|<|Y_1|=|Y_2|=...=|Y_l|$ folgen und $Y_l$ heterogen ist.
@@ -423,7 +423,7 @@ Es wird nun wie im Beweis von \emph{E} die Identität $Y=Y_1=Y_l=\{1,2,...,st\}$
 Außerdem wird der Hypergraph $\mathcal{Y}_G=\{Y_x\}_{x\in X}\cup \mathcal{E}$ erstellt, wobei $\{Y_x\}$ wieder die Menge der zu $x\in X$ adjazenten Knoten in $Y$ und $\mathcal{E}$ die Menge der Paare aus $G[Y_l]$, welche durch eine Matching-Kante verbunden sind, definiert.
 
 Nun kann wie im Beweis von Bedingung \emph{E} der Isomorphietyp von $\mathcal{Y}_G$ verändert werden, indem die Kanten von $G[X,Y_1]$ durch einen isomorphen aber anderen Graphen ersetzt werden.
-Somit kann ein zu $G$ nicht isomorpher Graph $H$ erzeugt werden, welcher aber nach Lemma \ref{lemma:lokal_nicht_unterscheidbar} nicht durch das Color Refinement von diesem unterschieden werden kann.
+Somit kann ein zu $G$ nicht isomorpher Graph $H$ erzeugt werden, welcher aber nach Lemma \ref{lemma:lokal_nicht_unterscheidbar} nicht durch das Color Refinement von diesem unterschieden werden kann.$\hfill\square$
 
 \subsection{Baumartige Struktur von CR-Graphen}
 Bei genauerer Betrachtung fällt auf, dass der Zellgraph von CR-Graphen eine baumartige Struktur aufweist.
@@ -446,7 +446,7 @@ Um das folgende Lemma verstehen zu können, welches diese Baumstruktur genauer s
 	\label{lemma:global2}
 \end{Lemma}
 
-\emph{Beweis G:} Wegen Bedingung \emph{D} kann $A$ keinen gleichmäßigen, anisotropen Zyklus enthalten und das Vorkommen sämtlicher anderer anisotroper Zyklen wird durch Bedingung \emph{E} ausgeschlossen. Außerdem folgt aus \emph{E} die Monotonieeigenschaft.\\
+\emph{Beweis G:} Wegen Bedingung \emph{D} kann $A$ keinen gleichmäßigen, anisotropen Zyklus enthalten und das Vorkommen sämtlicher anderer anisotroper Zyklen wird durch Bedingung \emph{E} ausgeschlossen. Außerdem folgt aus \emph{E} die Monotonieeigenschaft.$\hfill\square$\\
 
 \emph{Beweis H:} Angenommen es gäbe zwei heterogene Zellen $S$ und $T$ in $A$, dann sei $S=Z_1,Z_2,...,Z_l=T$ der Pfad, welcher die beiden verbindet.
 Wegen der Monotonieeigenschaft von Bedingung \emph{G} gibt es ein $j$, sodass $|Z_1|\geq ... \geq |Z_j|\leq ... \leq |Z_l|$ gilt, wobei außerdem $j\in \{1,l\}$ erlaubt ist.
@@ -456,4 +456,4 @@ Die Existenz eines so geformten Pfades ist allerdings durch Bedingung \emph{F} a
 
 Nun bleibt noch zu zeigen, dass eine heterogene Zelle $R$ in $A$ minimale Kardinalität innerhalb von $A$ besitzt.
 Im Folgenden wird dazu ein Pfad $R=Z_1,Z_2,...,Z_l=S$ betrachtet, welcher $R$ mit der Zelle $S$ verbindet, welche minimale Kardinalität in $A$ besitzt.
-Ebenfalls aus Bedingung \emph{F} und durch die Monotonieegenschaft von Bedingung \emph{G} folgt, dass dieser Pfad gleichmäßig sein muss, weshalb $|R|=|S|$ gelten muss und $R$ damit ebenfalls eine Zelle minimaler Kardinalität ist.
+Ebenfalls aus Bedingung \emph{F} und durch die Monotonieegenschaft von Bedingung \emph{G} folgt, dass dieser Pfad gleichmäßig sein muss, weshalb $|R|=|S|$ gelten muss und $R$ damit ebenfalls eine Zelle minimaler Kardinalität ist.$\hfill\square$

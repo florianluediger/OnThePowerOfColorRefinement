@@ -56,7 +56,7 @@ Da $A$ nach Bedingung \emph{G} ein Baum ist, kann dieser von der Zelle $R_A$ gew
 Angenommen $\phi$ sei bereits für die Zelle $X$ definiert, so kann dieses über die Kante $G[X,Y]$ auf die Zelle $Y$ übertragen werden, da nach der Monotonievoraussetzung von Bedingung \emph{G} und der Wahl von $R_A$ gilt, dass $|X|\leq |Y|$.
 Für die Zelle $Y$ muss $\phi$ dann nur noch so gewählt werden, dass dieses einen Isomorphismus von $G[X,Y]$ nach $H[f(X),f(Y)]$ darstellt, was wegen (b) und der Tatsache, dass alle Knoten von $Y$ den Grad 1 im bipartiten Graphen $G[X,Y]$ oder dessen bipartiten Komplement hat, was ebenfalls für $f(Y)$ gilt, möglich ist.\\
 
-Da $\phi$ durch seine Konstruktion ein Isomorphismus zwischen $G[X]$ und $H[f(X)]$ sowie zwischen $G[X,Y]$ und $H[f(X),f(Y)]$ ist, ergibt sich, dass $\phi$ ebenfalls ein Isomorphismus von $G$ zu $H$ ist.
+Da $\phi$ durch seine Konstruktion ein Isomorphismus zwischen $G[X]$ und $H[f(X)]$ sowie zwischen $G[X,Y]$ und $H[f(X),f(Y)]$ ist, ergibt sich, dass $\phi$ ebenfalls ein Isomorphismus von $G$ zu $H$ ist.$\hfill\square$
 
 \subsection{Anwendungsbeispiel}
 \label{sec/anwendungsbeispiel}
@@ -219,4 +219,4 @@ Wird diese Breitensuche nun von der Zelle minimaler Kardinalität für jede Komp
 
 Der Breitensuchealgorithmus benötigt eine Laufzeit von $\mathcal{O}(n+m)$, da der Zellgraph maximal $n$ Knoten und maximal $m$ Kanten besitzt.
 
-Es ist somit zu erkennen, dass das Errechnen der stabilen Partition, auf der die ganzen Operationen ausgeführt werden mit $\mathcal{O}((n+m)\log n)$ die dominierende Laufzeit des Algorithmus ist.
+Es ist somit zu erkennen, dass das Errechnen der stabilen Partition, auf der die ganzen Operationen ausgeführt werden mit $\mathcal{O}((n+m)\log n)$ die dominierende Laufzeit des Algorithmus ist.$\hfill\square$
