@@ -9,7 +9,7 @@
 %\end{itemize}
 
 Um schlussendlich die Frage beantworten zu können von welcher Beschaffenheit CR-Graphen sein müssen, damit sie die in Definition \ref{def:cr-graph2} genannte Eigenschaft erfüllen, werden hier zunächst notwendige, lokale Eigenschaften solcher Graphen vorgestellt.
-Die Basis dieses Kapitels bildet das folgende Lemma, welches für die Zellen $X$ und $Y$ der stabilen Partition $P_G$ eines CR-Graphen $G$ einige Merkmale definiert.
+Die Basis dieses Kapitels bildet das folgende Lemma, welches für beliebige Zellen $X$ und $Y$ der stabilen Partition $\mathcal{P}_G$ eines CR-Graphen $G$ einige Merkmale definiert.
 
 \begin{Lemma}
 	Die Zellen der stabilen Partition $\mathcal{P}_G$ eines CR-Graphen erfüllen folgende Eigenschaften:
@@ -35,8 +35,6 @@ Bei genauerer Betrachtung fällt auf, dass die in \emph{A} genannten Graphentype
 
 \begin{table}
 	\centering
-	\caption{Abbildung der Aussagen aus Lemma \ref{lemma:lokal} \emph{A} und Lemma \ref{lemma:lokal_regulaer}}
-	\label{tab:mapping_regulaer}
 	\begin{tabular}{|l|l|}
 		\hline 
 		Graphentyp aus Lemma \ref{lemma:lokal} \emph{A} & Definition aus Lemma \ref{lemma:lokal_regulaer} \\ 
@@ -52,6 +50,8 @@ Bei genauerer Betrachtung fällt auf, dass die in \emph{A} genannten Graphentype
 		5er Zyklus & $d=2$ und $n=5$ \\ 
 		\hline 
 	\end{tabular}
+	\caption{Abbildung der Aussagen aus Lemma \ref{lemma:lokal} \emph{A} und Lemma \ref{lemma:lokal_regulaer}}
+	\label{tab:mapping_regulaer}
 \end{table}
 
 \begin{Lemma}
@@ -65,8 +65,6 @@ Auch für bipartite Graphen können die Aussagen von Lemma \ref{lemma:lokal} (B)
 
 \begin{table}
 	\centering
-	\caption{Abbildung der Aussagen aus Lemma \ref{lemma:lokal} \emph{B} und Lemma \ref{lemma:lokal_bipartit}}
-	\label{tab:mapping_bipartit}
 	\begin{tabular}{|l|l|}
 		\hline 
 		Graphentyp aus Lemma \ref{lemma:lokal} \emph{B} & Definition aus Lemma \ref{lemma:lokal_bipartit} \\ 
@@ -79,10 +77,12 @@ Auch für bipartite Graphen können die Aussagen von Lemma \ref{lemma:lokal} (B)
 		\hline 
 		Komplement einer disjunkten Vereinigung von Sternen & $d=m-1$ oder $c=n-1$ \\ 
 		\hline 
-	\end{tabular} 
+	\end{tabular}
+	\caption{Abbildung der Aussagen aus Lemma \ref{lemma:lokal} \emph{B} und Lemma \ref{lemma:lokal_bipartit}}
+	\label{tab:mapping_bipartit}
 \end{table}
 
-Wenn ein Graph $G$ nun einen Subgraphen $G[X]$ oder $G[X,Y]$ mit $X,Y\in \mathcal{P}_G$ enthält, dessen Typ allerdings nicht in Lemma \ref{lemma:lokal} aufgelistet wird, so lässt sich dieser durch einen nicht-isomorphen regulären oder biregulären Graphen mit gleichem Grad ersetzen. Diese Aussage folgt daraus, dass dessen Isomorphieeigenschaften wie in Lemma \ref{lemma:lokal_regulaer} und \ref{lemma:lokal_bipartit} dargestellt nicht allein durch ihre Parameter definiert sind, was das Ersetzen durch einen nicht-isomorphen Graphen mit eben diesen Parametern unmöglich machen würde.
+Wenn ein Graph $G$ nun einen Subgraphen $G[X]$ oder $G[X,Y]$ mit $X,Y\in \mathcal{P}_G$ enthält, dessen Typ allerdings nicht in Lemma \ref{lemma:lokal} aufgelistet wird, so lässt sich dieser durch einen nicht-isomorphen regulären oder biregulären Graphen mit gleichem Grad ersetzen. Diese Aussage folgt daraus, dass dessen Isomorphieeigenschaften wie in Lemma \ref{lemma:lokal_regulaer} und \ref{lemma:lokal_bipartit} dargestellt nicht allein durch ihre Parameter definiert sind, sodass das Ersetzen durch einen nicht-isomorphen Graphen mit eben diesen Parametern ermöglicht wird.
 
 Diese Ergebnisse lassen sich für den Beweis von Lemma \ref{lemma:lokal} nutzen, wenn gezeigt wird, dass der durch das Ersetzen des Subgraphen entstandene Graph $H$ vom Color Refinement nicht von $G$ unterschieden werden kann. Im Folgenden gilt dazu, dass $G$ und $H$ die gleiche Knotenmenge enthalten und die Farben für einen Knoten $u$ durch $C^i_G(u)$ und $C^i_H(u)$ für die jeweiligen Graphen definiert sind.
 

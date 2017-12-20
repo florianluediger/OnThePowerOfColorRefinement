@@ -2,7 +2,7 @@
 \label{sec/gi_cr}
 
 \subsection{Graph-Isomorphie}
-Zwei Graphen $G$ und $H$ sind isomorph, kurz $G\simeq H$, wenn es eine bijektive Abbildung $\phi$ der Knoten von $G$ auf $H$ gibt, sodass die Adjazenz aller Knoten erhalten bleibt.
+Zwei Graphen $G$ und $H$ sind isomorph, kurz $G\simeq H$, wenn es eine bijektive Abbildung $\phi$ der Knoten von $G$ auf $H$ gibt, sodass die Adjazenz aller Knoten untereinander erhalten bleibt.
 Es gilt also: $(u,v)\in E_G\Leftrightarrow (\phi (u),\phi (v))\in E_H$ für alle $u,v\in V_G$.
 Eine so definierte Abbildung $\phi$ wird \emph{Isomorphismus} genannt.
 
@@ -94,7 +94,7 @@ Weitere Anwendungsfelder finden sich in \cite{shervashidze2011weisfeiler} und \c
 \subsection{Formale Definition von CR-Graphen}
 Der Color Refinement Algorithmus berechnet iterativ eine Sequenz von Knotenfärbungen $C^i$ für einen Graphen $G$.
 Die initiale Färbung $C^i$ weist jedem Knoten die selbe Farbe zu.
-Nachfolgend wird in jeder Iteration nach folgender Regel eine neue Färbung gebildet.
+Daraufhin wird in jeder Iteration nach folgender Regel eine neue Färbung gebildet.
 \begin{equation}
 C^{i+1}(u)=(C^i(u),\ldblbrace C^i(a):a\in N(u)\rdblbrace )
 \label{eq:1}
@@ -108,14 +108,14 @@ Für diese gilt das Folgende.
 	Wenn sich eine Partitionierung bei weiteren Verfeinerungsschritten nicht mehr verändert, stellt dies die stabile Partitionierung $\mathcal{P}^s$ dar.
 	Für sie gilt $\mathcal{P}^s=\mathcal{P}^i$ für alle $i\geq s$.
 \end{Definition}
-Die stabile Partitionierung ist bei jedem Graphen nach maximal $n-1$ Verfeinerungsschritten erreicht, da spätestens dann jeder Knoten eine unterschiedliche Farbe besitzt und somit keine weitere Verfeinerung mehr möglich ist.
+Die stabile Partitionierung ist bei jedem Graphen nach maximal $n-1$ Verfeinerungsschritten erreicht, wobei $n$ die Anzahl der Knoten des Graphen ist, da spätestens dann jeder Knoten eine unterschiedliche Farbe besitzt und somit keine weitere Verfeinerung mehr möglich ist.
 
-Eine Partitionierung kann außerdem die Eigenschaft \emph{equitable} haben.
+Eine Partitionierung kann außerdem die Eigenschaft \emph{equitable} besitzen.
 Dafür müssen die im Folgenden definierten Eigenschaften erfüllt sein.
 Die Elemente der Partitionierung werden hier Zellen genannt.
 \begin{Definition}
 	Eine Partitionierung wird \emph{equitable} genannt, wenn die folgenden Eigenschaften erfüllt sind:
-	\begin{enumerate}
+	\begin{enumerate}[label=(\alph*)]
 		\item Jede Zelle $X\in \mathcal{P}$ ist einfarbig und enthält somit nur Knoten einer einzigen Farbe.
 		\item Für jede Zelle $X\in \mathcal{P}$ ist der Graph $G[X]$ ein regulärer Graph.
 		\item Für beliebige Zellen $X,Y\in \mathcal{P}$ ist der bipartite Graph $G[X,Y]$ ein biregulärer Graph.
@@ -138,7 +138,7 @@ Das Color Refinement akzeptiert somit zwei Graphen $G$ und $H$ bei der Eingabe d
 Das Überprüfen dieser Bedingung ist in endlicher Zeit berechenbar.
 Für einen Zeugen $i$ dafür, dass die Gleichung nicht erfüllt ist, gilt $i<2n$, wobei $n$ die Anzahl der Knoten jedes Graphens ist.
 Dies beruht darauf, dass $\mathcal{P}^{2n-1}$ in jedem Fall die stabile Partitionierung von $G+H$ ist und weitere Verfeinerungsschritte keine neue Partitionierung erstellen würden.
-Es genügt sogar die Gleichung für $i=n$ zu verifizieren, da die Existenz einer Partitionierung $\mathcal{P}^{i+1}\neq \mathcal{P}^i$ bedeuten würde, dass es mehr als $n$ Partitionen, da in jedem Partitionierungsschritt mindestens eine Partition hinzukommt.
+Es genügt sogar die Gleichung für $i=n$ zu verifizieren, da die Existenz einer Partitionierung $\mathcal{P}^{n+1}\neq \mathcal{P}^n$ bedeuten würde, dass es mehr als $n$ Partitionen, da in jedem Partitionierungsschritt mindestens eine Partition hinzukommt.
 Mehr als $n$ Partitionen sind ein Indikator dafür, dass die Graphen $G$ und $H$ nicht isomorph sind, da die $n$ Knoten jedes Graphen unmöglich in mehr als $n$ Partitionen unterteilt werden können und Gleichheit somit ausgeschlossen ist.
 
 Aus den gewonnenen Erkenntnissen ergibt sich folgende Erweiterung zu Definition \ref{def:cr-graph1}.

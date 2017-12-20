@@ -7,7 +7,7 @@
 %\end{itemize}
 
 Zusätzlich zur lokalen Struktur ist außerdem die globale Struktur von CR-Graphen interessant.
-Der Begriff globale Struktur gibt hier an, dass der Zellgraph von $G$ bestimmte Eigenschaften erfüllen muss.
+Der Begriff \enquote{globale Struktur} gibt hier an, dass der Zellgraph von $G$ bestimmte Eigenschaften erfüllen muss.
 
 \begin{Definition}
 	Der Zellgraph $C(G)$ eines Graphen $G$ wird aus dessen stabilen Partition $\mathcal{P}_G$ gebildet.
@@ -30,18 +30,18 @@ Die Knoten eines Zellgraphen, auch als Zellen bezeichnet, können dabei folgende
 Für die Kanten eines Zellgraphen finden sich ebenfalls unterschiedliche Bezeichnungen, welche deren Beschaffenheit beschreiben.
 
 \begin{Definition}
-	Eine Kante ${X,Y}$ mit $X,Y\in C(G)$ wird \emph{isotrop} genannt, wenn der bipartite Graph $G[X,Y]$ vollständig oder leer ist. Anderenfalls wird diese \emph{anisotrop} genannt.
+	Eine Kante $\{X,Y\}$ mit $X,Y\in C(G)$ wird \emph{isotrop} genannt, wenn der bipartite Graph $G[X,Y]$ vollständig oder leer ist. Anderenfalls wird diese \emph{anisotrop} genannt.
 \end{Definition}
 
 \begin{Definition}
-	Eine anisotrope Kante ${X,Y}$ wird \emph{Konstellation} genannt, wenn $G[X,Y]$ eine disjunkte Vereinigung von Sternen ist.
+	Eine anisotrope Kante $\{X,Y\}$ wird \emph{Konstellation} genannt, wenn $G[X,Y]$ eine disjunkte Vereinigung von Sternen ist.
 	Anderenfalls wird diese \emph{Co-Konstellation} genannt.
 	Bei Co-Konstellationen bildet das \glslink{bipartites_komplement}{bipartite Komplement} von $G[X,Y]$ eine disjunkte Vereinigung von Sternen.
 	Eine isotrope Kante dagegen wird entweder \emph{leer} oder \emph{vollständig} genannt.
 \end{Definition}
 
 \begin{Definition}
-	 Ein Pfad $X_1X_2...X_l$ in $C(G)$, bei dem jede Kante ${X_i,X_{i+1}}$ anisotrop ist, wird \emph{anisotroper Pfad} genannt. Wenn dieser Pfad einen Kreis schließt, wird er als \emph{anisotroper Zyklus} bezeichnet. Gilt für einen anisotropen Pfad $|X_1|=|X_2|=...=|X_l|$ dann wird er \emph{gleichmäßig} genannt.
+	 Ein Pfad $X_1X_2...X_l$ in $C(G)$, bei dem jede Kante $\{X_i,X_{i+1}\}$ anisotrop ist, wird \emph{anisotroper Pfad} genannt. Wenn dieser Pfad einen Kreis schließt, wird er als \emph{anisotroper Zyklus} bezeichnet. Gilt für einen anisotropen Pfad $|X_1|=|X_2|=...=|X_l|$ dann wird er \emph{gleichmäßig} genannt.
 \end{Definition}
 
 \subsection{Allgemeine globale Eigenschaften von CR-Graphen}
@@ -65,7 +65,7 @@ Da es sich um einen gleichmäßigen Pfad handelt, besitzen sämtliche Komponente
 Alle Kanten in $P$, die eine Co-Konstellation bilden, werden nun komplementiert, sodass diese eine Konstellation ergeben.
 Da nun sämtliche Kanten aus $P$ eine Konstellation darstellen und die Kardinalität aller Komponenten identisch ist, können die Sterne, welche die disjunkte Vereinigung für die Konstellationen bilden nur eine einzige Form annehmen.
 Diese bestehen aus einem Zentralknoten und einem Blatt, wobei diese in unterschiedlichen Komponenten liegen.
-Dadurch, dass sämtliche Kanten in $P$ diese Form annehmen ergeben sich $k$ knotendisjunkte Pfade zwischen $X$ und $Y$.
+Dadurch, dass sämtliche Kanten in $P$ diese Form annehmen, ergeben sich $k$ knotendisjunkte Pfade zwischen $X$ und $Y$.
 Es sind also alle Knoten aus $X$ mit genau einem Knoten aus $Y$ durch einen Pfad verbunden und andersherum.
 Sei $v\in X$ durch einen solchen Pfad mit seinem Gegenstück $v^*\in Y$ verbunden.
 Der Pfad $P$ wird conducting genannt, wenn diese Abbildung von Knoten einen Isomorphismus von $G[X]$ auf $G[Y]$ darstellt.
@@ -133,11 +133,11 @@ Dabei ist der durch die gestrichelten Linien dargestellte Pfad im Ausgangsgraphe
 Lemma \ref{lemma:lokal_nicht_unterscheidbar} (a) besagt nun, dass der Color Refinement Algorithmus für $G$ und $H$ die gleiche Färbung errechnet und somit nicht zwischen den beiden unterscheiden kann.
 Außerdem besagt Lemma \ref{lemma:faerbung_isomorphismus}, dass jeder Isomorphismus zwischen $G$ und $H$ Zellen auf sich selbst abbilden muss.
 Da also gilt $\phi (v^*)=\phi (v)^*$, muss $\phi $ die Eigenschaft von $P$ erhalten conducting oder nicht zu sein, was in diesem konstruierten Beispiel nicht erfüllt ist.
-Es folgt, dass $G$ und $H$ nicht isomorph sind und $G$ daher kein CR-Graph sein kann.
+Es folgt, dass $G$ und $H$ nicht isomorph sind und $G$ daher kein CR-Graph sein kann.\\
 
 \emph{Beweis D:} Es wird wieder entgegen der Bedingung \emph{D} angenommen, dass $C(G)$ einen gleichmäßigen, anisotropen Zyklus $Q$ der Länge $m$ enthält.
 Da dieser gleichmäßig ist, besitzen sämtliche Zellen in $Q$ die gleiche Kardinalität $k$.
-Wie im Beweis von \emph{C} kann nun der Graph $G[A,B]$ für jede Co-Konstellation ${A,B}$ komplementiert werden, sodass ein Zyklus entsteht, welcher nur Konstellationen als Kanten enthält.
+Wie im Beweis von \emph{C} kann nun der Graph $G[A,B]$ für jede Co-Konstellation $\{A,B\}$ komplementiert werden, sodass ein Zyklus entsteht, welcher nur Konstellationen als Kanten enthält.
 Ebenfalls wie im Beweis von \emph{C} gibt es eine eins zu eins Beziehung zwischen den Knoten zweier Benachbarter Komponenten, wodurch eine knotendisjunkte Vereinigung von Kreisen in $G$ entsteht.
 Alle Kreise besitzen dabei ein Vielfaches der Länge $m$, wobei so im Extremfall ein Kreis der Länge $km$ oder $k$ Kreise der Länge $m$ vorliegen.
 
@@ -146,7 +146,7 @@ Sei $\phi $ ein Isomorphismus von $G$ zu einem anderen Graphen $H$, so ist $\phi
 Durch die Definition von $\tau $ ergibt sich, dass $\tau (\phi '(Q))=\tau (Q)$ gelten muss.
 Intuitiv bedeutet dies, dass ein Kreis einer bestimmten Größe nur auf einen anderen Kreis abgebildet werden kann, welcher die selbe Größe besitzt.
 
-Seien $X,Y\in Q$ zwei aufeinanderfolgende Zellen, so kann der dadurch entstehende Subgraph $G[X,Y]$ durch einen isomorphen aber nicht identischen Graphen ersetzt werden, da die Kante {X,Y} anisotrop ist.
+Seien $X,Y\in Q$ zwei aufeinanderfolgende Zellen, so kann der dadurch entstehende Subgraph $G[X,Y]$ durch einen isomorphen aber nicht identischen Graphen ersetzt werden, da die Kante $\{X,Y\}$ anisotrop ist.
 Somit entsteht ein neuer Graph $H$, welcher beispielsweise so konstruiert sein kann, dass für den betrachteten Zyklus die beiden eingangs erwähnten Extreme vorliegen.
 Dadurch, dass sich hier zwei Möglichkeiten ergeben wie $\tau (Q)$ nach dem Austauschen aussehen kann, ist es möglich den Subgraphen $G[X,Y]$ so zu ersetzen, dass $\tau (Q)$ sich ändert.
 
@@ -278,13 +278,13 @@ Dabei wird für jedes $x\in X$ und $z\in Z$ eine Hyperkante aus der Knotenmenge 
 Zwei dieser Hyperkanten sind in Abbildung \ref{fig:hypergraph1} beispielhaft eingetragen, der Graph enthält selbstverständlich aber noch weitere.
 Falls für irgendwelche $x$ und $z$ die Mengen $Y_x$ und $Y_z$ identisch sind, so enthält dieser Graph auch Mehrfachkanten.
 Der ursprünglich betrachtete Pfad $P$ wird \emph{flach} genannt, sofern kein Paar $(x,z)\in X\times Y$ existiert, sodass keine der entsprechenden Hyperkanten $Y_x$ und $Y_z$ die andere enthält.
-Es werden nun die Knoten in $Y$ so umsortiert, dass die Hyperkanten $Y_z, z\in Z$ aufeinanderfolgende Intervalle beschreiben, was in dem abgebildeten Beispiel bereits optisch so dargestellt wurde.
+Es werden nun die Knoten in $Y$ so umsortiert, dass die Hyperkanten $\{Y_z\}_{z\in Z}$ aufeinanderfolgende Intervalle beschreiben, was in dem abgebildeten Beispiel bereits optisch so dargestellt wurde.
 
 Es wird nun wieder ein zu $G$ nicht isomorpher Graph $H$ gebildet, welcher vom Color Refinement nicht von diesem unterschieden werden kann.
 Ist $P$ in $G$ flach, wird $H$ so konstruiert, dass der Pfad $P$ nicht mehr flach ist.
 Dies ist möglich, indem die Kanten des Subgraphen $G[X,Y_1]$ durch einen isomorphen aber anderen Subgraphen ersetzt werden, sodass die in $\mathcal{Y}_H$ gebildeten Hyperkanten in aufeinanderfolgenden Intervallen stehen.
 Formal wird also $\mathcal{Y}_H=\{Y_i\}_{i\in [s]}\cup \{Y_z\}_{z\in Z}$ mit $Y_i=\{(i-1)t+1,2,...,it\}$ definiert.
-Der Pfad $P$ ist somit nicht mehr flach, da sowohl wie vorher beschrieben die Hyperkanten ${Y_z}$, als auch die Hyperkanten $\{Y_x\}$ in aufeinanderfolgender Reihenfolge in Y liegen, wodurch sichergestellt ist, dass es immer ein $(x,z)$, sodass eine der entsprechenden Hyperkanten die andere einschließt.
+Der Pfad $P$ ist somit nicht mehr flach, da sowohl wie vorher beschrieben die Hyperkanten $\{Y_z\}_{z\in Z}$, als auch die Hyperkanten $\{Y_x\}_{x\in X}$ in aufeinanderfolgender Reihenfolge in $Y$ liegen, wodurch sichergestellt ist, dass immer ein $(x,z)$ existiert, sodass eine der entsprechenden Hyperkanten die andere einschließt.
 Für das vorgestellte Beispiel ist in Abbildung \ref{fig:hypergraph2} diese Erweiterung mit einem ersetzten Subgraphen $G[X,Y_1]$, sowie den Hyperkanten $\{Y_x\}$ in grün und $\{Y_z\}$ in rot zu sehen.
 Es ist erkennbar, dass einige der Mengen von $\{Y_x\}$ vollständig in einer Menge von $\{Y_z\}$ ligen, womit der Pfad nicht mehr flach ist.
 
@@ -420,14 +420,14 @@ Nach Lemma \ref{lemma:lokal} \emph{A} kann $Y_l$ nur ein Matching Graph oder des
 Dies ist der Fall, da auszuschließen ist, dass der heterogene Knoten nicht vollständig oder leer sein kann und ein 5er \gls{zyklus} ebenfalls nicht möglich ist, da $Y_l$ gerade Kardinalität hat.
 
 Es wird nun wie im Beweis von \emph{E} die Identität $Y=Y_1=Y_l=\{1,2,...,st\}$ gebildet.
-Außerdem wird der Hypergraph $\mathcal{Y}_G=\{Y_x\}_{x\in X}\cup \mathcal{E}$ erstellt, wobei $Y_x$ wieder die Menge der zu $x\in X$ adjazenten Knoten in $Y$ und $\mathcal{E}$ die Menge der Paare aus $G[Y_l]$, welche durch eine Matching-Kante verbunden sind, definiert.
+Außerdem wird der Hypergraph $\mathcal{Y}_G=\{Y_x\}_{x\in X}\cup \mathcal{E}$ erstellt, wobei $\{Y_x\}$ wieder die Menge der zu $x\in X$ adjazenten Knoten in $Y$ und $\mathcal{E}$ die Menge der Paare aus $G[Y_l]$, welche durch eine Matching-Kante verbunden sind, definiert.
 
 Nun kann wie im Beweis von Bedingung \emph{E} der Isomorphietyp von $\mathcal{Y}_G$ verändert werden, indem die Kanten von $G[X,Y_1]$ durch einen isomorphen aber anderen Graphen ersetzt werden.
 Somit kann ein zu $G$ nicht isomorpher Graph $H$ erzeugt werden, welcher aber nach Lemma \ref{lemma:lokal_nicht_unterscheidbar} nicht durch das Color Refinement von diesem unterschieden werden kann.
 
 \subsection{Baumartige Struktur von CR-Graphen}
 Bei genauerer Betrachtung fällt auf, dass der Zellgraph von CR-Graphen eine baumartige Struktur aufweist.
-Dies folgt schon daraus, dass Bedingung \emph{D} und \emph{E} zusammen verbieten, dass in einem Subgraphen mit ausschließlich anisotropen Kanten, keine Kreise erlaubt sind und somit eine Baumstruktur erkennbar ist.
+Dies lässt sich schon daraus erahnen, dass Bedingung \emph{D} und \emph{E} zusammen verbieten, dass in einem Subgraphen mit ausschließlich anisotropen Kanten, keine Kreise erlaubt sind und somit eine Baumstruktur erkennbar ist.
 Um das folgende Lemma verstehen zu können, welches diese Baumstruktur genauer spezifiziert, wird der Begriff \emph{anisotrope Komponente} benötigt.
 \begin{Definition}
 	In einem Zellgraphen $C(G)$ bezeichnet eine \emph{anisotrope Komponente} einen Subgraphen, dessen Kanten alle anisotrop sind.
@@ -449,7 +449,7 @@ Um das folgende Lemma verstehen zu können, welches diese Baumstruktur genauer s
 \emph{Beweis G:} Wegen Bedingung \emph{D} kann $A$ keinen gleichmäßigen, anisotropen Zyklus enthalten und das Vorkommen sämtlicher anderer anisotroper Zyklen wird durch Bedingung \emph{E} ausgeschlossen. Außerdem folgt aus \emph{E} die Monotonieeigenschaft.\\
 
 \emph{Beweis H:} Angenommen es gäbe zwei heterogene Zellen $S$ und $T$ in $A$, dann sei $S=Z_1,Z_2,...,Z_l=T$ der Pfad, welcher die beiden verbindet.
-Die Monotonieeigenschaft von Bedingung \emph{G}, gibt es ein $j$, sodass $|Z_1|\geq ... \geq |Z_j|\leq ... \leq |Z_l|$ gilt, wobei außerdem $j\in \{1,l\}$ erlaubt ist.
+Wegen der Monotonieeigenschaft von Bedingung \emph{G} gibt es ein $j$, sodass $|Z_1|\geq ... \geq |Z_j|\leq ... \leq |Z_l|$ gilt, wobei außerdem $j\in \{1,l\}$ erlaubt ist.
 Dabei stellt $Z_j$ die Wurzel des in \emph{G} beschriebenen Baumes dar.
 Durch Bedingung \emph{C} ist außerdem ausgeschlossen, dass dieser Pfad gleichmäßig ist, weshalb mindestens eine der Ungleichungen strikt sein muss.
 Die Existenz eines so geformten Pfades ist allerdings durch Bedingung \emph{F} ausgeschlossen.
