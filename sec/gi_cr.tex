@@ -4,7 +4,7 @@
 \subsection{Graph-Isomorphie}
 Zwei Graphen $G$ und $H$ sind isomorph, kurz $G\simeq H$, wenn es eine bijektive Abbildung $\phi$ der Knoten von $G$ auf $H$ gibt, sodass die Adjazenz aller Knoten untereinander erhalten bleibt.
 Es gilt also: $(u,v)\in E_G\Leftrightarrow (\phi (u),\phi (v))\in E_H$ für alle $u,v\in V_G$.
-Eine so definierte Abbildung $\phi$ wird \emph{Isomorphismus} genannt, vgl. \cite{MCKAY201494}.
+Die Abbildung $\phi$ wird \emph{Isomorphismus} genannt, vgl. \cite{MCKAY201494}.
 
 Es wurde gezeigt, dass das Graph-Isomorphie-Problem in $NP$ liegt, die $NP$-Vollständigkeit ist allerdings noch unklar.
 Es konnte außerdem noch kein Algorithmus gefunden werden, welcher das Problem in polynomieller Zeit löst, jedoch wird davon ausgegangen, dass es nicht $NP$-vollständig ist, siehe \cite{Goldreich1991}.
@@ -12,7 +12,7 @@ Es konnte außerdem noch kein Algorithmus gefunden werden, welcher das Problem i
 \subsection{Color-Refinement}
 \label{sec/cr}
 Der Color-Refinement-Algorithmus stellt eine Heuristik dar, mit der in polynomieller Zeit festgestellt werden kann, dass zwei Graphen nicht isomorph sind.
-In Kapitel \ref{sec/formal_cr} wird die genaue Vorgehensweise des Algorithmus erläutert, grob geht dieser aber wie folgt vor.\\
+In Kapitel \ref{sec/formal_cr} wird die genaue Vorgehensweise des Algorithmus erläutert, grob geht dieser aber wie folgt vor.
 \begin{enumerate}
 	\item Sämtliche Knoten des Graphen werden in der selben Farbe gefärbt.
 	\item Die Knotenfärbungen werden verfeinert, indem überprüft wird, ob zwei Knoten gleicher Farbe unterschiedliche \glspl{nachbarschaft} mit Berücksichtigung der Farbe besitzen.
@@ -140,7 +140,6 @@ Für das minimale $i$, für welches die Gleichung nicht erfüllt ist, gilt $i<2n
 Dies beruht darauf, dass $\mathcal{P}^{2n-1}$ in jedem Fall die stabile Partitionierung von $G+H$ ist und weitere Verfeinerungsschritte keine neue Partitionierung erstellen würden.
 Es genügt sogar die Gleichung für $i=n$ zu verifizieren, da die Existenz einer Partitionierung $\mathcal{P}^{n+1}\neq \mathcal{P}^n$ bedeuten würde, dass es mehr als $n$ Partitionen gibt, da in jedem Partitionierungsschritt mindestens eine Partition hinzukommt.
 Mehr als $n$ Partitionen sind ein Indikator dafür, dass die Graphen $G$ und $H$ nicht isomorph sind, da die $n$ Knoten jedes Graphen unmöglich in mehr als $n$ Partitionen unterteilt werden können und Gleichheit somit ausgeschlossen ist.
-
 Aus den gewonnenen Erkenntnissen ergibt sich folgende Erweiterung zu Definition \ref{def:cr-graph1}.
 \begin{Definition}
 	Ein Graph $G$ wird \emph{CR-Graph} genannt, wenn für jeden beliebigen, nicht isomorphen Graphen $H$ die Gleichung (\ref{eq:2}) für $i=n$ nicht erfüllt ist.
