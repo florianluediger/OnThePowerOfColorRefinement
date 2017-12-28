@@ -1,4 +1,4 @@
-\section{Graph-Isomorphie und Color Refinement}
+\section{Graph-Isomorphie und Color-Refinement}
 \label{sec/gi_cr}
 
 \subsection{Graph-Isomorphie}
@@ -7,13 +7,12 @@ Es gilt also: $(u,v)\in E_G\Leftrightarrow (\phi (u),\phi (v))\in E_H$ für alle
 Eine so definierte Abbildung $\phi$ wird \emph{Isomorphismus} genannt, vgl. \cite{MCKAY201494}.
 
 Es wurde gezeigt, dass das Graph-Isomorphie-Problem in $NP$ liegt, die $NP$-Vollständigkeit ist allerdings noch unklar.
-Es konnte außerdem noch kein Algorithmus gefunden werden, welcher das Problem in polynomieller Zeit löst, jedoch wird davon ausgegangen, dass es nicht $NP$-vollständig ist.
-Siehe \cite{Goldreich1991}.
+Es konnte außerdem noch kein Algorithmus gefunden werden, welcher das Problem in polynomieller Zeit löst, jedoch wird davon ausgegangen, dass es nicht $NP$-vollständig ist, siehe \cite{Goldreich1991}.
 
-\subsection{Color Refinement}
+\subsection{Color-Refinement}
 \label{sec/cr}
-Der Color Refinement Algorithmus stellt eine Heuristik dar, mit der in polynomieller Zeit festgestellt werden kann, dass zwei Graphen nicht isomorph sind.
-Der Algorithmus geht wie folgt vor.\\
+Der Color-Refinement-Algorithmus stellt eine Heuristik dar, mit der in polynomieller Zeit festgestellt werden kann, dass zwei Graphen nicht isomorph sind.
+In Kapitel \ref{sec/formal_cr} wird die genaue Vorgehensweise des Algorithmus erläutert, grob geht dieser aber wie folgt vor.\\
 \begin{enumerate}
 	\item Sämtliche Knoten des Graphen werden in der selben Farbe gefärbt.
 	\item Die Knotenfärbungen werden verfeinert, indem überprüft wird, ob zwei Knoten gleicher Farbe unterschiedliche \glspl{nachbarschaft} mit Berücksichtigung der Farbe besitzen.
@@ -29,17 +28,17 @@ Obwohl offensichtlich erkennbar ist, dass die beiden Graphen nicht isomorph sind
 Auf Basis dieser Erkenntnisse wird die folgende Klasse von Graphen definiert.
 
 \begin{Definition}
-	Ein Graph $G$ wird \emph{CR-Graph} genannt, wenn der Color Refinement Algorithmus diesen von jedem beliebigen, nicht zu $G$ isomorphen Graphen $H$ unterscheiden kann.
+	Ein Graph $G$ wird \emph{CR-Graph} genannt, wenn der Color-Refinement-Algorithmus diesen von jedem beliebigen, nicht zu $G$ isomorphen Graphen $H$ unterscheiden kann.
 	Die Arbeit, auf der diese Ausarbeitung beruht (\cite{Arvind2015}) nennt diese Kerneigenschaft von CR-Graphen \emph{amenable}
 	\label{def:cr-graph1}
 \end{Definition}
 
-Durch die Eigenschaften des Color Refinement Algorithmus ist folgende Beziehung bekannt: Color Refinement erkennt zwei Graphen als nicht isomorph $\Rightarrow$ die Graphen sind nicht isomorph.
-Aus Definition \ref{def:cr-graph1} folgt außerdem: zwei CR-Graphen sind nicht isomorph $\Rightarrow$ Color Refinement kann diese als nicht isomorph unterscheiden.
+Durch die Eigenschaften des Color-Refinement-Algorithmus ist folgende Beziehung bekannt: Color-Refinement erkennt zwei Graphen als nicht isomorph $\Rightarrow$ die Graphen sind nicht isomorph.
+Aus Definition \ref{def:cr-graph1} folgt außerdem: zwei CR-Graphen sind nicht isomorph $\Rightarrow$ Color-Refinement kann diese als nicht isomorph unterscheiden.
 Somit lässt sich wie in Korollar \ref{kor:cr-graph} formuliert die Äquivalenz der Aussagen für die Klasse der CR-Graphen schlussfolgern.
 
 \begin{Korollar}
-	Für zwei Graphen aus der Klasse der CR-Graphen gilt: Color Refinement erkennt die Graphen als isomorph $\Leftrightarrow$ die Graphen sind isomorph.
+	Für zwei Graphen aus der Klasse der CR-Graphen gilt: Color-Refinement erkennt die Graphen als isomorph $\Leftrightarrow$ die Graphen sind isomorph.
 	\label{kor:cr-graph}
 \end{Korollar}
 
@@ -82,17 +81,17 @@ Somit lässt sich wie in Korollar \ref{kor:cr-graph} formuliert die Äquivalenz 
 			(6) edge node {} (1);
 		\end{scope}
 	\end{tikzpicture}
-	\caption{Zwei nicht isomorphe Graphen, welche vom Color Refinement nicht unterschieden werden können}
+	\caption{Zwei nicht isomorphe Graphen, welche vom Color-Refinement nicht unterschieden werden können}
 	\label{fig:nicht_isomorphe_graphen}
 \end{figure}
 
-Neben dem klassischen Isomorphie-Test ist der Color Refinement Algorithmus auch für andere Anwendungsfelder geeignet.
-Als Beispiel ist hier die Verkleinerung von linearen Programmen durch Reduktion der Dimensionen der Gleichungssysteme und somit eine Erhöhung der Effizienz zu nennen.
-Siehe \cite{Grohe2014}.
+Neben dem klassischen Isomorphie-Test ist der Color-Refinement-Algorithmus auch für andere Anwendungsfelder geeignet.
+Als Beispiel ist hier die Verkleinerung von linearen Programmen durch Reduktion der Dimensionen der Gleichungssysteme und somit eine Erhöhung der Effizienz zu nennen, siehe \cite{Grohe2014}.
 Weitere Anwendungsfelder finden sich in \cite{shervashidze2011weisfeiler} und \cite{kersting2014power}.
 
 \subsection{Formale Definition von CR-Graphen}
-Der Color Refinement Algorithmus berechnet iterativ eine Sequenz von Knotenfärbungen $C^i$ für einen Graphen $G$.
+\label{sec/formal_cr}
+Der Color-Refinement-Algorithmus berechnet iterativ eine Sequenz von Knotenfärbungen $C^i$ für einen Graphen $G$.
 Die initiale Färbung $C^i$ weist jedem Knoten die selbe Farbe zu.
 Daraufhin wird in jeder Iteration nach folgender Regel eine neue Färbung gebildet.
 \begin{equation}
@@ -113,6 +112,7 @@ Die stabile Partitionierung ist bei jedem Graphen nach maximal $n-1$ Verfeinerun
 Eine Partitionierung kann außerdem die Eigenschaft \emph{equitable} besitzen.
 Dafür müssen die im Folgenden definierten Eigenschaften erfüllt sein.
 Die Elemente der Partitionierung werden hier Zellen genannt.
+
 \begin{Definition}
 	Eine Partitionierung wird \emph{equitable} genannt, wenn die folgenden Eigenschaften erfüllt sind:
 	\begin{enumerate}[label=(\alph*)]
@@ -121,7 +121,7 @@ Die Elemente der Partitionierung werden hier Zellen genannt.
 		\item Für beliebige Zellen $X,Y\in \mathcal{P}$ ist der bipartite Graph $G[X,Y]$ ein biregulärer Graph.
 	\end{enumerate}
 \end{Definition}
-Es ist somit leicht zu erkennen, dass die durch das Color Refinement erstellte stabile Partitionierung $\mathcal{P}^s$ equitable ist.
+Es ist somit leicht zu erkennen, dass die durch das Color-Refinement erstellte stabile Partitionierung $\mathcal{P}^s$ equitable ist.
 
 Eine weitere Eigenschaft der Graphfärbungen $C^i$ ist der Erhalt der Färbung über Isomorphismen hinweg.
 \begin{Lemma}
@@ -133,12 +133,12 @@ Aus dieser Aussage leitet sich die folgende Gleichung her.
 \forall i\geq 0:\ldblbrace C^i(u):u\in V_G\rdblbrace =\ldblbrace C^i(v):v\in V_H\rdblbrace 
 \label{eq:2}
 \end{equation}
-Das Color Refinement akzeptiert somit zwei Graphen $G$ und $H$ bei der Eingabe der \glslink{disjunkte_vereinigung}{disjunkten Vereinigung} $G+H$ genau dann, wenn die Gleichung (\ref{eq:2}) erfüllt ist.
+Das Color-Refinement akzeptiert somit zwei Graphen $G$ und $H$ bei der Eingabe der \glslink{disjunkte_vereinigung}{disjunkten Vereinigung} $G+H$ genau dann, wenn die Gleichung (\ref{eq:2}) erfüllt ist.
 
 Das Überprüfen dieser Bedingung ist in endlicher Zeit berechenbar.
-Für einen Zeugen $i$ dafür, dass die Gleichung nicht erfüllt ist, gilt $i<2n$, wobei $n$ die Anzahl der Knoten jedes Graphens ist.
+Für das minimale $i$, für welches die Gleichung nicht erfüllt ist, gilt $i<2n$, wobei $n$ die Anzahl der Knoten jedes Graphens ist.
 Dies beruht darauf, dass $\mathcal{P}^{2n-1}$ in jedem Fall die stabile Partitionierung von $G+H$ ist und weitere Verfeinerungsschritte keine neue Partitionierung erstellen würden.
-Es genügt sogar die Gleichung für $i=n$ zu verifizieren, da die Existenz einer Partitionierung $\mathcal{P}^{n+1}\neq \mathcal{P}^n$ bedeuten würde, dass es mehr als $n$ Partitionen, da in jedem Partitionierungsschritt mindestens eine Partition hinzukommt.
+Es genügt sogar die Gleichung für $i=n$ zu verifizieren, da die Existenz einer Partitionierung $\mathcal{P}^{n+1}\neq \mathcal{P}^n$ bedeuten würde, dass es mehr als $n$ Partitionen gibt, da in jedem Partitionierungsschritt mindestens eine Partition hinzukommt.
 Mehr als $n$ Partitionen sind ein Indikator dafür, dass die Graphen $G$ und $H$ nicht isomorph sind, da die $n$ Knoten jedes Graphen unmöglich in mehr als $n$ Partitionen unterteilt werden können und Gleichheit somit ausgeschlossen ist.
 
 Aus den gewonnenen Erkenntnissen ergibt sich folgende Erweiterung zu Definition \ref{def:cr-graph1}.

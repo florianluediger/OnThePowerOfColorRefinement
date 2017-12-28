@@ -15,8 +15,8 @@ Die Basis dieses Kapitels bildet das folgende Lemma, welches für beliebige Zell
 	Die Zellen der stabilen Partition $\mathcal{P}_G$ eines CR-Graphen erfüllen folgende Eigenschaften:
 	
 	\begin{enumerate}[label=(\Alph*)]
-		\item Für beliebige Zellen $X\in \mathcal{P}_G$ ist $G[X]$ ein leerer Graph, \gls{vollstaendiger_graph}, \gls{matching_graph} $mK_2$, das Komplement eines matching Graphen oder der 5er \gls{zyklus}
-		\item Für beliebige Zellen $X,Y\in \mathcal{P}_G$ ist $G[X,Y]$ ein leerer Graph, \gls{vollstaendiger_bipartiter_graph}, eine \gls{disjunkte_vereinigung_von_sternen} $sK_{1,t}$, bei der $X$ die Menge der $s$ inneren Knoten und $Y$ die Menge der $st$ Blätter ist, oder das \glslink{bipartites_komplement}{bipartite Komplement} des zuletzt genannten Graphen
+		\item Für beliebige Zellen $X\in \mathcal{P}_G$ ist $G[X]$ ein leerer Graph, \gls{vollstaendiger_graph}, \gls{matching_graph} $mK_2$, das Komplement eines Matching Graphen oder der 5-\gls{zyklus}.
+		\item Für beliebige Zellen $X,Y\in \mathcal{P}_G$ ist $G[X,Y]$ ein leerer Graph, \gls{vollstaendiger_bipartiter_graph}, eine \gls{disjunkte_vereinigung_von_sternen} $sK_{1,t}$, bei der $X$ die Menge der $s$ inneren Knoten und $Y$ die Menge der $st$ Blätter ist, oder das \glslink{bipartites_komplement}{bipartite Komplement} des zuletzt genannten Graphen.
 	\end{enumerate}
 	\label{lemma:lokal}
 \end{Lemma}
@@ -84,19 +84,18 @@ Auch für bipartite Graphen können die Aussagen von Lemma \ref{lemma:lokal} (B)
 
 Wenn ein Graph $G$ nun einen Subgraphen $G[X]$ oder $G[X,Y]$ mit $X,Y\in \mathcal{P}_G$ enthält, dessen Typ allerdings nicht in Lemma \ref{lemma:lokal} aufgelistet wird, so lässt sich dieser durch einen nicht-isomorphen regulären oder biregulären Graphen mit gleichem Grad ersetzen. Diese Aussage folgt daraus, dass dessen Isomorphieeigenschaften wie in Lemma \ref{lemma:lokal_regulaer} und \ref{lemma:lokal_bipartit} dargestellt nicht allein durch ihre Parameter definiert sind, sodass das Ersetzen durch einen nicht-isomorphen Graphen mit eben diesen Parametern ermöglicht wird.
 
-Diese Ergebnisse lassen sich für den Beweis von Lemma \ref{lemma:lokal} nutzen, wenn gezeigt wird, dass der durch das Ersetzen des Subgraphen entstandene Graph $H$ vom Color Refinement nicht von $G$ unterschieden werden kann. Im Folgenden gilt dazu, dass $G$ und $H$ die gleiche Knotenmenge enthalten und die Farben für einen Knoten $u$ durch $C^i_G(u)$ und $C^i_H(u)$ für die jeweiligen Graphen definiert sind.
+Diese Ergebnisse lassen sich für den Beweis von Lemma \ref{lemma:lokal} nutzen, wenn gezeigt wird, dass der durch das Ersetzen des Subgraphen entstandene Graph $H$ vom Color-Refinement nicht von $G$ unterschieden werden kann. Im Folgenden gilt dazu, dass $G$ und $H$ die gleiche Knotenmenge enthalten und die Farben für einen Knoten $u$ durch $C^i_G(u)$ und $C^i_H(u)$ für die jeweiligen Graphen definiert sind.
 
 \begin{Lemma}
-	Seien $X$ und $Y$ Zellen der stabilen Partition eines Graphen $G$.
+	Seien $X$ und $Y$ Zellen der stabilen Partition eines Graphen $G$, dann gilt:
 	\begin{enumerate}[label=(\alph*)]
-		\item  Ist der Graph $H$ aus $G$ erstellt worden, indem die Kanten eines Subgraphen $G[X]$ mit denen eines regulären Graphen mit dem gleichen Grad auf der gleichen Knotenmenge $X$ ersetzt wurde, so gilt: $C^i_G(u)=C^i_H(u)$ für alle $u\in V(G)$ und beliebiges $i$.
+		\item  Ist der Graph $H$ aus $G$ erstellt worden, indem die Kanten des Subgraphen $G[X]$ mit denen eines regulären Graphen mit dem gleichen Grad auf der gleichen Knotenmenge $X$ ersetzt wurde, so gilt: $C^i_G(u)=C^i_H(u)$ für alle $u\in V(G)$ und beliebiges $i$.
 		\item Ist der Graph $H$ aus $G$ erstellt worden, indem die Kanten eines Subgraphen $G[X,Y]$ mit denen eines biregulären Graphen mit dem gleichen Grad und den gleichen Partitionen ersetzt wurden, sodass die Knotengrade erhalten bleiben, gilt somit: $C^i_G(u)=C^i_H(u)$ für alle $u\in V(G)$ und beliebiges $i$.
 	\end{enumerate}
 	\label{lemma:lokal_nicht_unterscheidbar}
 \end{Lemma}
 
 \emph{Beweis von Lemma \ref{lemma:lokal}:}
-
-\emph{(A)} Sei $G[X]$ ein Graph, dessen Struktur nicht in Lemma \ref{lemma:lokal} \emph{(A)} aufgelistet wird, so ist dieser wie in Lemma \ref{lemma:lokal_regulaer} dargestellt, kein Unigraph. Somit ist es möglich $G[X]$ innerhalb von $G$ durch einen nicht-isomorphen Graphen mit gleichen Parametern zu ersetzen. Der so entstandene Graph $H$ ist nicht isomorph zum Ursprungsgraphen $G$, da die Subgraphen $G[X]$ und $H[X]$ nicht isomorph sind. Teil (a) von Lemma \ref{lemma:lokal_nicht_unterscheidbar} hingegen zeigt, dass Gleichung \ref{eq:2} für beliebige $i$ erfüllt ist und das Color Refinement die beiden Graphen somit nicht unterscheiden kann. Aus dieser Aussage folgt, dass der Graph $G$ nicht zu der Klasse der CR-Graphen gehört. Durch Kontraposition folgt nun, dass ein CR-Graph die in Lemma \ref{lemma:lokal} \emph{(A)} genannten Eigenschaften in jedem Fall erfüllt.
+\emph{(A)} Sei $G[X]$ ein Graph, dessen Struktur nicht in Lemma \ref{lemma:lokal} \emph{(A)} aufgelistet wird, so ist dieser wie in Lemma \ref{lemma:lokal_regulaer} dargestellt, kein Unigraph. Somit ist es möglich $G[X]$ innerhalb von $G$ durch einen nicht-isomorphen Graphen mit gleichen Parametern zu ersetzen. Der so entstandene Graph $H$ ist nicht isomorph zum Ursprungsgraphen $G$, da die Subgraphen $G[X]$ und $H[X]$ nicht isomorph sind. Teil (a) von Lemma \ref{lemma:lokal_nicht_unterscheidbar} hingegen zeigt, dass Gleichung \ref{eq:2} für beliebige $i$ erfüllt ist und das Color-Refinement die beiden Graphen somit nicht unterscheiden kann. Aus dieser Aussage folgt, dass der Graph $G$ nicht zu der Klasse der CR-Graphen gehört. Durch Kontraposition folgt nun, dass ein CR-Graph die in Lemma \ref{lemma:lokal} \emph{(A)} genannten Eigenschaften in jedem Fall erfüllt.
 
 \emph{(B)} Diese Aussage lässt sich unter Zuhilfenahme von Lemma \ref{lemma:lokal_bipartit} und Lemma \ref{lemma:lokal_nicht_unterscheidbar} (ii) sehr ähnlich zu \emph{(A)} begründen.$\hfill\square$

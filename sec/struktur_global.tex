@@ -52,10 +52,10 @@ Mit dem so gewonnenen Hintergrundwissen kann nun das folgende Lemma formuliert w
 
 	\begin{enumerate}[label=(\Alph*)]
 		\setcounter{enumi}{2}
-		\item $C(G)$ enthält keinen gleichmäßigen, anisotropen Pfad, der zwei heterogene Zellen verbindet
-		\item $C(G)$ enthält keinen gleichmäßigen, anisotropen Zyklus
-		\item $C(G)$ enthält weder einen anisotropen Pfad $XY_1Y_2...Y_lZ$, sodass $|X|<|Y_1|=|Y_2|=...=|Y_l|>|Z|$, noch einen anisotropen Zyklus $XY_1Y_2...Y_l$, sodass $|X|<|Y_1|=|Y_2|=...=|Y_l|$ und die Zelle $Y_l$ heterogen ist
-		\item $C(G)$ enthält keinen anisotropen Pfad $XY_1Y_2...Y_l$, sodass $|X|<|Y_1|=|Y_2|=...=|Y_l|$ und die Zelle $Y_l$ heterogen ist
+		\item $C(G)$ enthält keinen gleichmäßigen, anisotropen Pfad, der zwei heterogene Zellen verbindet.
+		\item $C(G)$ enthält keinen gleichmäßigen, anisotropen Zyklus.
+		\item $C(G)$ enthält weder einen anisotropen Pfad $XY_1Y_2...Y_lZ$, sodass $|X|<|Y_1|=|Y_2|=...=|Y_l|>|Z|$, noch einen anisotropen Zyklus $XY_1Y_2...Y_l$, sodass $|X|<|Y_1|=|Y_2|=...=|Y_l|$ und die Zelle $Y_l$ heterogen ist.
+		\item $C(G)$ enthält keinen anisotropen Pfad $XY_1Y_2...Y_l$, sodass $|X|<|Y_1|=|Y_2|=...=|Y_l|$ und die Zelle $Y_l$ heterogen ist.
 	\end{enumerate}
 	\label{lemma:global1}
 \end{Lemma}
@@ -72,7 +72,7 @@ Der Pfad $P$ wird conducting genannt, wenn diese Abbildung von Knoten einen Isom
 Dazu müssen zwei Knoten $u,v\in X$ genau dann adjazent sein wenn ihre Gegenstücke $u^*,v^*\in Y$ adjazent sind.
 Angenommen eine der beiden Komponenten ist matching und die andere ist co-matching, dann wird $P$ ebenfalls conducting genannt, wenn die Isomorphie zwischen der matching Komponente und dem Komplement der co-matching Komponente besteht.
 
-Nachfolgend wird ein Graph $H$ erstellt werden, der nicht zu $G$ isomorph ist, welchen das Color Refinement allerdings nicht von $G$ unterscheiden kann.
+Nachfolgend wird ein Graph $H$ erstellt werden, der nicht zu $G$ isomorph ist, welchen das Color-Refinement allerdings nicht von $G$ unterscheiden kann.
 Da $X$ und $Y$ heterogen sind, können die Kanten des Subgraphen $G[X]$ durch einen isomorphen aber unterschiedlichen Graphen mit der gleichen Knotenmenge $X$ ersetzt werden.
 Ist $P$ in $G$ conducting, so muss $G[X]$ so ersetzt werden, dass der entstehende Pfad in $H$ nicht conducting ist, anderenfalls muss der entsprechende Pfad in $H$ conducting sein.
 Ein Beispiel für ein solches Ersetzen von $G[X]$ findet sich in Abbildung \ref{fig:global_c}.
@@ -130,7 +130,7 @@ Dabei ist der durch die gestrichelten Linien dargestellte Pfad im Ausgangsgraphe
 	\label{fig:global_c}
 \end{figure}
 
-Lemma \ref{lemma:lokal_nicht_unterscheidbar} (a) besagt nun, dass der Color Refinement Algorithmus für $G$ und $H$ die gleiche Färbung errechnet und somit nicht zwischen den beiden unterscheiden kann.
+Lemma \ref{lemma:lokal_nicht_unterscheidbar} (a) besagt nun, dass der Color-Refinement-Algorithmus für $G$ und $H$ die gleiche Färbung errechnet und somit nicht zwischen den beiden unterscheiden kann.
 Außerdem besagt Lemma \ref{lemma:faerbung_isomorphismus}, dass jeder Isomorphismus zwischen $G$ und $H$ Zellen auf sich selbst abbilden muss.
 Da also gilt $\phi (v^*)=\phi (v)^*$, muss $\phi $ die Eigenschaft von $P$ erhalten conducting oder nicht zu sein, was in diesem konstruierten Beispiel nicht erfüllt ist.
 Es folgt, dass $G$ und $H$ nicht isomorph sind und $G$ daher kein CR-Graph sein kann.$\hfill\square$\\
@@ -150,7 +150,7 @@ Seien $X,Y\in Q$ zwei aufeinanderfolgende Zellen, so kann der dadurch entstehend
 Somit entsteht ein neuer Graph $H$, welcher beispielsweise so konstruiert sein kann, dass für den betrachteten Zyklus die beiden eingangs erwähnten Extreme vorliegen.
 Dadurch, dass sich hier zwei Möglichkeiten ergeben wie $\tau (Q)$ nach dem Austauschen aussehen kann, ist es möglich den Subgraphen $G[X,Y]$ so zu ersetzen, dass $\tau (Q)$ sich ändert.
 
-Es wird wieder das Lemma \ref{lemma:lokal_nicht_unterscheidbar} genutzt, um zu zeigen, dass das Color Refinement nicht zwischen $G$ und $H$ unterschieden werden kann.
+Es wird wieder das Lemma \ref{lemma:lokal_nicht_unterscheidbar} genutzt, um zu zeigen, dass das Color-Refinement nicht zwischen $G$ und $H$ unterschieden werden kann.
 Außerdem ist $G$ nicht isomorph zu $H$, da sich $H$ so konstruieren lässt, dass $\tau (Q)$ in beiden Graphen unterschiedlich ist, wodurch der Graph $G$ nicht zu der Klasse der CR-Graphen gehören kann.$\hfill\square$\\
 
 \emph{Beweis E:} Sei $P=XY_1Y_2...Y_lZ$ ein anisotroper Pfad in $G$, sodass dessen Kardinalitäten durch $|X|<|Y_1|=|Y_2|=...=|Y_l|>|Z|$ beschrieben werden.
@@ -280,7 +280,7 @@ Falls für irgendwelche $x$ und $z$ die Mengen $Y_x$ und $Y_z$ identisch sind, s
 Der ursprünglich betrachtete Pfad $P$ wird \emph{flach} genannt, sofern kein Paar $(x,z)\in X\times Y$ existiert, sodass keine der entsprechenden Hyperkanten $Y_x$ und $Y_z$ die andere enthält.
 Es werden nun die Knoten in $Y$ so umsortiert, dass die Hyperkanten $\{Y_z\}_{z\in Z}$ aufeinanderfolgende Intervalle beschreiben, was in dem abgebildeten Beispiel bereits optisch so dargestellt wurde.
 
-Es wird nun wieder ein zu $G$ nicht isomorpher Graph $H$ gebildet, welcher vom Color Refinement nicht von diesem unterschieden werden kann.
+Es wird nun wieder ein zu $G$ nicht isomorpher Graph $H$ gebildet, welcher vom Color-Refinement nicht von diesem unterschieden werden kann.
 Ist $P$ in $G$ flach, wird $H$ so konstruiert, dass der Pfad $P$ nicht mehr flach ist.
 Dies ist möglich, indem die Kanten des Subgraphen $G[X,Y_1]$ durch einen isomorphen aber anderen Subgraphen ersetzt werden, sodass die in $\mathcal{Y}_H$ gebildeten Hyperkanten in aufeinanderfolgenden Intervallen stehen.
 Formal wird also $\mathcal{Y}_H=\{Y_i\}_{i\in [s]}\cup \{Y_z\}_{z\in Z}$ mit $Y_i=\{(i-1)t+1,2,...,it\}$ definiert.
@@ -410,7 +410,7 @@ Ist $P$ in $G$ allerdings nicht flach, so wird der Subgraph $G[X,Y_1]$ in $H$ so
 Formal ist also $Y_i=\{i,i+s,...,i+(t-1)s\}$.
 
 $H$ ist somit in der Tat nicht zu $G$ isomorph, da für diese Eigenschaft der Pfad $P$ in beiden Graphen entweder flach oder in beiden Graphen nicht flach sein müsste.
-Aus Teil (a) von Lemma \ref{lemma:lokal_nicht_unterscheidbar} folgt außerdem, dass das Color Refinement die beiden Graphen nicht unterscheiden kann, wodurch klar ist, dass der Graph $G$ kein CR-Graph sein kann.$\hfill\square$\\
+Aus Teil (a) von Lemma \ref{lemma:lokal_nicht_unterscheidbar} folgt außerdem, dass das Color-Refinement die beiden Graphen nicht unterscheiden kann, wodurch klar ist, dass der Graph $G$ kein CR-Graph sein kann.$\hfill\square$\\
 
 \emph{Beweis F:} Dieser Beweis läuft ähnlich wie der von Bedingung \emph{E} ab, weshalb sich viele Parallelen erkennen lassen.
 Sei $P=XY_1Y_2...Y_l$ ein anisotroper Pfad in $C(G)$, wobei die Kardinalitäten der Zellen dem Schema $|X|<|Y_1|=|Y_2|=...=|Y_l|$ folgen und $Y_l$ heterogen ist.
@@ -423,7 +423,7 @@ Es wird nun wie im Beweis von \emph{E} die Identität $Y=Y_1=Y_l=\{1,2,...,st\}$
 Außerdem wird der Hypergraph $\mathcal{Y}_G=\{Y_x\}_{x\in X}\cup \mathcal{E}$ erstellt, wobei $\{Y_x\}$ wieder die Menge der zu $x\in X$ adjazenten Knoten in $Y$ und $\mathcal{E}$ die Menge der Paare aus $G[Y_l]$, welche durch eine Matching-Kante verbunden sind, definiert.
 
 Nun kann wie im Beweis von Bedingung \emph{E} der Isomorphietyp von $\mathcal{Y}_G$ verändert werden, indem die Kanten von $G[X,Y_1]$ durch einen isomorphen aber anderen Graphen ersetzt werden.
-Somit kann ein zu $G$ nicht isomorpher Graph $H$ erzeugt werden, welcher aber nach Lemma \ref{lemma:lokal_nicht_unterscheidbar} nicht durch das Color Refinement von diesem unterschieden werden kann.$\hfill\square$
+Somit kann ein zu $G$ nicht isomorpher Graph $H$ erzeugt werden, welcher aber nach Lemma \ref{lemma:lokal_nicht_unterscheidbar} nicht durch das Color-Refinement von diesem unterschieden werden kann.$\hfill\square$
 
 \subsection{Baumartige Struktur von CR-Graphen}
 Bei genauerer Betrachtung fällt auf, dass der Zellgraph von CR-Graphen eine baumartige Struktur aufweist.
@@ -440,8 +440,8 @@ Um das folgende Lemma verstehen zu können, welches diese Baumstruktur genauer s
 	
 	\begin{enumerate}[label=(\Alph*)]
 		\setcounter{enumi}{6}
-		\item $A$ ist ein Baum, der folgende Monotonieeigenschaft erfüllt: Sei $R$ eine Zelle aus $A$ mit minimaler Kardinalität, so ist $A_R$ der gerichtete Baum mit Wurzel $R$; Für jede gerichtete Kante $(X,Y)$ aus $A_R$ gilt dann $|X|\leq |Y|$
-		\item $A$ enthält maximal eine heterogene Zelle; Wenn eine solche Zelle existiert, hat diese minimale Kardinalität in $A$
+		\item $A$ ist ein Baum, der folgende Monotonieeigenschaft erfüllt: Sei $R$ eine Zelle aus $A$ mit minimaler Kardinalität, so ist $A_R$ der gerichtete Baum mit Wurzel $R$; Für jede gerichtete Kante $(X,Y)$ aus $A_R$ gilt dann $|X|\leq |Y|$.
+		\item $A$ enthält maximal eine heterogene Zelle; Wenn eine solche Zelle existiert, hat diese minimale Kardinalität in $A$.
 	\end{enumerate}
 	\label{lemma:global2}
 \end{Lemma}
