@@ -9,6 +9,7 @@
 \usepackage{amssymb}										% Einfügen von zusätzlichen Symbolen wie \square
 \usepackage{fontspec}
 
+% Einstellen von Formatierungen
 \setsansfont{Calibri}
 \setmonofont{Courier New}
 
@@ -20,8 +21,17 @@
 % Treffen von Einstellungen für tikz
 \usetikzlibrary{positioning}
 \usetikzlibrary{fit}
-\tikzset{main node/.style={circle,fill=blue!30,draw,minimum size=0.7cm,inner sep=0pt},}
+\usetikzlibrary{shapes.geometric}
+\tikzset{main node/.style={circle,fill=blue!50,draw,minimum size=0.7cm,inner sep=0pt},}
 \tikzset{bezier/.style={inner sep=0pt,minimum size=0cm},}
+
+\newcommand\Wider[2][3em]{%
+	\makebox[\linewidth][c]{%
+		\begin{minipage}{\dimexpr\textwidth+#1\relax}
+			\raggedright#2
+		\end{minipage}%
+	}%
+}
 
 \title{On the Power of Color Refinement}
 \subtitle{V. Arvind, Johannes Köbler, Gaurav Rattan und\\ Oleg Verbitsky}
@@ -39,6 +49,260 @@
 			\item Kernergebnis von CR
 			\item Problem: nicht-isomorphe Graphen können nicht immer unterschieden werden (Beispiel)
 		\end{itemize}
+	\end{frame}
+	\begin{frame}{Graph-Isomorphie}
+		\begin{Definition}
+			 Zwei Graphen $G$ und $H$ sind isomorph, wenn es eine bijektive Abbildung $\phi$ gibt, sodass gilt:\\ $(u,v)\in E_G\Leftrightarrow (\phi (u),\phi (v))\in E_H$ für alle $u,v\in V_G$.
+		\end{Definition}
+		% Vortragsnotizen:
+		% Adjazenz
+		% Isomorphismus
+		% kein Polynomialzeitalgorithmus bekannt
+	\end{frame}
+	\begin{frame}{Beispiel}
+		\centering
+		\begin{tikzpicture}
+			\begin{scope}
+				\node[draw=none,minimum size=4cm,regular polygon,regular polygon sides=5] (a) {};
+				\foreach \x in {1,2,...,5}
+				\node[main node] at (a.corner \x) (\x) {};
+				
+				\path[draw,thick]
+				(1) edge node {} (2)
+				(2) edge node {} (3)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(5) edge node {} (1);
+			\end{scope}
+			
+			\begin{scope}[xshift=6cm]
+				\node[draw=none,minimum size=4cm,regular polygon,regular polygon sides=5] (a) {};
+				\foreach \x in {1,2,...,5}
+					\node[main node] at (a.corner \x) (\x) {};
+				
+				\path[draw,thick]
+				(1) edge node {} (4)
+				(4) edge node {} (2)
+				(2) edge node {} (5)
+				(5) edge node {} (3)
+				(3) edge node {} (1);
+			\end{scope}
+		\end{tikzpicture}
+	\end{frame}
+	\begin{frame}{Beispiel}
+		\centering
+		\begin{tikzpicture}
+			\begin{scope}
+				\node[draw=none,minimum size=4cm,regular polygon,regular polygon sides=5] (a) {};
+				\foreach \x in {1,2,...,5}
+					\node[main node] at (a.corner \x) (\x) {\x};
+				
+				\path[draw,thick]
+				(1) edge node {} (2)
+				(2) edge node {} (3)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(5) edge node {} (1);
+			\end{scope}
+			
+			\begin{scope}[xshift=6cm]
+				\node[draw=none,minimum size=4cm,regular polygon,regular polygon sides=5] (a) {};
+				\foreach \x in {1,2,...,5}
+					\node[main node] at (a.corner \x) (\x) {\x};
+				\node[main node] at (a.corner 1) (1) {1};
+				\node[main node] at (a.corner 2) (2) {4};
+				\node[main node] at (a.corner 3) (3) {2};
+				\node[main node] at (a.corner 4) (4) {5};
+				\node[main node] at (a.corner 5) (5) {3};
+				
+				\path[draw,thick]
+				(1) edge node {} (4)
+				(4) edge node {} (2)
+				(2) edge node {} (5)
+				(5) edge node {} (3)
+				(3) edge node {} (1);
+			\end{scope}
+		\end{tikzpicture}
+	\end{frame}
+	\begin{frame}{Color-Refinement}
+		\begin{Definition}
+			Mit der Color-Refinement-Heuristik kann in polynomieller Zeit festgestellt werden, dass zwei Graphen nicht isomorph sind.
+		\end{Definition}
+	\end{frame}
+	\begin{frame}{Beispiel}
+		\Wider[4em]{
+			\begin{tikzpicture}
+		% BILD 1:
+				\begin{scope}
+					\node[main node] (1) {};
+					\node[main node] (2) [right = 1cm of 1] {};
+					\node[main node] (3) [below = 1cm of 1] {};
+					\node[main node] (4) [right = 1cm of 3] {};
+					\node[main node] (5) [below right = 0.35cm and 0.35cm of 1] {};
+					\node (text) [left = 0cm of 1] {1)};
+					
+					\path[draw,thick]
+					(1) edge node {} (2)
+					(1) edge node {} (3)
+					(3) edge node {} (4)
+					(2) edge node {} (4)
+					(1) edge node {} (5);
+				\end{scope}
+				
+				\begin{scope}[xshift=3cm]
+					\node[main node] (1) {};
+					\node[main node] (2) [right = 1cm of 1] {};
+					\node[main node] (3) [below = 1cm of 1] {};
+					\node[main node] (4) [right = 1cm of 3] {};
+					\node[main node] (5) [below right = 0.35cm and 0.35cm of 1] {};
+					
+					\path[draw,thick]
+					(1) edge node {} (3)
+					(3) edge node {} (5)
+					(2) edge node {} (5)
+					(2) edge node {} (4)
+					(4) edge node {} (5);
+				\end{scope}
+				\pause
+		% BILD 2:
+				\begin{scope}[yshift=-3cm]
+					\node[main node] (1) [fill=red!50] {};
+					\node[main node] (2) [right = 1cm of 1] {};
+					\node[main node] (3) [below = 1cm of 1] {};
+					\node[main node] (4) [right = 1cm of 3] {};
+					\node[main node] (5) [fill=green!50,below right = 0.35cm and 0.35cm of 1] {};
+					\node (text) [left = 0cm of 1] {2)};
+					
+					\path[draw,thick]
+					(1) edge node {} (2)
+					(1) edge node {} (3)
+					(3) edge node {} (4)
+					(2) edge node {} (4)
+					(1) edge node {} (5);
+				\end{scope}
+				
+				\begin{scope}[yshift=-3cm,xshift=3cm]
+					\node[main node] (1) [fill=green!50]{};
+					\node[main node] (2) [right = 1cm of 1] {};
+					\node[main node] (3) [below = 1cm of 1] {};
+					\node[main node] (4) [right = 1cm of 3] {};
+					\node[main node] (5) [fill=red!50,below right = 0.35cm and 0.35cm of 1] {};
+					
+					\path[draw,thick]
+					(1) edge node {} (3)
+					(3) edge node {} (5)
+					(2) edge node {} (5)
+					(2) edge node {} (4)
+					(4) edge node {} (5);
+				\end{scope}
+				\pause
+		% BILD 3:
+				\begin{scope}[xshift=6.2cm]
+					\node[main node] (1) [fill=red!50] {};
+					\node[main node] (2) [right = 1cm of 1] {};
+					\node[main node] (3) [below = 1cm of 1] {};
+					\node[main node] (4) [fill=yellow!50,right = 1cm of 3] {};
+					\node[main node] (5) [fill=green!50,below right = 0.35cm and 0.35cm of 1] {};
+					\node (text) [left = 0cm of 1] {3)};
+					
+					\path[draw,thick]
+					(1) edge node {} (2)
+					(1) edge node {} (3)
+					(3) edge node {} (4)
+					(2) edge node {} (4)
+					(1) edge node {} (5);
+				\end{scope}
+				
+				\begin{scope}[xshift=9.2cm]
+					\node[main node] (1) [fill=orange!50]{};
+					\node[main node] (2) [right = 1cm of 1] {};
+					\node[main node] (3) [fill=pink!50,below = 1cm of 1] {};
+					\node[main node] (4) [right = 1cm of 3] {};
+					\node[main node] (5) [fill=black!50,below right = 0.35cm and 0.35cm of 1] {};
+					
+					\path[draw,thick]
+					(1) edge node {} (3)
+					(3) edge node {} (5)
+					(2) edge node {} (5)
+					(2) edge node {} (4)
+					(4) edge node {} (5);
+				\end{scope}
+				\pause
+		% BILD 4:
+				\begin{scope}[yshift=-3cm,xshift=6.2cm]
+					\node[main node] (1) [fill=red!50] {};
+					\node[main node] (2) [right = 1cm of 1] {};
+					\node[main node] (3) [below = 1cm of 1] {};
+					\node[main node] (4) [fill=yellow!50,right = 1cm of 3] {};
+					\node[main node] (5) [fill=green!50,below right = 0.35cm and 0.35cm of 1] {};
+					\node (text) [left = 0cm of 1] {4)};
+					
+					\path[draw,thick]
+					(1) edge node {} (2)
+					(1) edge node {} (3)
+					(3) edge node {} (4)
+					(2) edge node {} (4)
+					(1) edge node {} (5);
+				\end{scope}
+				
+				\begin{scope}[yshift=-3cm,xshift=9.2cm]
+					\node[main node] (1) [fill=orange!50]{};
+					\node[main node] (2) [fill=white!50,right = 1cm of 1] {};
+					\node[main node] (3) [fill=pink!50,below = 1cm of 1] {};
+					\node[main node] (4) [fill=white!50,right = 1cm of 3] {};
+					\node[main node] (5) [fill=black!50,below right = 0.35cm and 0.35cm of 1] {};
+					
+					\path[draw,thick]
+					(1) edge node {} (3)
+					(3) edge node {} (5)
+					(2) edge node {} (5)
+					(2) edge node {} (4)
+					(4) edge node {} (5);
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{frame}
+	\begin{frame}{Limitierung der Heuristik}
+		Es gibt nicht-isomorphe Graphenpaare, welche das Color-Refinement nicht unterscheiden kann.
+		
+	
+		\begin{tikzpicture}
+			\begin{scope}
+				\node[main node] (1) {};
+				\node[main node] (2) [below left = 0.8cm and 1.4cm of 1]  {};
+				\node[main node] (6) [below right = 0.8cm and 1.4cm of 1] {};
+				\node[main node] (3) [below = 1.4cm of 2] {};
+				\node[main node] (5) [below = 1.4cm of 6] {};
+				\node[main node] (4) [below right = 0.8cm and 1.4cm of 3] {};
+				
+				\path[draw,thick]
+				(1) edge node {} (2)
+				(2) edge node {} (3)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(5) edge node {} (6)
+				(6) edge node {} (1);
+			\end{scope}
+			
+			\node [below right = 0.4cm and 0.8cm of 6] {\huge $\not\simeq$};
+			
+			\begin{scope}[xshift=6.5cm]
+				\node[main node] (1) {};
+				\node[main node] (2) [below left = 0.8cm and 1.4cm of 1]  {};
+				\node[main node] (6) [below right = 0.8cm and 1.4cm of 1] {};
+				\node[main node] (3) [below = 1.4cm of 2] {};
+				\node[main node] (5) [below = 1.4cm of 6] {};
+				\node[main node] (4) [below right = 0.8cm and 1.4cm of 3] {};
+				
+				\path[draw,thick]
+				(1) edge node {} (2)
+				(2) edge node {} (6)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(5) edge node {} (3)
+				(6) edge node {} (1);
+			\end{scope}
+		\end{tikzpicture}
 	\end{frame}
 
 	\section{Was gibt es neues?}
