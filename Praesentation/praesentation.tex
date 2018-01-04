@@ -339,6 +339,101 @@
 		\Large{\textit{Wie identifiziere ich also die Klasse der CR-Graphen?}}
 	\end{frame}
 
+	\section{Begriffserklärungen und Anwendungsbeispiel}
+	\begin{frame}{Anwendungsbeispiel}
+		\centering
+		\begin{tikzpicture}
+			\def\scale{0.6}
+			\begin{scope}
+				\node[main node] (1) [fill=green!50]{A};
+				\node[main node] (2) [fill=red!50,below left = \scale*0.57cm and \scale*1cm of 1]  {B};
+				\node[main node] (6) [fill=red!50,below right = \scale*0.57cm and \scale*1cm of 1] {F};
+				\node[main node] (3) [fill=red!50,below = \scale*1cm of 2] {C};
+				\node[main node] (5) [fill=red!50,below = \scale*1cm of 6] {E};
+				\node[main node] (4) [fill=green!50,below right = \scale*0.57cm and \scale*1cm of 3] {D};
+				\node[main node] (7) [above = \scale*1cm of 1] {G};
+				\node[main node] (8) [below = \scale*1cm of 4] {H};
+				
+				\path[draw,thick]
+				(1) edge node {} (2)
+				(2) edge node {} (3)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(5) edge node {} (6)
+				(6) edge node {} (1)
+				(1) edge node {} (7)
+				(4) edge node {} (8);
+			\end{scope}
+			
+			\begin{scope}[xshift=5cm]
+				\node[main node] (1) [fill=green!50]{A};
+				\node[main node] (2) [fill=red!50,below left = \scale*0.57cm and \scale*1cm of 1]  {B};
+				\node[main node] (6) [fill=red!50,below right = \scale*0.57cm and \scale*1cm of 1] {F};
+				\node[main node] (3) [fill=red!50,below = \scale*1cm of 2] {C};
+				\node[main node] (5) [fill=red!50,below = \scale*1cm of 6] {E};
+				\node[main node] (4) [fill=green!50,below right = \scale*0.57cm and \scale*1cm of 3] {D};
+				\node[main node] (7) [above = \scale*1cm of 1] {G};
+				\node[main node] (8) [below = \scale*1cm of 4] {H};
+				
+				\path[draw,thick]
+				(1) edge node {} (2)
+				(2) edge node {} (6)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(5) edge node {} (3)
+				(6) edge node {} (1)
+				(1) edge node {} (7)
+				(4) edge node {} (8);
+			\end{scope}
+		\end{tikzpicture}
+	\end{frame}
+	\begin{frame}{Stabile Partitionierung}
+		\begin{Definition}
+			Die \textbf{Partitionierung} $\mathcal{P}$ teilt den Graphen $G$ in die Farbklassen eines Verfeinerungsschritts ein.
+		\end{Definition}
+		\pause
+		\begin{Definition}
+			Wenn sich die Partitionierung bei weiteren Verfeinerungsschritten nicht mehr ändert, wird diese \textbf{stabile Partitionierung} $\mathcal{P}^s$ genannt.
+		\end{Definition}
+		\pause
+		\begin{Definition}
+			Die einzelnen Partitionen innerhalb der Partitionierung werden \textbf{Zellen} genannt.
+		\end{Definition}
+	\end{frame}
+	\begin{frame}{Anwendung auf das Beispiel}
+		\centering
+		\begin{tikzpicture}
+			\def\scale{0.6}
+			\begin{scope}
+				\node[main node] (1) [fill=green!50]{A};
+				\node[main node] (2) [fill=red!50,below left = \scale*0.57cm and \scale*1cm of 1]  {B};
+				\node[main node] (6) [fill=red!50,below right = \scale*0.57cm and \scale*1cm of 1] {F};
+				\node[main node] (3) [fill=red!50,below = \scale*1cm of 2] {C};
+				\node[main node] (5) [fill=red!50,below = \scale*1cm of 6] {E};
+				\node[main node] (4) [fill=green!50,below right = \scale*0.57cm and \scale*1cm of 3] {D};
+				\node[main node] (7) [above = \scale*1cm of 1] {G};
+				\node[main node] (8) [below = \scale*1cm of 4] {H};
+				
+				\path[draw,thick]
+				(1) edge node {} (2)
+				(2) edge node {} (3)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(5) edge node {} (6)
+				(6) edge node {} (1)
+				(1) edge node {} (7)
+				(4) edge node {} (8);
+			\end{scope}
+			
+			\node (B) [above right = -0.4cm and 2cm of 6] {$\rightarrow \mathcal{B}$};
+			\node (G) [below = 0.2cm of B] {$\rightarrow \mathcal{G}$};
+			\node (R) [below = 0.2cm of G] {$\rightarrow \mathcal{R}$};
+			\node[main node] (B1) [left = 0cm of B] {};
+			\node[main node] (G1) [fill=green!50,left = 0cm of G] {};
+			\node[main node] (R1) [fill=red!50,left = 0cm of R] {};
+		\end{tikzpicture}
+	\end{frame}
+	
 	\section{Lokale Struktur}
 
 	\section{Globale Struktur}
