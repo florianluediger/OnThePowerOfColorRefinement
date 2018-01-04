@@ -8,6 +8,7 @@
 \usepackage{tikz}											% Ermöglicht das Zeichnen von Grafiken
 \usepackage{amssymb}										% Einfügen von zusätzlichen Symbolen wie \square
 \usepackage{fontspec}
+\usepackage{enumitem}										% Erweiterte Funktionen der enumerate Umgebung
 
 % Einstellen von Formatierungen
 \setsansfont{Calibri}
@@ -365,26 +366,26 @@
 				(4) edge node {} (8);
 			\end{scope}
 			
-			\begin{scope}[xshift=5cm]
-				\node[main node] (1) [fill=green!50]{A};
-				\node[main node] (2) [fill=red!50,below left = \scale*0.57cm and \scale*1cm of 1]  {B};
-				\node[main node] (6) [fill=red!50,below right = \scale*0.57cm and \scale*1cm of 1] {F};
-				\node[main node] (3) [fill=red!50,below = \scale*1cm of 2] {C};
-				\node[main node] (5) [fill=red!50,below = \scale*1cm of 6] {E};
-				\node[main node] (4) [fill=green!50,below right = \scale*0.57cm and \scale*1cm of 3] {D};
-				\node[main node] (7) [above = \scale*1cm of 1] {G};
-				\node[main node] (8) [below = \scale*1cm of 4] {H};
-				
-				\path[draw,thick]
-				(1) edge node {} (2)
-				(2) edge node {} (6)
-				(3) edge node {} (4)
-				(4) edge node {} (5)
-				(5) edge node {} (3)
-				(6) edge node {} (1)
-				(1) edge node {} (7)
-				(4) edge node {} (8);
-			\end{scope}
+%			\begin{scope}[xshift=5cm]
+%				\node[main node] (1) [fill=green!50]{A};
+%				\node[main node] (2) [fill=red!50,below left = \scale*0.57cm and \scale*1cm of 1]  {B};
+%				\node[main node] (6) [fill=red!50,below right = \scale*0.57cm and \scale*1cm of 1] {F};
+%				\node[main node] (3) [fill=red!50,below = \scale*1cm of 2] {C};
+%				\node[main node] (5) [fill=red!50,below = \scale*1cm of 6] {E};
+%				\node[main node] (4) [fill=green!50,below right = \scale*0.57cm and \scale*1cm of 3] {D};
+%				\node[main node] (7) [above = \scale*1cm of 1] {G};
+%				\node[main node] (8) [below = \scale*1cm of 4] {H};
+%				
+%				\path[draw,thick]
+%				(1) edge node {} (2)
+%				(2) edge node {} (6)
+%				(3) edge node {} (4)
+%				(4) edge node {} (5)
+%				(5) edge node {} (3)
+%				(6) edge node {} (1)
+%				(1) edge node {} (7)
+%				(4) edge node {} (8);
+%			\end{scope}
 		\end{tikzpicture}
 	\end{frame}
 	\begin{frame}{Stabile Partitionierung}
@@ -435,6 +436,252 @@
 	\end{frame}
 	
 	\section{Lokale Struktur}
+	\begin{frame}{Lokale Struktur von CR-Graphen}
+		\begin{Lemma}
+			Die Zellen der stabilen Partition $\mathcal{P}_G$ eines CR-Graphen erfüllen folgende Eigenschaften:
+			
+			\begin{enumerate}[label=(\Alph*)]
+				\item Für beliebige Zellen $X\in \mathcal{P}_G$ ist $G[X]$ ein leerer Graph, vollständiger Graph, Matching-Graph $mK_2$, das Komplement eines Matching Graphen oder der 5-Kreis.
+			\end{enumerate}
+		\end{Lemma}
+	\end{frame}
+	\begin{frame}{Am Beispiel \only<2>{- Leerer Graph}\only<3>{- Matching-Graph}}
+		\centering
+		\begin{tikzpicture}
+			\def\scale{0.6}
+			\begin{scope}
+				\node[main node] (1) [fill=green!20]{A};
+				\node[main node] (2) [fill=red!20,below left = \scale*0.57cm and \scale*1cm of 1]  {B};
+				\node[main node] (6) [fill=red!20,below right = \scale*0.57cm and \scale*1cm of 1] {F};
+				\node[main node] (3) [fill=red!20,below = \scale*1cm of 2] {C};
+				\node[main node] (5) [fill=red!20,below = \scale*1cm of 6] {E};
+				\node[main node] (4) [fill=green!20,below right = \scale*0.57cm and \scale*1cm of 3] {D};
+				\node[main node] (7) [fill=blue!20,above = \scale*1cm of 1] {G};
+				\node[main node] (8) [fill=blue!20,below = \scale*1cm of 4] {H};
+				
+				\path[draw=black!30]
+				(1) edge node {} (2)
+				(2) edge node {} (3)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(5) edge node {} (6)
+				(6) edge node {} (1)
+				(1) edge node {} (7)
+				(4) edge node {} (8);
+				
+				\node (B) [above right = -0.4cm and 2cm of 6] {$\rightarrow \mathcal{B}$};
+				\node (G) [below = 0.2cm of B] {$\rightarrow \mathcal{G}$};
+				\node (R) [below = 0.2cm of G] {$\rightarrow \mathcal{R}$};
+				\node[main node] (B1) [fill=blue!20,left = 0cm of B] {};
+				\node[main node] (G1) [fill=green!20,left = 0cm of G] {};
+				\node[main node] (R1) [fill=red!20,left = 0cm of R] {};
+			\end{scope}
+			
+			\pause
+			
+			\begin{scope}
+				\node[main node] (1) [fill=green!80]{A};
+				\node[main node] (2) [fill=black!20,below left = \scale*0.57cm and \scale*1cm of 1]  {B};
+				\node[main node] (6) [fill=black!20,below right = \scale*0.57cm and \scale*1cm of 1] {F};
+				\node[main node] (3) [fill=black!20,below = \scale*1cm of 2] {C};
+				\node[main node] (5) [fill=black!20,below = \scale*1cm of 6] {E};
+				\node[main node] (4) [fill=green!80,below right = \scale*0.57cm and \scale*1cm of 3] {D};
+				\node[main node] (7) [fill=black!20,above = \scale*1cm of 1] {G};
+				\node[main node] (8) [fill=black!20,below = \scale*1cm of 4] {H};
+				
+				\path[draw=black!30]
+				(1) edge node {} (2)
+				(2) edge node {} (3)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(5) edge node {} (6)
+				(6) edge node {} (1)
+				(1) edge node {} (7)
+				(4) edge node {} (8);
+				
+				\node (B) [above right = -0.4cm and 2cm of 6] {$\rightarrow \mathcal{B}$};
+				\node (G) [below = 0.2cm of B] {$\rightarrow \mathcal{G}$};
+				\node (R) [below = 0.2cm of G] {$\rightarrow \mathcal{R}$};
+				\node[main node] (B1) [fill=black!20,left = 0cm of B] {};
+				\node[main node] (G1) [fill=green!80,left = 0cm of G] {};
+				\node[main node] (R1) [fill=black!20,left = 0cm of R] {};
+			\end{scope}
+			
+			\pause
+			
+			\begin{scope}
+				\node[main node] (1) [fill=black!20]{A};
+				\node[main node] (2) [fill=red!80,below left = \scale*0.57cm and \scale*1cm of 1]  {B};
+				\node[main node] (6) [fill=red!80,below right = \scale*0.57cm and \scale*1cm of 1] {F};
+				\node[main node] (3) [fill=red!80,below = \scale*1cm of 2] {C};
+				\node[main node] (5) [fill=red!80,below = \scale*1cm of 6] {E};
+				\node[main node] (4) [fill=black!20,below right = \scale*0.57cm and \scale*1cm of 3] {D};
+				\node[main node] (7) [fill=black!20,above = \scale*1cm of 1] {G};
+				\node[main node] (8) [fill=black!20,below = \scale*1cm of 4] {H};
+				
+				\path[draw=black!30]
+				(1) edge node {} (2)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(6) edge node {} (1)
+				(1) edge node {} (7)
+				(4) edge node {} (8);
+				
+				\path[draw,line width=1mm]
+				(2) edge node {} (3)
+				(5) edge node {} (6);
+				
+				\node (B) [above right = -0.4cm and 2cm of 6] {$\rightarrow \mathcal{B}$};
+				\node (G) [below = 0.2cm of B] {$\rightarrow \mathcal{G}$};
+				\node (R) [below = 0.2cm of G] {$\rightarrow \mathcal{R}$};
+				\node[main node] (B1) [fill=black!20,left = 0cm of B] {};
+				\node[main node] (G1) [fill=black!20,left = 0cm of G] {};
+				\node[main node] (R1) [fill=red!80,left = 0cm of R] {};
+			\end{scope}
+		\end{tikzpicture}
+	\end{frame}
+	\begin{frame}{Lokale Struktur von CR-Graphen}
+		\begin{Lemma}
+			Die Zellen der stabilen Partition $\mathcal{P}_G$ eines CR-Graphen erfüllen folgende Eigenschaften:
+			
+			\begin{enumerate}[label=(\Alph*)]
+				\item Für beliebige Zellen $X\in \mathcal{P}_G$ ist $G[X]$ ein leerer Graph, vollständiger Graph, Matching-Graph $mK_2$, das Komplement eines Matching Graphen oder der 5-Kreis.
+				\pause
+				\item Für beliebige Zellen $X,Y\in \mathcal{P}_G$ ist $G[X,Y]$ ein leerer Graph, vollständiger bipartiter Graph, eine disjunkte Vereinigung von Sternen $sK_{1,t}$, bei der $X$ die Menge der $s$ inneren Knoten und $Y$ die Menge der $st$ Blätter ist, oder das bipartite Komplement des zuletzt genannten Graphen.
+			\end{enumerate}
+		\end{Lemma}
+	\end{frame}
+	\begin{frame}{Am Beispiel \only<2>{- Leerer Graph}\only<3>{- Disjunkte Vereinigung von Sternen $sK_{1,t}$}\only<4>{- Matching Graph*}}
+		\centering
+		\begin{tikzpicture}
+			\def\scale{0.6}
+			\only<1>{\begin{scope}
+				\node[main node] (1) [fill=green!20]{A};
+				\node[main node] (2) [fill=red!20,below left = \scale*0.57cm and \scale*1cm of 1]  {B};
+				\node[main node] (6) [fill=red!20,below right = \scale*0.57cm and \scale*1cm of 1] {F};
+				\node[main node] (3) [fill=red!20,below = \scale*1cm of 2] {C};
+				\node[main node] (5) [fill=red!20,below = \scale*1cm of 6] {E};
+				\node[main node] (4) [fill=green!20,below right = \scale*0.57cm and \scale*1cm of 3] {D};
+				\node[main node] (7) [fill=blue!20,above = \scale*1cm of 1] {G};
+				\node[main node] (8) [fill=blue!20,below = \scale*1cm of 4] {H};
+				
+				\path[draw=black!30]
+				(1) edge node {} (2)
+				(2) edge node {} (3)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(5) edge node {} (6)
+				(6) edge node {} (1)
+				(1) edge node {} (7)
+				(4) edge node {} (8);
+				
+				\node (B) [above right = -0.4cm and 2cm of 6] {$\rightarrow \mathcal{B}$};
+				\node (G) [below = 0.2cm of B] {$\rightarrow \mathcal{G}$};
+				\node (R) [below = 0.2cm of G] {$\rightarrow \mathcal{R}$};
+				\node[main node] (B1) [fill=blue!20,left = 0cm of B] {};
+				\node[main node] (G1) [fill=green!20,left = 0cm of G] {};
+				\node[main node] (R1) [fill=red!20,left = 0cm of R] {};
+			\end{scope}}
+			
+			\only<2>{\begin{scope}
+				\node[main node] (1) [fill=black!20]{A};
+				\node[main node] (2) [fill=red!50,below left = \scale*0.57cm and \scale*1cm of 1]  {B};
+				\node[main node] (6) [fill=red!50,below right = \scale*0.57cm and \scale*1cm of 1] {F};
+				\node[main node] (3) [fill=red!50,below = \scale*1cm of 2] {C};
+				\node[main node] (5) [fill=red!50,below = \scale*1cm of 6] {E};
+				\node[main node] (4) [fill=black!20,below right = \scale*0.57cm and \scale*1cm of 3] {D};
+				\node[main node] (7) [fill=blue!50,above = \scale*1cm of 1] {G};
+				\node[main node] (8) [fill=blue!50,below = \scale*1cm of 4] {H};
+				
+				\path[draw=black!30]
+				(1) edge node {} (2)
+				(2) edge node {} (3)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(5) edge node {} (6)
+				(6) edge node {} (1)
+				(1) edge node {} (7)
+				(4) edge node {} (8);
+				
+				\node (B) [above right = -0.4cm and 2cm of 6] {$\rightarrow \mathcal{B}$};
+				\node (G) [below = 0.2cm of B] {$\rightarrow \mathcal{G}$};
+				\node (R) [below = 0.2cm of G] {$\rightarrow \mathcal{R}$};
+				\node[main node] (B1) [fill=blue!50,left = 0cm of B] {};
+				\node[main node] (G1) [fill=black!20,left = 0cm of G] {};
+				\node[main node] (R1) [fill=red!50,left = 0cm of R] {};
+			\end{scope}}
+			
+			\only<3>{\begin{scope}
+				\node[main node] (1) [fill=green!50]{A};
+				\node[main node] (2) [fill=red!50,below left = \scale*0.57cm and \scale*1cm of 1]  {B};
+				\node[main node] (6) [fill=red!50,below right = \scale*0.57cm and \scale*1cm of 1] {F};
+				\node[main node] (3) [fill=red!50,below = \scale*1cm of 2] {C};
+				\node[main node] (5) [fill=red!50,below = \scale*1cm of 6] {E};
+				\node[main node] (4) [fill=green!50,below right = \scale*0.57cm and \scale*1cm of 3] {D};
+				\node[main node] (7) [fill=black!20,above = \scale*1cm of 1] {G};
+				\node[main node] (8) [fill=black!20,below = \scale*1cm of 4] {H};
+				
+				\path[draw=black!30]
+				(2) edge node {} (3)
+				(5) edge node {} (6)
+				(1) edge node {} (7)
+				(4) edge node {} (8);
+				
+				\path[draw,line width=1mm]
+				(1) edge node {} (2)
+				(6) edge node {} (1)
+				(3) edge node {} (4)
+				(4) edge node {} (5);
+				
+				\node (B) [above right = -0.4cm and 2cm of 6] {$\rightarrow \mathcal{B}$};
+				\node (G) [below = 0.2cm of B] {$\rightarrow \mathcal{G}$};
+				\node (R) [below = 0.2cm of G] {$\rightarrow \mathcal{R}$};
+				\node[main node] (B1) [fill=black!20,left = 0cm of B] {};
+				\node[main node] (G1) [fill=black!20,left = 0cm of G] {};
+				\node[main node] (R1) [fill=black!20,left = 0cm of R] {};
+			\end{scope}}
+			
+			\only<4>{\begin{scope}
+				\node[main node] (1) [fill=green!50]{A};
+				\node[main node] (2) [fill=black!20,below left = \scale*0.57cm and \scale*1cm of 1]  {B};
+				\node[main node] (6) [fill=black!20,below right = \scale*0.57cm and \scale*1cm of 1] {F};
+				\node[main node] (3) [fill=black!20,below = \scale*1cm of 2] {C};
+				\node[main node] (5) [fill=black!20,below = \scale*1cm of 6] {E};
+				\node[main node] (4) [fill=green!50,below right = \scale*0.57cm and \scale*1cm of 3] {D};
+				\node[main node] (7) [fill=blue!50,above = \scale*1cm of 1] {G};
+				\node[main node] (8) [fill=blue!50,below = \scale*1cm of 4] {H};
+				
+				\path[draw=black!30]
+				(1) edge node {} (2)
+				(2) edge node {} (3)
+				(3) edge node {} (4)
+				(4) edge node {} (5)
+				(5) edge node {} (6)
+				(6) edge node {} (1);
+				
+				\path[draw,line width=1mm]
+				(1) edge node {} (7)
+				(4) edge node {} (8);
+				
+				\node (B) [above right = -0.4cm and 2cm of 6] {$\rightarrow \mathcal{B}$};
+				\node (G) [below = 0.2cm of B] {$\rightarrow \mathcal{G}$};
+				\node (R) [below = 0.2cm of G] {$\rightarrow \mathcal{R}$};
+				\node[main node] (B1) [fill=blue!50,left = 0cm of B] {};
+				\node[main node] (G1) [fill=green!50,left = 0cm of G] {};
+				\node[main node] (R1) [fill=black!20,left = 0cm of R] {};
+			\end{scope}}
+		\end{tikzpicture}
+	\end{frame}
+	\begin{frame}{Lokale Struktur von CR-Graphen}
+		\begin{Lemma}
+			Die Zellen der stabilen Partition $\mathcal{P}_G$ eines CR-Graphen erfüllen folgende Eigenschaften:
+			
+			\begin{enumerate}[label=(\Alph*)]
+				\item Für beliebige Zellen $X\in \mathcal{P}_G$ ist $G[X]$ ein leerer Graph, vollständiger Graph, Matching-Graph $mK_2$, das Komplement eines Matching Graphen oder der 5-Kreis.
+				\item Für beliebige Zellen $X,Y\in \mathcal{P}_G$ ist $G[X,Y]$ ein leerer Graph, vollständiger bipartiter Graph, eine disjunkte Vereinigung von Sternen $sK_{1,t}$, bei der $X$ die Menge der $s$ inneren Knoten und $Y$ die Menge der $st$ Blätter ist, oder das bipartite Komplement des zuletzt genannten Graphen.
+			\end{enumerate}
+		\end{Lemma}
+	\end{frame}
 
 	\section{Globale Struktur}
 	
