@@ -25,6 +25,7 @@
 \tikzset{main node/.style={circle,fill=blue!50,draw,minimum size=0.7cm,inner sep=0pt},}
 \tikzset{bezier/.style={inner sep=0pt,minimum size=0cm},}
 
+% Erstellen eines Commands zum verringern der Seitenränder für eine Folie
 \newcommand\Wider[2][3em]{%
 	\makebox[\linewidth][c]{%
 		\begin{minipage}{\dimexpr\textwidth+#1\relax}
@@ -32,6 +33,12 @@
 		\end{minipage}%
 	}%
 }
+
+% Erstellen eines Commands zum Zeichnen von Zahlen mit einem Kreis darum
+\newcommand\circlearound[1]{%
+	\tikz[baseline]\node[draw,shape=circle,anchor=base] {#1} ;}
+
+\newtheorem{Korollar}{Korollar}
 
 \title{On the Power of Color Refinement}
 \subtitle{V. Arvind, Johannes Köbler, Gaurav Rattan und\\ Oleg Verbitsky}
@@ -128,6 +135,8 @@
 		\begin{Definition}
 			Mit der Color-Refinement-Heuristik kann in polynomieller Zeit festgestellt werden, dass zwei Graphen nicht isomorph sind.
 		\end{Definition}
+		Anders gesagt gilt für beliebige Graphen $G$,$H$:\\
+		\circlearound{1} CR unterscheidet $G$ und $H$ $\Rightarrow$ $G\not\simeq H$
 	\end{frame}
 	\begin{frame}{Beispiel}
 		\Wider[4em]{
@@ -310,6 +319,24 @@
 		\begin{itemize}
 			\item Definition CR-Graph
 		\end{itemize}
+	\end{frame}
+	\begin{frame}{Die Klasse der CR-Graphen}
+		\begin{Definition}
+			Graph $G$ ist \textbf{CR-Graph}, wenn das Color-Refinement diesen von jedem nicht zu $G$ isomorphen Graphen $H$ unterscheiden kann.
+		\end{Definition}
+		Für beliebige CR-Graphen $G$,$H$ gilt also:\\
+		\circlearound{2} $G\not\simeq H$ $\Rightarrow$ CR unterscheidet $G$ und $H$
+	\end{frame}
+	\begin{frame}{Ergebnis und Beobachtung}
+		\circlearound{1} CR unterscheidet $G$ und $H$ $\Rightarrow$ $G\not\simeq H$\\
+		\circlearound{2} $G\not\simeq H$ $\Rightarrow$ CR unterscheidet $G$ und $H$
+		\begin{Korollar}
+			Für zwei CR-Graphen $G$ und $H$ gilt:\\
+			CR erkennt $G$ und $H$ als isomorph $\Leftrightarrow$ $G\simeq H$
+		\end{Korollar}
+		\pause
+		\vspace{10mm}
+		\Large{\textit{Wie identifiziere ich also die Klasse der CR-Graphen?}}
 	\end{frame}
 
 	\section{Lokale Struktur}
