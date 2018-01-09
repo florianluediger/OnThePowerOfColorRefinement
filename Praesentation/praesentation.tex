@@ -9,6 +9,7 @@
 \usepackage{amssymb}										% Einfügen von zusätzlichen Symbolen wie \square
 \usepackage{fontspec}
 \usepackage{enumitem}										% Erweiterte Funktionen der enumerate Umgebung
+\usepackage{marvosym}										% Einfügen nützlicher Symbole
 
 % Einstellen von Formatierungen
 \setsansfont{Calibri}
@@ -1040,7 +1041,231 @@
 				
 				\node[main node] (5) [fill = white, below = 1.6cm of 2] {$x$};
 				\node (t5) [right = 0.2cm of 5] {Kardinalität $x$};
-				\end{scope}}
+			\end{scope}
+			\begin{scope}[yshift=-3cm,xshift=-1cm]
+				\node {\Huge\Lightning};
+			\end{scope}}
+		\end{tikzpicture}
+	\end{frame}
+	\begin{frame}{Definition}
+		\centering
+		\begin{Definition}
+			In einem Zellgraphen $C(G)$ bezeichnet eine \alert{\textbf{anisotrope Komponente}} einen Subgraphen, dessen Kanten alle anisotrop sind.
+		\end{Definition}
+		\pause
+		\begin{tikzpicture}
+			\only<2>{\begin{scope}
+				\node[main node] (1) [fill=blue!50] {$2$};
+				\node[main node] (2) [fill=black!20,below left = 0.5cm and 0.85cm of 1] {$2$};
+				\node[main node] (3) [dashed,fill=black!20,below = 1cm of 1] {$4$};
+				
+				\path[draw,thick,dashed,draw=black!30] (1) edge node {} (2);
+				\path[draw,thick,dashed,draw=black!30] (2) edge node {} (3);
+				\path[draw,thick,draw=black!30] (1) edge node {} (3);
+			\end{scope}}
+			\only<3>{\begin{scope}
+				\node[main node] (1) [fill=black!20] {$2$};
+				\node[main node] (2) [fill=green!50,below left = 0.5cm and 0.85cm of 1] {$2$};
+				\node[main node] (3) [dashed,fill=black!20,below = 1cm of 1] {$4$};
+				
+				\path[draw,thick,dashed,draw=black!30] (1) edge node {} (2);
+				\path[draw,thick,dashed,draw=black!30] (2) edge node {} (3);
+				\path[draw,thick,draw=black!30] (1) edge node {} (3);
+			\end{scope}}
+			\only<4>{\begin{scope}
+				\node[main node] (1) [fill=black!20] {$2$};
+				\node[main node] (2) [fill=black!20,below left = 0.5cm and 0.85cm of 1] {$2$};
+				\node[main node] (3) [dashed,fill=red!50,below = 1cm of 1] {$4$};
+				
+				\path[draw,thick,dashed,draw=black!30] (1) edge node {} (2);
+				\path[draw,thick,dashed,draw=black!30] (2) edge node {} (3);
+				\path[draw,thick,draw=black!30] (1) edge node {} (3);
+			\end{scope}}
+			\only<5>{\begin{scope}
+				\node[main node] (1) [fill=blue!50] {$2$};
+				\node[main node] (2) [fill=green!50,below left = 0.5cm and 0.85cm of 1] {$2$};
+				\node[main node] (3) [dashed,fill=black!20,below = 1cm of 1] {$4$};
+				
+				\path[draw,thick,dashed] (1) edge node {} (2);
+				\path[draw,thick,dashed,draw=black!30] (2) edge node {} (3);
+				\path[draw,thick,draw=black!30] (1) edge node {} (3);
+			\end{scope}}
+			\only<6>{\begin{scope}
+				\node[main node] (1) [fill=black!20] {$2$};
+				\node[main node] (2) [fill=green!50,below left = 0.5cm and 0.85cm of 1] {$2$};
+				\node[main node] (3) [dashed,fill=red!50,below = 1cm of 1] {$4$};
+				
+				\path[draw,thick,dashed,draw=black!30] (1) edge node {} (2);
+				\path[draw,thick,dashed] (2) edge node {} (3);
+				\path[draw,thick,draw=black!30] (1) edge node {} (3);
+			\end{scope}}
+			\only<7>{\begin{scope}
+				\node[main node] (1) [fill=blue!50] {$2$};
+				\node[main node] (2) [fill=green!50,below left = 0.5cm and 0.85cm of 1] {$2$};
+				\node[main node] (3) [dashed,fill=red!50,below = 1cm of 1] {$4$};
+				
+				\path[draw,thick,dashed] (1) edge node {} (2);
+				\path[draw,thick,dashed] (2) edge node {} (3);
+				\path[draw,thick,draw=black!30] (1) edge node {} (3);
+			\end{scope}}
+			
+			
+			
+			\begin{scope}[xshift=2cm]
+				\node[main node] (1) [fill=white] {};
+				\node[main node] (2) [fill=white,dashed,below = 0.15cm of 1] {};
+				
+				\node (t1) [right = 0.2cm of 1] {homogene Zelle};
+				\node (t2) [right = 0.2cm of 2] {heterogene Zelle};
+				
+				\node[bezier] (31) [below left = 0.55cm and 0.15cm of 2] {};
+				\node[bezier] (32) [right = 0.85cm of 31] {};
+				\path[draw,thick] (31) edge node {} (32);
+				
+				\node[bezier] (41) [below = 0.75cm of 31] {};
+				\node[bezier] (42) [right = 0.85cm of 41] {};
+				\path[draw,thick,dashed] (41) edge node {} (42);
+				
+				\node (t3) [right = 0.12cm of 32] {isotrope Kante};
+				\node (t4) [right = 0.12cm of 42] {anisotrope Kante};
+				
+				\node[main node] (5) [fill = white, below = 1.6cm of 2] {$x$};
+				\node (t5) [right = 0.2cm of 5] {Kardinalität $x$};
+			\end{scope}
+		\end{tikzpicture}
+	\end{frame}
+	\begin{frame}{Baumartige Struktur von CR-Graphen}
+		\begin{Lemma}
+			Angenommen ein CR-Graph $G$ erfüllt die Bedingungen \textbf{A-F}.
+			Für jede anisotrope Komponente $A$ von $C(G)$ gelten folgende Eigenschaften:
+			
+			\begin{enumerate}[label=(\Alph*)]
+				\setcounter{enumi}{6}
+				\item $A$ ist ein Baum, der folgende Monotonieeigenschaft erfüllt: Sei $R$ eine Zelle aus $A$ mit minimaler Kardinalität, so ist $A_R$ der gerichtete Baum mit Wurzel $R$; Für jede gerichtete Kante $(X,Y)$ aus $A_R$ gilt dann $|X|\leq |Y|$.
+%				\item $A$ enthält maximal eine heterogene Zelle; Wenn eine solche Zelle existiert, hat diese minimale Kardinalität in $A$.
+			\end{enumerate}
+			\label{lemma:global2}
+		\end{Lemma}
+	\end{frame}
+	\begin{frame}{Baumartige Struktur von CR-Graphen}
+		\centering
+		\textit{$A$ ist ein Baum, der folgende Monotonieeigenschaft erfüllt: Sei $R$ eine Zelle aus $A$ mit minimaler Kardinalität, so ist $A_R$ der gerichtete Baum mit Wurzel $R$; Für jede gerichtete Kante $(X,Y)$ aus $A_R$ gilt dann $|X|\leq |Y|$.}
+		
+		\begin{tikzpicture}
+			\begin{scope}
+				\node[main node] (1) [fill=blue!50] {$2$};
+				\node[main node] (2) [fill=green!50,below left = 0.5cm and 0.85cm of 1] {$2$};
+				\node[main node] (3) [dashed,fill=red!50,below = 1cm of 1] {$4$};
+				
+				\path[draw,thick,dashed] (1) edge node {} (2);
+				\path[draw,thick,dashed] (2) edge node {} (3);
+				\path[draw,thick] (1) edge node {} (3);
+			\end{scope}
+			\begin{scope}[xshift=2cm]
+				\node[main node] (1) [fill=white] {};
+				\node[main node] (2) [fill=white,dashed,below = 0.15cm of 1] {};
+				
+				\node (t1) [right = 0.2cm of 1] {homogene Zelle};
+				\node (t2) [right = 0.2cm of 2] {heterogene Zelle};
+				
+				\node[bezier] (31) [below left = 0.55cm and 0.15cm of 2] {};
+				\node[bezier] (32) [right = 0.85cm of 31] {};
+				\path[draw,thick] (31) edge node {} (32);
+				
+				\node[bezier] (41) [below = 0.75cm of 31] {};
+				\node[bezier] (42) [right = 0.85cm of 41] {};
+				\path[draw,thick,dashed] (41) edge node {} (42);
+				
+				\node (t3) [right = 0.12cm of 32] {isotrope Kante};
+				\node (t4) [right = 0.12cm of 42] {anisotrope Kante};
+				
+				\node[main node] (5) [fill = white, below = 1.6cm of 2] {$x$};
+				\node (t5) [right = 0.2cm of 5] {Kardinalität $x$};
+			\end{scope}
+		\end{tikzpicture}
+	\end{frame}
+	\begin{frame}{Baumartige Struktur von CR-Graphen}
+		\begin{Lemma}
+			Angenommen ein CR-Graph $G$ erfüllt die Bedingungen \textbf{A-F}.
+			Für jede anisotrope Komponente $A$ von $C(G)$ gelten folgende Eigenschaften:
+			
+			\begin{enumerate}[label=(\Alph*)]
+				\setcounter{enumi}{6}
+				\item $A$ ist ein Baum, der folgende Monotonieeigenschaft erfüllt: Sei $R$ eine Zelle aus $A$ mit minimaler Kardinalität, so ist $A_R$ der gerichtete Baum mit Wurzel $R$; Für jede gerichtete Kante $(X,Y)$ aus $A_R$ gilt dann $|X|\leq |Y|$.
+				\item $A$ enthält maximal eine heterogene Zelle; Wenn eine solche Zelle existiert, hat diese minimale Kardinalität in $A$.
+			\end{enumerate}
+			\label{lemma:global2}
+		\end{Lemma}
+	\end{frame}
+	\begin{frame}{Baumartige Struktur von CR-Graphen}
+		\centering
+		\textit{$A$ enthält maximal eine heterogene Zelle; Wenn eine solche Zelle existiert, hat diese minimale Kardinalität in $A$.}
+		
+		\begin{tikzpicture}
+			\only<1>{\begin{scope}
+				\node[main node] (1) [fill=blue!50] {$2$};
+				\node[main node] (2) [fill=green!50,below left = 0.5cm and 0.85cm of 1] {$2$};
+				\node[main node] (3) [dashed,fill=red!50,below = 1cm of 1] {$4$};
+				
+				\path[draw,thick,dashed] (1) edge node {} (2);
+				\path[draw,thick,dashed] (2) edge node {} (3);
+				\path[draw,thick] (1) edge node {} (3);
+			\end{scope}
+			\begin{scope}[xshift=2cm]
+				\node[main node] (1) [fill=white] {};
+				\node[main node] (2) [fill=white,dashed,below = 0.15cm of 1] {};
+				
+				\node (t1) [right = 0.2cm of 1] {homogene Zelle};
+				\node (t2) [right = 0.2cm of 2] {heterogene Zelle};
+				
+				\node[bezier] (31) [below left = 0.55cm and 0.15cm of 2] {};
+				\node[bezier] (32) [right = 0.85cm of 31] {};
+				\path[draw,thick] (31) edge node {} (32);
+				
+				\node[bezier] (41) [below = 0.75cm of 31] {};
+				\node[bezier] (42) [right = 0.85cm of 41] {};
+				\path[draw,thick,dashed] (41) edge node {} (42);
+				
+				\node (t3) [right = 0.12cm of 32] {isotrope Kante};
+				\node (t4) [right = 0.12cm of 42] {anisotrope Kante};
+				
+				\node[main node] (5) [fill = white, below = 1.6cm of 2] {$x$};
+				\node (t5) [right = 0.2cm of 5] {Kardinalität $x$};
+			\end{scope}}
+			
+			\only<2>{\begin{scope}
+				\node[main node] (1) [fill=black!20] {$2$};
+				\node[main node] (2) [fill=green!50,below left = 0.5cm and 0.85cm of 1] {$2$};
+				\node[main node] (3) [dashed,fill=red!50,below = 1cm of 1] {$4$};
+				
+				\path[draw,thick,dashed,draw=black!30] (1) edge node {} (2);
+				\path[draw,thick,dashed] (2) edge node {} (3);
+				\path[draw,thick,draw=black!30] (1) edge node {} (3);
+			\end{scope}
+			\begin{scope}[xshift=2cm]
+				\node[main node] (1) [fill=white] {};
+				\node[main node] (2) [fill=white,dashed,below = 0.15cm of 1] {};
+				
+				\node (t1) [right = 0.2cm of 1] {homogene Zelle};
+				\node (t2) [right = 0.2cm of 2] {heterogene Zelle};
+				
+				\node[bezier] (31) [below left = 0.55cm and 0.15cm of 2] {};
+				\node[bezier] (32) [right = 0.85cm of 31] {};
+				\path[draw,thick] (31) edge node {} (32);
+				
+				\node[bezier] (41) [below = 0.75cm of 31] {};
+				\node[bezier] (42) [right = 0.85cm of 41] {};
+				\path[draw,thick,dashed] (41) edge node {} (42);
+				
+				\node (t3) [right = 0.12cm of 32] {isotrope Kante};
+				\node (t4) [right = 0.12cm of 42] {anisotrope Kante};
+				
+				\node[main node] (5) [fill = white, below = 1.6cm of 2] {$x$};
+				\node (t5) [right = 0.2cm of 5] {Kardinalität $x$};
+			\end{scope}
+			\begin{scope}[yshift=-3cm,xshift=-1cm]
+				\node {\Huge\Lightning};
+			\end{scope}}
 		\end{tikzpicture}
 	\end{frame}
 	
