@@ -1269,11 +1269,30 @@
 		\end{tikzpicture}
 	\end{frame}
 	
-	\section{Ergebnis}
-	\begin{frame}
+	\section{Was bringt mir jetzt das ganze?}
+	\begin{frame}{Hinreichende Bedingung für CR-Graphen}
+		\begin{Theorem}
+			Für einen Graphen $G$ sind folgende Aussagen äquivalent:
+			
+			\begin{enumerate}[label=(\alph*)]
+				\item $G$ ist ein CR-Graph
+				\item $G$ erfüllt Bedingungen \emph{A-F}
+				\item $G$ erfüllt Bedingungen \emph{A}, \emph{B}, \emph{G} und \emph{H}
+			\end{enumerate}
+		\end{Theorem}
+		\pause
+		
+		\alert{\Large{\textit{Wir können also jetzt CR-Graphen erkennen!}}}
+	\end{frame}
+	\begin{frame}{Laufzeit}
+		Für das Erkennen von CR-Graphen dominiert die Laufzeit zum Berechnen der stabilen Partition.
+		
+		$\Rightarrow$ $O((n+m)\log n)$
+	\end{frame}
+	\begin{frame}{Haupterkenntnis}
 		\begin{itemize}
-			\item Anwendung der vorgestellten Bedingungen
-			\item Anwendungsbeispiel
+			\item Für die Klasse der CR-Graphen lässt sich das Isomorphieproblem mit dem Color-Refinement \alert{\textbf{in polynomieller Zeit}} lösen.
+			\item Es kann \alert{\textbf{in polynomieller Zeit}} entschieden werden, ob ein Graph ein CR-Graph ist.
 		\end{itemize}
 	\end{frame}
 \end{document}
